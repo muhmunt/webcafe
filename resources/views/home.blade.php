@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if (Session::has('auth'))
+        <div class="alert alert-danger">
+            {{Session::get('auth')}}
+        </div>
+    @endif
 <header>
     <div id="intro" class="view" style="height:100vh; width:100%;">
         <div class="full-bg-img">
@@ -13,15 +17,22 @@
 <main>
 
 <div class="container">
-    @if (Session::has('auth'))
-        <div class="alert alert-danger">
-            {{Session::get('auth')}}
-        </div>
-    @endif
+    
 
-    <div class="row justify-content-center">
 
-    </div>
+
+
+
+
+
+    {{-- maneh ngoding kebawah jer dari sini --}}
+    {{-- rojer start --}}
+
+    
+
+    {{-- end --}}
+
+
 </div>
 
 </main>
