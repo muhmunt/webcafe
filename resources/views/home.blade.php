@@ -8,12 +8,12 @@
     @endif
 <header>
     <div id="intro" class="view" style="height:100vh; width:100%;">
-        <div class="full-bg-img">
+        <div class="container full-bg-img d-flex">
             {{-- LOGO --}}
-
+            <h1 class="text-center rounded-circle"> <i class="fas fa-coffee fa-3x"></i> </h1>
             {{-- HEADING --}}
-            <h2 class="display-3 font-weight-bold text-white mb-2" align="center" >Uncle Jo</h2>
-
+            <h2 class="display-3 font-weight-bold text-white mb-2" align="center">Uncle Jo</h2>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia a doloremque </p>
             {{-- BUTTON --}}
         </div>
     </div>
@@ -49,7 +49,7 @@
     {{-- maneh ngoding kebawah jer dari sini --}}
     {{-- rojer start --}}
 
-    <section class="section-youtube my-5">
+    {{-- <section class="section-youtube my-5">
         <div class="row">
             <div class="col-md-12 text-center title-youtube ">
                 <h1>Testimoni</h1>
@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
     {{-- end --}}
