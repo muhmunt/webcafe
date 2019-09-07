@@ -80,7 +80,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
@@ -94,7 +94,7 @@
 <script>
 
     // $(document).ready
-
+    AOS.init();
     Waves.attach('.btn');
     Waves.init();
 </script>
