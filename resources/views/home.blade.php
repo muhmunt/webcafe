@@ -49,7 +49,80 @@
     {{-- maneh ngoding kebawah jer dari sini --}}
     {{-- rojer start --}}
 
-    
+    <section class="section-youtube my-5">
+        <div class="row">
+            <div class="col-md-12 text-center title-youtube ">
+                <h1>Testimoni</h1>
+            </div>
+            <div class="col-md-4 text-center card-padding">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <iframe class="frame-yt" src="https://www.youtube.com/embed/zIyCZVF1kI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center card-padding">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <iframe class="frame-yt" src="https://www.youtube.com/embed/GUKOkXNuunc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center card-padding">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <iframe class="frame-yt" src="https://www.youtube.com/embed/NlQai9_q2Ng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center card-padding">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <iframe class="frame-yt" src="https://www.youtube.com/embed/zIyCZVF1kI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center card-padding">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <iframe class="frame-yt" src="https://www.youtube.com/embed/GUKOkXNuunc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center card-padding">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <iframe class="frame-yt" src="https://www.youtube.com/embed/NlQai9_q2Ng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     {{-- end --}}
 
