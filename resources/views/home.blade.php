@@ -14,99 +14,45 @@
     </div>
 </header>
 
+<style>
+    .owl-next{
+        font-size: 50px;
+    }
+</style>
+
 <main>
 
-<div class="container">
+    <div class="section-youtube">
 
+        <div class="title-youtube text-white text-center">
+            <h1>Testimoni</h1>
+        </div>
 
-
-
-
-
-
-
-    {{-- maneh ngoding kebawah jer dari sini --}}
-    {{-- rojer start --}}
-
-    <section class="section-youtube my-5">
-        <div class="row">
-            <div class="col-md-12 text-center title-youtube ">
-                <h1>Testimoni</h1>
-            </div>
-            <div class="col-md-4 text-center card-padding">
-                <div class="card card-custom">
-                    <div class="card-body">
-                        <div class="card-title">
-                            <iframe class="frame-yt" src="https://www.youtube.com/embed/zIyCZVF1kI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <div class="card card-custom text-center">
+                    <div class="card-title">
+                        <iframe class="frame-yt" src="https://www.youtube.com/embed/KE3AUr1AIgs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 text-center card-padding">
-                <div class="card card-custom">
-                    <div class="card-body">
-                        <div class="card-title">
-                            <iframe class="frame-yt" src="https://www.youtube.com/embed/GUKOkXNuunc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
+            <div class="item">
+                <div class="card card-custom text-center">
+                    <div class="card-title">
+                        <iframe class="frame-yt" src="https://www.youtube.com/embed/mobbPE8_Npc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 text-center card-padding">
-                <div class="card card-custom">
-                    <div class="card-body">
-                        <div class="card-title">
-                            <iframe class="frame-yt" src="https://www.youtube.com/embed/NlQai9_q2Ng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center card-padding">
-                <div class="card card-custom">
-                    <div class="card-body">
-                        <div class="card-title">
-                            <iframe class="frame-yt" src="https://www.youtube.com/embed/zIyCZVF1kI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center card-padding">
-                <div class="card card-custom">
-                    <div class="card-body">
-                        <div class="card-title">
-                            <iframe class="frame-yt" src="https://www.youtube.com/embed/GUKOkXNuunc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center card-padding">
-                <div class="card card-custom">
-                    <div class="card-body">
-                        <div class="card-title">
-                            <iframe class="frame-yt" src="https://www.youtube.com/embed/NlQai9_q2Ng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
+            <div class="item">
+                <div class="card card-custom text-center">
+                    <div class="card-title">
+                        <iframe class="frame-yt" src="https://www.youtube.com/embed/0jA83apkSic" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-
-    {{-- end --}}
-
-
-</div>
+    </div>
 
 </main>
 
@@ -115,6 +61,40 @@
 @section('scripts')
     <script>
         $(document).ready(function(){
+
+            $(".owl-carousel").owlCarousel({
+                stagePadding: 400,
+                loop:true,
+                margin:30,
+                items: 1,
+                nav:true,
+                responsive : {
+                // breakpoint from 0 up
+                0 : {
+                    stagePadding : 20
+                },
+                480 : {
+                    stagePadding : 30
+                },
+                // breakpoint from 480 up
+                780 : {
+                    stagePadding : 200
+                },
+                // breakpoint from 768 up
+                1000 : {
+                    stagePadding : 200
+                },
+                1100 : {
+                    stagePadding : 250
+                },
+                1200 : {
+                    stagePadding : 300
+                },
+                1300 : {
+                    stagePadding : 400
+                }
+            }
+            });
 
             $('#nav-btn').on('click', function(){
                 var cek = $('#navbar-custom').hasClass('bg-white');
