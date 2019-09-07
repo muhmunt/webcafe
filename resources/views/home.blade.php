@@ -7,7 +7,17 @@
         </div>
     @endif
 <header>
-    <div id="intro" class="view" style="height:100vh; width:100%;">
+
+    <div class="progress">
+        <div class="progress-bar"
+        role="progressbar"
+        style="width:0%"
+        aria-valuenow="0"
+        aria-valuemin="0"
+        aria-valuemax="100"></div>
+    </div>
+
+    <div id="intro" class="view" style="height:120vh; width:100%;">
         <div class="container-fluid full-bg-img d-flex align-items-center justify-content-center mx-auto" style="padding-top:230px">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-10 text-center">
@@ -16,6 +26,7 @@
                 {{-- HEADING --}}
                 <h2 class="display-3 font-weight-bold text-white mb-2" align="center">Uncle Jo</h2>
                 <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia a doloremque </p>
+                <button class="btn btn-primary" type="button" id="start">Start here.</button>
                 {{-- BUTTON --}}
                 </div>
             </div>
@@ -23,10 +34,11 @@
     </div>
 </header>
 
-<div class="container">
+<div class="container" id="scroll">
         <section id="#detail-workshop" class="mt-5" data-aos="fade-up">
+            <h2 class="text-center">Coffe <u class="text-primary">Workshop</u></h2>
                 <div class="card mb-3 border-0" style="background:#000000">
-                    <div class="row">
+                    <div class="row" >
                       <div class="col-md-6">
                         <div class="card-body" style="border-left: 3px solid #007bff;">
                           <h2 class="card-title">Workshop <small><i class="fas fa-coffee text-primary"></i></small></h2>
@@ -123,6 +135,22 @@
                     stagePadding : 400
                 }
             }
+            });
+
+            $(window).scroll(function(){
+                let scrollDariAtas = $(window).scrollTop();
+                let tinggiWeb = $(window).height();
+                let tinggiKonten = $(document).height();
+                let scrollPersen = scrollDariAtas / (tinggiKonten-tinggiWeb);
+                let persen = Math.round(scrollPersen * 100);
+                $('.progress-bar').css({'width' : persen + '%'});
+            });
+
+            $('#start').on('click',function(e){
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $('#scroll').offset().top,
+                },1400,'linear');
             });
 
             $('#nav-btn').on('click', function(){

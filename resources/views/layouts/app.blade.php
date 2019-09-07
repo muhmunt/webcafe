@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('public/css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{ asset('public/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{ asset('public/css/waves.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/css/progressjs.css')}}">
 </head>
 <body style="background: #000000;color:white">
     <div id="app">
@@ -90,6 +91,7 @@
 <script src="{{ asset('public/js/aos.js') }}"></script>
 <script src="{{ asset('public/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('public/js/waves.min.js') }}"></script>
+<script src="{{ asset('public/js/progress.js') }}"></script>
 @yield('scripts')
 <script>
 

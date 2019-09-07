@@ -16,6 +16,14 @@ body{
 
 }
 
+.progress{
+    position: fixed;
+    top: 0px;
+    height: 5px;
+    width: 100%;
+    z-index: 5;
+}
+
 .card-custom{
     border: none;
     background: #ffffff;
