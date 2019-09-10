@@ -25,7 +25,7 @@
 </head>
 <body style="background: #000000;color:white">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar-custom">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm sticky-top" id="navbar-custom">
             <div class="container">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     Uncle
