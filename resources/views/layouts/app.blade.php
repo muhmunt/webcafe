@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('public/css/waves.min.css')}}">
     <link rel="stylesheet" href="{{ asset('public/css/progressjs.css')}}">
 </head>
-<body style="background: #000000;color:white">
+<body style="background: #1d1d1d;color:white">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm sticky-top" id="navbar-custom">
             <div class="container">

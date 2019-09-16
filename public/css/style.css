@@ -18,7 +18,11 @@ a {
     -moz-background-size:cover;
     -o-background-size:cover;
     background-size:cover;
+}
 
+.bg-soft-dark{
+    background-color: rgba(32, 32, 32, 0.863);
+    color:white;
 }
 
 .h2-white{

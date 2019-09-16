@@ -65,7 +65,7 @@
         </div>
     </section>
 
-    <section class="bg-black-2 section-padding border-section">
+    <section class="bg-black-2 section-padding">
         <div class="container" id="youtube" data-aos="fade-up">
             <div class="title-padding text-center">
                 <h2>
@@ -74,7 +74,7 @@
                 <div class="underline"></div>
             </div>
 
-            <div class="owl-carousel owl-theme">
+            <div class="owl-carousel owl-theme owl-1">
                     <div class="item">
                         <div class="text-center">
                             <div class="card-title">
@@ -189,6 +189,23 @@
         </div>
     </section>
 
+    <section class="bg-black-1 section-padding" id="gallery">
+        <div class="container">
+            <div class="title-padding text-center">
+                <h2>
+                    <span class="text-red">Our</span>  Gallery
+                </h2>
+                <div class="underline"></div>
+                <div class="owl-carousel-2 owl-carousel owl-2 owl-theme mt-5" align="center">
+                    <div class="">1</div>
+                    <div class="">2</div>
+                    <div class="">3</div>
+                    <div class="">4</div>
+                    <div class="">5</div>
+                  </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 
@@ -200,7 +217,7 @@
 
 
 
-            $(".owl-carousel").owlCarousel({
+            $(".owl-1").owlCarousel({
                 stagePadding: 0,
                 loop:true,
                 margin:10,
@@ -235,6 +252,26 @@
             }
             });
 
+            $('.owl-2').owlCarousel({
+              loop : true,
+              margin : 10,
+              dots : true,
+              autoplay : true,
+              autoplayTimeout : 6000,
+              autoplayHoverPause:true,
+              responsive:{
+                0:{
+                  items:1
+                },
+                600:{
+                  items: 1
+                },
+                1000:{
+                  items:5
+                }
+              }
+            });
+
             $(window).scroll(function(){
                 let scrollDariAtas = $(window).scrollTop();
                 let tinggiWeb = $(window).height();
@@ -242,6 +279,15 @@
                 let scrollPersen = scrollDariAtas / (tinggiKonten-tinggiWeb);
                 let persen = Math.round(scrollPersen * 100);
                 $('.progress-bar').css({'width' : persen + '%'});
+
+                var scroll = $(this).scrollTop();
+
+                if(scroll > 600){
+                    $('#navbar-custom').addClass('bg-soft-dark');
+                    $('#navbar-custom').removeClass('bg-transparent');
+                }else{
+                    $('#navbar-custom').addClass('bg-transparent');
+                }
             });
 
             $('#start').on('click',function(e){
