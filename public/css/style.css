@@ -171,10 +171,29 @@ a {
     z-index: 5;
 }
 
-.card-custom{
-    border: none;
-    /* background: #ffffff; */
-    /* box-shadow: 0px 5px 50px 20px rgba(0, 0, 0, 0.1), 0px 5px 50px 0px rgba(0, 0, 0, 0); */
+
+.profile-img{
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.circle-img{
+    width: auto;
+    height: 100%;
+    margin-left: -100px;
+}
+
+.describe-img{
+    padding-top: 30px;
+    margin-left: 50px;
+}
+
+.content-profile{
+    padding-top: 30px;
 }
 
 .owl-prev{
