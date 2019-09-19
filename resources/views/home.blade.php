@@ -6,27 +6,18 @@
             {{Session::get('auth')}}
         </div>
     @endif
-<header>
-
-    <div class="progress">
-        <div class="progress-bar"
-        role="progressbar"
-        style="width:0%"
-        aria-valuenow="0"
-        aria-valuemin="0"
-        aria-valuemax="100"></div>
-    </div>
+<header>    
 
     <div id="intro" class="view" style="height:120vh; width:100%;">
         <div class="container-fluid full-bg-img d-flex align-items-center justify-content-center mx-auto" style="padding-top:230px">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-10 text-center">
                 {{-- LOGO --}}
-                <h1 class="text-center rounded-circle"> <i class="fas fa-coffee fa-2x"></i> </h1>
+                <h1 class="text-center text-white rounded-circle"> <i class="fas fa-coffee fa-2x"></i> </h1>
                 {{-- HEADING --}}
                 <h2 class="display-3 font-weight-bold text-white mb-2" align="center">Uncle Jo</h2>
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia a doloremque </p>
-                <button class="btn btn-primary" type="button" id="start">Start here.</button>
+                <p class="text-center text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia a doloremque </p>
+                <button class="btn btn-primary rounded-pill bg-gradient" type="button" id="start">Start here.</button>
                 {{-- BUTTON --}}
                 </div>
             </div>
@@ -36,16 +27,16 @@
 
 <main>
 
-    <section class="bg-black-1 section-padding" id="scroll">
+    <section class="section-padding bg-coffe" id="scroll">
         <div class="container" id="#detail-workshop" data-aos="fade-up">
-            <div class="title-padding text-center">
+            <div class="title-padding text-center">                
                 <h2>
-                    <span class="text-red">Coffe</span> Workshop
+                    <span class="">Coffe</span> Work<span style="color:#f44336">shop</span>
                 </h2>
                 <div class="underline"></div>
             </div>
-            <div class="card mb-3 border-0 bg-black-2">
-                <div class="row" >
+            <div class="card mb-3 border-0 bg-transparent">
+                <div class="row">
                 <div class="col-md-6">
                     <div class="card-body" style="border-left: 3px solid #da2b2b;">
                         <h2 class="card-title text-red">Workshop <small><i class="fas fa-coffee text-white"></i></small></h2>
@@ -65,11 +56,14 @@
         </div>
     </section>
 
-    <section class="bg-black-2 section-padding">
+    {{-- line --}}
+    <hr style="width:70%;text-align:center">
+
+    <section class="section-padding">
         <div class="container" id="youtube" data-aos="fade-up">
             <div class="title-padding text-center">
                 <h2>
-                    <span class="text-red">Our Youtube</span> Channel <i class="fas fa-coffee text-white"></i>
+                    Nonton dulu biar makin<span style="color:#f44336">Yakin!</span>  <i class="fas fa-coffee text-white"></i>
                 </h2>
                 <div class="underline"></div>
             </div>
@@ -100,54 +94,51 @@
         </div>
     </section>
 
-    <section class="bg-black-1 section-padding" id="section-schedule">
+    <section class="section-padding" id="section-news" style="background:#f8f8f8">
         <div class="container" id="schedule" data-aos="fade-up">
             <div class="title-padding text-center">
                 <h2>
-                    <span class="text-red">Our</span> News
+                    Our<span style="color:#f44336"> News</span>
                 </h2>
                 <div class="underline"></div>
             </div>
             <div class="row schedule-row-1 row-padding">
-                <div class="col-md-4">
-                    <div class="schedule-img">
-                        <img src="{{ asset('public/img/content/o-2.png') }}" class="img-custom">
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="schedule-col">
-                        <ul class="content-ul schedule-ul">
-                            <li>
-                                <span class="icon-schedule">
-                                    <i class="far fa-calendar-alt"></i>
-                                </span>
-                            </li>
-                            <li>
-                                <p>
-                                    mar 24, 2019
-                                </p>
-                            </li>
-                        </ul>
-                        <div class="sub-title-schedule">
-                            <h4>
-                                <span class="text-red">Workshop</span> Coffe Daong
-                            </h4>
-                        </div>
-                        <div class="main-schedule">
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis quo omnis, explicabo nulla est fuga nemo doloribus, consequuntur velit, officia minima quos recusandae tenetur necessitatibus earum? Eveniet minima soluta nesciunt.
-                            </p>
-                        </div>
-                        <div class="content-top-space">
-                            <a href="#" class="readmore">
-                                Read More
-                                <i class="fas fa-long-arrow-alt-right"></i>
-                            </a>
+                <div class="col-md-10 mx-auto">
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                          <div class="col-md-4">
+                            <img src="{{asset('public/img/content/client2.jpg')}}" class="card-img" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                              <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row schedule-row-2">
+            <div class="row">
+                    <div class="col-md-10 mx-auto">
+                            <div class="card mb-3">
+                                <div class="row no-gutters">
+                                  <div class="col-md-4">
+                                    <img src="{{asset('public/img/content/client2.jpg')}}" class="card-img" alt="...">
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            {{-- <div class="row schedule-row-2">
                 <div class="col-md-8">
                     <div class="schedule-col">
                         <ul class="content-ul schedule-ul">
@@ -185,36 +176,138 @@
                         <img src="{{ asset('public/img/content/o-1.jpg') }}" class="img-custom">
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
-    <section class="bg-black-1 section-padding" id="gallery">
+    <section class="section-padding" id="gallery">
         <div class="container">
             <div class="title-padding text-center">
                 <h2>
-                    <span class="text-red">Our</span>  Gallery
+                    Our<span style="color:#f44336"> Gallery</span>
                 </h2>
                 <div class="underline"></div>
-                <div class="owl-carousel-2 owl-carousel owl-2 owl-theme mt-5" align="center">
-                    <div class="">1</div>
-                    <div class="">2</div>
-                    <div class="">3</div>
-                    <div class="">4</div>
-                    <div class="">5</div>
-                  </div>
+                <br>
+                <div class="container">
+                    <div class="row mx-auto">
+                      <div class="col-md-4 p-1">
+                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>              
+                      </div>                                
+                      <div class="col-md-4 p-1">
+                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
+                      </div>              
+                      
+                      <div class="col-md-4 p-1">
+                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
+                      </div>
+                      <div class="col-md-4 p-1">
+                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>              
+                      </div>                                
+                      <div class="col-md-4 p-1">
+                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
+                      </div>              
+                      
+                      <div class="col-md-4 p-1">
+                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
+                      </div>
+                    </div>
             </div>
         </div>
     </section>
 </main>
 
+    <style>
+        .owl-carousel .owl-item img{
+            width: auto;
+        }
+    </style>
+    <hr style="width:70%;text-align:center">
+    <section class="section-padding bg-flat" id="section-participant-get">
+        <div class="container" id="participant-get" data-aos="fade-up">
+            <div class="title-padding text-center">
+                <h2>
+                    Participants<span style="color:#f44336"> Get</span>
+                </h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Cerita <span style="color:#f44336">Sukses</span></h3>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit provident labore officia veritatis perspiciatis. Reprehenderit quaerat aperiam ut magnam deleniti ipsa harum pariatur. Praesentium commodi ab doloremque porro ratione modi.</p>
+                    <button class="btn btn-primary rounded-pill">Button</button>
+                </div>
+                <div class="col-md-9 p-1">
+                        <div class="owl-carousel owl-theme">
+                                <div class="card border-0 mt-1 mb-1 shadow p-3">
+                                        <div class="item pt-2">
+                                                <div class="text-center">
+                                                    <div class="">
+                                                        <img src="{{ asset('public/img/content/profile.png') }}" class="mx-auto rounded-circle" style="height:50%;width:50%">
+                                                    </div>
+                                                    <p class="card-text p-1 pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam odio possimus nam nostrum dolorum qui eius. Quod, voluptatibus voluptatem doloribus ea tempore voluptates veritatis mollitia totam laboriosam quo nisi necessitatibus!</p>
+                                                </div>
+                                            </div>
+                                </div>                
+                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- section form --}}
+    <section id="section-form">
+        <div class="container">
+            <h2 class="text-center">Segera <span style="color:#f44336">Daftarkan</span> diri anda</h2>
+            <div class="row pt-3 pb-5">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Nama anda:</label>
+                      <input type="text" name="nama" id="" class="form-control" placeholder="Masukkan Nama" aria-describedby="helpId">                      
+                      <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Email anda:</label>
+                      <input type="text" name="email" id="" class="form-control" placeholder="Masukkan Email" aria-describedby="helpId">                      
+                      <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Nomor Telp anda:</label>
+                                <input type="number" name="nomor" id="" class="form-control" placeholder="Masukkan Nama" aria-describedby="helpId">                      
+                                <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Harga:</label>
+                                <select name="" id="" class="form-control">
+                                    <option value="">Rp.450.000,00</option>
+                                </select>
+                                <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
+                            </div>
+                        </div>
+                    </div>                
+                    <div class="form-group">
+                      <label for=""></label>
+                      <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                      <small id="helpId" class="text-muted">Help text</small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.423576425507!2d106.79017751419727!3d-6.594160466293701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5b645cddd15%3A0xb95bfdfda7eb8dc!2sUncle%20Jo%20Coffee%20Shop!5e0!3m2!1sen!2sid!4v1568857639806!5m2!1sen!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection
 
 @section('scripts')
     <script>
         $(document).ready(function(){
-
 
 
             $(".owl-1").owlCarousel({
@@ -272,6 +365,42 @@
               }
             });
 
+            $(".owl-carousel").owlCarousel({
+                stagePadding: 0,
+                loop:true,
+                margin:10,
+                items: 1,
+                nav:true,
+                responsive : {
+                    // breakpoint from 0 up
+                    0 : {
+
+                        stagePadding : 0
+                    },
+                    480 : {
+                        stagePadding : 0
+                    },
+                    // breakpoint from 480 up
+                    780 : {
+                        stagePadding : 0
+                    },
+                    // breakpoint from 768 up
+                    1000 : {
+                        stagePadding : 100
+                    },
+                    1100 : {
+                        stagePadding : 200
+                    },
+                    1200 : {
+                        stagePadding : 300
+                    },
+                    1300 : {
+                        stagePadding : 300,
+                        margin: 40
+                    }
+                }
+            });
+
             $(window).scroll(function(){
                 let scrollDariAtas = $(window).scrollTop();
                 let tinggiWeb = $(window).height();
@@ -282,10 +411,16 @@
 
                 var scroll = $(this).scrollTop();
 
-                if(scroll > 600){
-                    $('#navbar-custom').addClass('bg-soft-dark');
+                if(scroll > 650){
                     $('#navbar-custom').removeClass('bg-transparent');
+                    $('#navbar-custom').addClass('bg-white');                    
+                    $('#text-test').addClass('text-dark');
+                    $('#text-nav').addClass('text-dark');
+                    // console.log('true');
+                    // $('#navbar-custom').addClass('bg-soft-dark');
                 }else{
+                    $('#text-test').removeClass('text-dark');
+                    $('#text-nav').removeClass('text-dark');
                     $('#navbar-custom').addClass('bg-transparent');
                 }
             });
@@ -294,7 +429,7 @@
                 e.preventDefault();
                 $('html, body').animate({
                     scrollTop: $('#scroll').offset().top,
-                },1400,'linear');
+                },900,'linear');
             });
 
             $('#nav-btn').on('click', function(){

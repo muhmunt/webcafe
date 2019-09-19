@@ -51,8 +51,6 @@
     <script>
         $(document).ready(function(){
 
-
-
             $(".owl-carousel").owlCarousel({
                 stagePadding: 0,
                 loop:true,
