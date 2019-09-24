@@ -28,7 +28,7 @@
 
 <main>
 
-    <section class="section-padding bg-white-1" id="workshop" style="height: 100vh;">
+    <section class="section-padding bg-white-1" id="workshop" >
         <div class="container" data-aos="fade-up">
             <div class="title-padding text-center">
                 <h2>
@@ -58,7 +58,7 @@
     {{-- line --}}
     {{-- <hr style="width:70%;text-align:center"> --}}
 
-    <section class="section-padding bg-youtube" id="youtube">
+    <section class="section-padding bg-youtube" id="youtube" >
         <div class="container" id="youtube" data-aos="fade-up">
             <div class="title-padding text-center">
                 <h2 class="text-white">
@@ -479,12 +479,7 @@
             });
 
             $(window).scroll(function(){
-                let scrollDariAtas = $(window).scrollTop();
-                let tinggiWeb = $(window).height();
-                let tinggiKonten = $(document).height();
-                let scrollPersen = scrollDariAtas / (tinggiKonten-tinggiWeb);
-                let persen = Math.round(scrollPersen * 100);
-                $('.progress-bar').css({'width' : persen + '%'});
+
 
                 var scroll = $(this).scrollTop();
 
