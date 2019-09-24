@@ -193,11 +193,15 @@
                                 <li
                                   class="m-nav__separator m-nav__separator--fit"
                                 ></li>
-                                <li class="m-nav__item">
-                                  <a href="login.html" class="m-nav__link">
+                                <li class="m-nav__item">                                    
+                                  <a href="{{ route('logout') }}" class="m-nav__link" onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
                                     <i
-                                      class="m-nav__link-icon la la-sign-out"
+                                    class="m-nav__link-icon la la-sign-out"
                                     ></i>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                     <span class="m-nav__link-text">Logout</span>
                                   </a>
                                 </li>

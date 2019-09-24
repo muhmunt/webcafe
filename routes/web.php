@@ -34,5 +34,9 @@ Route::middleware('auth')->group(function(){
             return view('admin.admin');
         })->name('admin');
 
+        Route::get('/admin/news',function(){
+            return view('admin.news');
+        });
+
     });
 });

@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard || Home')
+@section('title','Dashboard | Home')
 
 @include('layouts.admin.header.index')
 @include('layouts.admin.header.left')
@@ -13,8 +13,7 @@
         <!-- begin::Body -->
         <div
           class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body"
-        >
-          <!-- BEGIN: Left Aside -->
+        >          
           
           <div class="m-grid__item m-grid__item--fluid m-wrapper">
             <!-- BEGIN: Subheader -->

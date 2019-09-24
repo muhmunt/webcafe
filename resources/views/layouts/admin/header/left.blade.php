@@ -22,7 +22,7 @@
                 class="m-menu__item  m-menu__item--active"
                 aria-haspopup="true"
               >
-                <a href="index.html" class="m-menu__link "
+                <a href="{{url('/admin')}}" class="m-menu__link "
                   ><i class="m-menu__link-icon la la-dashboard"></i
                   ><span class="m-menu__link-title"
                     ><span class="m-menu__link-wrap">
@@ -39,36 +39,23 @@
                 <i class="m-menu__section-icon flaticon-more-v2"></i>
               </li>
               <li class="m-menu__item" aria-haspopup="true">
-                <a href="list.html" class="m-menu__link m-menu__toggle"
+                <a href="{{url('/admin/news')}}" class="m-menu__link m-menu__toggle"
                   ><i class="m-menu__link-icon la la-tags"></i
-                  ><span class="m-menu__link-text">Page</span></a
+                  ><span class="m-menu__link-text">News</span></a
                 >
               </li>
               <li class="m-menu__item" aria-haspopup="true">
                 <a href="javascript:;" class="m-menu__link m-menu__toggle"
                   ><i class="m-menu__link-icon la la-file-text "></i
-                  ><span class="m-menu__link-text">Article</span></a
-                >
-              </li>
-              <li class="m-menu__item" aria-haspopup="true">
-                <a href="javascript:;" class="m-menu__link m-menu__toggle"
-                  ><i class="m-menu__link-icon la la-film"></i
                   ><span class="m-menu__link-text">Gallery</span></a
                 >
               </li>
               <li class="m-menu__item" aria-haspopup="true">
                 <a href="javascript:;" class="m-menu__link m-menu__toggle"
-                  ><i class="m-menu__link-icon la la-envelope-o"></i
-                  ><span class="m-menu__link-text">Inquiry</span></a
+                  ><i class="m-menu__link-icon la la-film"></i
+                  ><span class="m-menu__link-text">Workshop</span></a
                 >
-              </li>
-              <li class="m-menu__item" aria-haspopup="true">
-                <a href="javascript:;" class="m-menu__link m-menu__toggle"
-                  ><i class="m-menu__link-icon la la-image"></i
-                  ><span class="m-menu__link-text">Banner</span></a
-                >
-              </li>
-              
+              </li>              
               </li>
               <li class="m-menu__section ">
                 <h4 class="m-menu__section-text">Settings</h4>

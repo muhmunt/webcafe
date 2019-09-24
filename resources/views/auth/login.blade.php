@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard || Login')
+@section('title','Dashboard | Login')
 @section('content')
     <!-- begin:: Page -->
 		<div class="m-grid m-grid--hor m-grid--root m-page">
