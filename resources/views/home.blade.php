@@ -240,7 +240,7 @@
                 </div>
                 <div class="col-md-9 p-1">
                         <div class="owl-carousel owl-theme">
-                                <div class="card border-0 mt-1 mb-1 shadow p-3">
+                                <div class="card border-0 mt-1 mb-2 shadow p-3">
                                         <div class="item pt-2">
                                                 <div class="text-center">
                                                     <div class="">
