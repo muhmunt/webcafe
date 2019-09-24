@@ -285,7 +285,6 @@
                 </div>
                 <div class="col-md-9 p-1">
                         <div class="owl-carousel owl-theme">
-<<<<<<< HEAD
                                 <div class="card border-0 mt-1 mb-2 shadow p-3">
                                         <div class="item pt-2">
                                                 <div class="text-center">
@@ -296,17 +295,6 @@
                                                 </div>
                                             </div>
                                 </div>                
-=======
-                            <div class="card border-0 mt-1 mb-1 shadow p-3">
-                                <div class="item pt-2">
-                                    <div class="text-center">
-                                        <div class="">
-                                            <img src="{{ asset('public/img/content/profile.png') }}" class="mx-auto rounded-circle" style="height:50%;width:50%">
-                                        </div>
-                                        <p class="card-text p-1 pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam odio possimus nam nostrum dolorum qui eius. Quod, voluptatibus voluptatem doloribus ea tempore voluptates veritatis mollitia totam laboriosam quo nisi necessitatibus!</p>
-                                    </div>
-                                </div>
->>>>>>> 9321c99730214fb5d4f5038e93f229a077bcbf29
                             </div>
                         </div>
                 </div>
