@@ -52,6 +52,42 @@ a {
     background-color: #212121;
 }
 
+.bg-white-1{
+    background-color: #ffffff;
+}
+
+.bg-white-2{
+    background-color: #fafafa;
+}
+
+.bg-youtube{
+    background: url(../img/UNCLE-JO/uncle.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.bg-qoutes{
+    background: url(../img/UNCLE-JO/uncle.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.bg-flat{
+    background: url(../img/UNCLE-JO/uncle.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.bg-pattern{
+    background: url(../img/content/pattern1.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 .text-white{
     color: #ffffff;
 }
@@ -64,15 +100,19 @@ a {
     color: #0e1011;
 }
 
-.bg-pattern{
-    background: url(../img/content/pattern1.jpeg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+.text-qoutes-title{
+    font-weight: 300;
+    letter-spacing: 2px;
+
+}
+
+.img-workshop{
+    position: relative;
+    width: 600px;
 }
 
 .title-padding{
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .border-section{
@@ -98,9 +138,23 @@ a {
 
 .underline{
     background-color: #007bff;
-    width: 60px;
+    width: 80px;
     height: 2px;
     margin: 5px auto 0 auto;
+}
+
+.bt-qoutes{
+    border-top: 2px #fff solid;
+    padding-top: 30px;
+}
+
+.bb-qoutes{
+    border-bottom: 2px #fff solid;
+    padding-bottom: 30px;
+}
+
+.icon-coffee{
+    width: 100px;
 }
 
 .schedule-img{
@@ -114,18 +168,17 @@ a {
 }
 
 .schedule-col{
-    background-color: #212121;    
-    border: 1px solid #333333;
+    background-color: #f5f5f5;
+    border: 1px solid #dddddd;
     padding: 20px;
 }
 
 .bg-coffe{
     position: relative;
     background-position: right;
-    background-image: url(../img/background/coffe-work-ui.png);
+    background-image: url(../img/ui-images/coffe-work-ui.png);
     background-size: 50%;
     background-repeat: no-repeat;
-    color: 
 }
 
 .content-ul{
@@ -151,7 +204,7 @@ a {
 }
 
 .schedule-ul p{
-    color: #999999;
+    color: #777777;
     font-size: 14px;
     font-weight: normal;
     letter-spacing: 1px;
@@ -173,7 +226,7 @@ a {
 }
 
 .readmore{
-    color: #ffffff;
+    color: #333333;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -208,19 +261,13 @@ a {
     width: 100px;
     height: 100px;
     overflow: hidden;
-    border-radius: 50%;    
+    border-radius: 50%;
 }
 
 .circle-img{
     width: auto;
     height: 100%;
-    margin-left: -100px;    
-}
-
-.bg-flat{
-    background: url(../img/content/back-flat-1.jpg);
-    background-size: cover;
-    background-position: center;
+    margin-left: -100px;
 }
 
 .describe-img{
@@ -265,8 +312,8 @@ a {
         position: relative;
         background-position: center;
         background-image: url(../img/background/coffe-work-ui.png);
-        background-size: 100%;   
-        background-repeat: no-repeat;    
+        background-size: 100%;
+        background-repeat: no-repeat;
     }
 }
 
@@ -279,8 +326,23 @@ a {
         position: relative;
         background-position: center;
         background-image: url(../img/background/coffe-work-ui.png);
-        background-size: 100%;   
-        background-repeat: no-repeat;    
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .img-workshop{
+        position: relative;
+        width: 350px;
+    }
+
+    .cerita-text{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .map-row{
+        margin-top: 30px;
     }
 }
 
