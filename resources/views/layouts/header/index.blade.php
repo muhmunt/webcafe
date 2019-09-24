@@ -10,7 +10,7 @@
 {{-- Nav - app --}}
 <nav class="navbar navbar-expand-md navbar-light shadow-sm fixed-top" id="navbar-custom">
     <div class="container" id="nav-con">
-        <a class="navbar-brand text-white" id="text-nav" href="{{ url('/') }}">
+        <a class="navbar-brand text-white" id="text-nav" href="#intro">
             Uncle
         </a>
         <button class="navbar-toggler bg-white" id="nav-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -37,7 +37,22 @@
                         </li>
                     @endif --}}
                     <li class="nav-item">
-                        <a class="nav-link text-white" id="text-test" href="#">{{ __('Test') }}</a>
+                        <a class="nav-link text-white" id="nav-workshop" href="#workshop">{{ __('Workshop') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-yt" href="#youtube">{{ __('Channel') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-news" href="#news">{{ __('News') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-gallery" href="#gallery">{{ __('Gallery') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-get" href="#get">{{ __('What You Get') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-profile" href="#profile">{{ __('Profile') }}</a>
                     </li>
 
                 @else
