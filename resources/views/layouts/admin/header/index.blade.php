@@ -19,7 +19,7 @@
                 </div>
                 <div class="m-stack__item m-stack__item--middle m-brand__tools">
                   <!-- BEGIN: Left Aside Minimize Toggle -->
-                  
+
                   <a
                     href="javascript:;"
                     id="m_aside_left_minimize_toggle"
@@ -100,9 +100,7 @@
                           class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"
                         ></span>
                         <div class="m-dropdown__inner">
-                          <div
-                            class="m-dropdown__header m--align-center"
-                            style="background: url(public/assets/app/media/img/bg/bg-9.jpg); background-size: cover;"
+                          <div class="m-dropdown__header m--align-center" style="background: url({{ asset('public/assets/app/media/img/bg/bg-9.jpg') }}); background-size: cover;"
                           >
                             <div class="m-card-user m-card-user--skin-light">
                               <div class="m-card-user__pic">
@@ -193,7 +191,7 @@
                                 <li
                                   class="m-nav__separator m-nav__separator--fit"
                                 ></li>
-                                <li class="m-nav__item">                                    
+                                <li class="m-nav__item">
                                   <a href="{{ route('logout') }}" class="m-nav__link" onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                                     <i

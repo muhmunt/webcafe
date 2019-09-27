@@ -225,6 +225,7 @@
         </div>
     </section>
 
+
     <section class="section-padding bg-white-2" id="gallery">
         <div class="container">
             <div class="title-padding text-center">
@@ -233,37 +234,38 @@
                 </h2>
                 <div class="underline"></div>
                 <br>
+            </div>
+            <div class="main">
                 <div class="container">
                     <div class="row mx-auto">
-                      <div class="col-md-4 p-1">
-                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
-                      </div>
-                      <div class="col-md-4 p-1">
-                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
-                      </div>
-
-                      <div class="col-md-4 p-1">
-                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
-                      </div>
-                      <div class="col-md-4 p-1">
-                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
-                      </div>
-                      <div class="col-md-4 p-1">
-                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
-                      </div>
-
-                      <div class="col-md-4 p-1">
-                          <a href="{{asset('public/img/content/about.jpg')}}" data-lightbox="roadtrip"><img class="img-fluid" src="{{asset('public/img/content/about.jpg')}}" alt=""></a>
-                      </div>
+                        @foreach ($galleries as $g)
+                        <div class="col-md-4 galleries-img" style="padding: 10px;">
+                            <a href="{{asset('public/upload/galleries/'.$g->picture)}}" data-lightbox="roadtrip">
+                                <img class="img-gallery js-tilt" data-tilt src="{{asset('public/upload/galleries/'.$g->picture)}}">
+                            </a>
+                        </div>
+                        @endforeach
                     </div>
+                </div>
             </div>
-        </div>
     </section>
 </main>
 
     <style>
         .owl-carousel .owl-item img{
             width: auto;
+        }
+
+        .galleries-img:hover{
+            /* border: 1px #fdcb6e solid; */
+            /* background: rgba(33, 33, 33, 0.9); */
+
+        }
+
+        .img-gallery{
+
+            width: 100%;
+            height: 250px;
         }
     </style>
     {{-- <hr style="width:70%;text-align:center"> --}}
@@ -284,19 +286,25 @@
                     <button class="btn btn-primary rounded-pill">Button</button>
                 </div>
                 <div class="col-md-9 p-1">
-                        <div class="owl-carousel owl-theme">
-                                <div class="card border-0 mt-1 mb-2 shadow p-3">
-                                        <div class="item pt-2">
-                                                <div class="text-center">
-                                                    <div class="">
-                                                        <img src="{{ asset('public/img/content/profile.png') }}" class="mx-auto rounded-circle" style="height:50%;width:50%">
-                                                    </div>
-                                                    <p class="card-text p-1 pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam odio possimus nam nostrum dolorum qui eius. Quod, voluptatibus voluptatem doloribus ea tempore voluptates veritatis mollitia totam laboriosam quo nisi necessitatibus!</p>
-                                                </div>
-                                            </div>
-                                </div>                
+                    <div class="owl-carousel owl-theme">
+                        @foreach ($participants as $p)
+                        <div class="card border-0 mt-1 mb-2 shadow p-3">
+                            <div class="item pt-2">
+                                <div class="text-center">
+                                    <div class="">
+                                        <img src="{{asset('public/upload/participants/'.$p->picture)}}" class="mx-auto rounded-circle" style="height:50%;width:50%">
+                                    </div>
+                                    <h4>
+                                        {{ $p->title }}
+                                    </h4>
+                                    <p class="card-text p-1 pt-4">
+                                        {!! $p->description !!}
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -387,6 +395,11 @@
     <script>
         $(document).ready(function(){
 
+            $('.js-tilt').tilt({
+                scale: 1.3,
+                glare: true,
+                maxGlare: .5
+            })
 
             $(".owl-1").owlCarousel({
                 stagePadding: 0,

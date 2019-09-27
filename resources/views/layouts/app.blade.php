@@ -36,6 +36,7 @@
         @include('layouts.footer.index')
 </body>
 <script src="{{ asset('public/js/jquery.min.js') }}"></script>
+<script src="{{ asset('public/js/tilt.jquery.min.js') }}"></script>
 <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('public/js/aos.js') }}"></script>
 <script src="{{ asset('public/js/owl.carousel.min.js') }}"></script>

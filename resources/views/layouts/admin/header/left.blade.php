@@ -40,27 +40,27 @@
               </li>
               <li class="m-menu__item" aria-haspopup="true">
                 <a href="{{url('/admin/news')}}" class="m-menu__link m-menu__toggle"
-                  ><i class="m-menu__link-icon la la-tags"></i
-                  ><span class="m-menu__link-text">News</span></a
+                  ><i class="m-menu__link-icon la la-calendar"></i
+                  ><span class="m-menu__link-text">Workshop</span></a
                 >
               </li>
               <li class="m-menu__item" aria-haspopup="true">
-                <a href="javascript:;" class="m-menu__link m-menu__toggle"
-                  ><i class="m-menu__link-icon la la-file-text "></i
+                <a href="{{ route('galleries.index') }}" class="m-menu__link m-menu__toggle"
+                  ><i class="m-menu__link-icon la la-image "></i
                   ><span class="m-menu__link-text">Gallery</span></a
                 >
               </li>
               <li class="m-menu__item" aria-haspopup="true">
-                <a href="javascript:;" class="m-menu__link m-menu__toggle"
-                  ><i class="m-menu__link-icon la la-film"></i
-                  ><span class="m-menu__link-text">Workshop</span></a
+                <a href="{{ route('participants.index') }}" class="m-menu__link m-menu__toggle"
+                  ><i class="m-menu__link-icon la la-archive"></i
+                  ><span class="m-menu__link-text">Particpant Get</span></a
                 >
-              </li>              
+              </li>
               </li>
               <li class="m-menu__section ">
                 <h4 class="m-menu__section-text">Settings</h4>
                 <i class="m-menu__section-icon flaticon-more-v2"></i>
-              </li>              
+              </li>
               <li class="m-menu__item" aria-haspopup="true">
                 <a href="javascript:;" class="m-menu__link m-menu__toggle"
                   ><i class="m-menu__link-icon la la-users"></i

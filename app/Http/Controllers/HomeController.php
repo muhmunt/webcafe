@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Gallery;
+use App\Participant;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,11 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {        
-        return view('home');
+    {
+        //dd('sdfsd');
+        $galleries = Gallery::all();
+        $participants = Participant::all();
+
+        return view('home')->with(compact('galleries','participants'));
     }
 }
