@@ -19,7 +19,7 @@
         <div class="m-subheader ">
           <div class="d-flex align-items-center">
             <div class="mr-auto">
-              <h3 class="m-subheader__title ">Artikel</h3>
+              <h3 class="m-subheader__title ">Workshop</h3>
             </div>
             <div>
               <span
@@ -47,6 +47,50 @@
         <div class="m-content">                      
 
             <!--Begin::Section-->
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="m-alert m-alert--icon alert m-alert--square alert-danger m--margin-bottom-25" role="alert">
+                    <div class="m-alert__icon">
+                        <i class="la la-exclamation-triangle"></i>
+                    </div>
+                    <div class="m-alert__text">
+                        {{$error}}
+                    </div>
+                    <div class="m-alert__close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                </div>
+                @endforeach
+            @endif
+            @if (session('warning'))
+            <div class="m-alert m-alert--icon alert m-alert--square alert-warning m--margin-bottom-25" role="alert">
+                <div class="m-alert__icon">
+                    <i class="la la-exclamation-triangle"></i>
+                </div>
+                <div class="m-alert__text">
+                    {{session('warning')}}
+                </div>
+                <div class="m-alert__close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+            </div>
+            @endif
+            @if (session('success'))
+            <div class="m-alert m-alert--icon alert m-alert--square alert-success m--margin-bottom-25" role="alert">
+                <div class="m-alert__icon">
+                    <i class="la la-exclamation-triangle"></i>
+                </div>
+                <div class="m-alert__text">
+                    {{session('success')}}
+                </div>
+                <div class="m-alert__close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+            </div>
+            @endif
 						<div class="row">
                                 <div class="col-xl-12">
                                     <!--Begin::Portlet-->
@@ -58,7 +102,7 @@
                                                         <i class="la la-list"></i>
                                                     </span>
                                                     <h3 class="m-portlet__head-text">
-                                                        Page List Taking this
+                                                        Daftar Workshop
                                                     </h3>
                                                 </div>
                                                 
@@ -66,10 +110,10 @@
                                             <div class="m-portlet__head-tools">
                                                 <ul class="m-portlet__nav">
                                                     <li class="m-portlet__nav-item">
-                                                        <a href="form.html" class="btn m-btn btn-danger btn-sm m-btn--icon m-btn--pill m-btn--air">
+                                                        <a href="{{url('/admin/create/news')}}" class="btn m-btn btn-danger btn-sm m-btn--icon m-btn--pill m-btn--air">
                                                             <span>
                                                                 <i class="la la-plus"></i>
-                                                                <span>Add Category</span>
+                                                                <span>Tambah Artikel</span>
                                                             </span>
                                                         </a>
                                                     </li>
@@ -137,61 +181,61 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        @foreach ($data as $news)
+                                            
+                                        
                                         <div class="m-portlet__body no-pedding">
                                             
                                             <div class="list-section">
                                                 <div class="list-section__item">
                                                     <div class="section__content">
                                                         <div class="section__widget">
-                                                            <span class="date">02</span>
+                                                            {{-- <span class="date">02</span>
                                                             <span class="month">Apr</span>
-                                                            <span class="year">2019</span> 
+                                                            <span class="year">2019</span>  --}}
+                                                            <h5 class="">{{Carbon\Carbon::parse($news->tgl)->formatLocalized('%d %B %Y')}}</h5>
                                                         </div>
-                                                        <div class="section__desc">
-                                                            <h5 class="section__title">Make Metronic Great Again. Lorem Ipsum Amet</h5>
-                                                            <div class="section__info">
-                                                                
-                                                                <div class="section__info__item sm-text">
-                                                                    <span class="info__label">Posted By :</span>
-                                                                    <a href="" class="info__detail m-link">Administrator</a>
-                                                                </div>
-                                                                <div class="section__info__item sm-text">
-                                                                    <span class="info__label">Language :</span>
-                                                                    <span class="info__detail">Indonesia</span>
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="section__desc">
+                                                                    <h5 class="section__title"><a href="" class="m-link info__detail">{{ucfirst($news->title)}}</a></h5>
+                                                                    
+                                                                    <div class="section__info">
+                                                                        
+                                                                        <div class="section__info__item sm-text">
+                                                                            <span class="info__label">Pembicara Workshop :</span>
+                                                                            <span class="info__detail ">{{ucfirst($news->author)}}</span>
+                                                                        </div>      
+                                                                        <br>                       
+                                                                        <div class="section__info__item sm-text">
+                                                                            <span class="info__label"> Location :</span>
+                                                                            <span class="info__detail ">{{ucfirst($news->location)}}</span>
+                                                                        </div>                             
+                                                                    </div>                     
                                                                 </div>
                                                             </div>
-                                                            <div class="section__status">
-                                                                <span class="m-badge m-badge--danger m-badge--wide">Not Published yet</span>
-                                                                <span class="m-badge m-badge--brand m-badge--wide">Draft</span>
+                                                            <div class="col-md-4">
+                                                                <h5>Foto : </h5>
+                                                                <img src="{{asset('public/upload/news/'.$news->foto)}}" width="100px" alt="">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="section__action">
                                                         <div class="list__section__action">
-                                                            <a href="#" class="btn m-btn btn-primary btn-sm  m-btn--icon m-btn--square m-btn--air icon-only">
-                                                                <span>
-                                                                    <i class="la la-list"></i>
-                                                                    <span>View List</span>
-                                                                </span>
-                                                            </a>
-                                                            <a href="#" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
-                                                                <span>
-                                                                    <i class="la la-pencil"></i>
-                                                                    <span>View List</span>
-                                                                </span>
-                                                            </a>
-                                                            <a href="#" class="btn m-btn btn-primary btn-sm m-btn--icon m-btn--pill m-btn--air icon-only">
-                                                                <span>
-                                                                    <i class="la la-eye"></i>
-                                                                    <span>View Page</span>
-                                                                </span>
-                                                            </a>
-                                                            <a href="#" class="btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only m_sweetalert_5">
-                                                                <span>
-                                                                    <i class="la la-trash"></i>
-                                                                    <span>Delete</span>
-                                                                </span>
-                                                            </a>
+
+                                                                    <a href="{{route('adminNews.edit',$news->id)}}" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
+                                                                                <span>
+                                                                                    <i class="la la-pencil"></i>
+                                                                                    <span>Edit List</span>
+                                                                                </span>
+                                                                            </a>    
+                                                                    <a href="{{route('adminNews.destroy',$news->id)}}" class="btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only m_sweetalert_5 btn-delete">
+                                                                        <span>
+                                                                            <i class="la la-trash"></i>
+                                                                        <span>Delete</span>
+                                                                        </span>
+                                                                    </a>                                                                        
+                                                            
                                                         </div>
                                                         <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--up m--hide-desktop" m-dropdown-toggle="click" aria-expanded="true">
                                                             <a href="#" class="btn m-btn btn-outline-metal m-btn--icon btn-sm m-btn--icon-only m-btn--pill  m-dropdown__toggle">
@@ -222,7 +266,7 @@
 
 
   </div>
-
+  @endforeach
   <!-- end:: Page -->
 
   <!-- begin::Scroll Top -->
@@ -231,4 +275,31 @@
   </div>
 
   <!-- end::Scroll Top -->
+@endsection
+@section('js')
+    
+    <script>
+        $(document).ready(function(){
+
+            $('.btn-delete').click(function(e){
+            e.preventDefault();
+            var link_news = $(this).attr('href');
+            console.log(link_news)
+            swal({
+                title:'Are you sure?',
+                type:'warning',
+                showCancelButton:true,
+                cancelButtonColor:'#d33',
+                confirmButtonColor:'#3085d6',
+            }).then((result)=>{
+                if(result.value){
+                    window.location.href = link_news;
+                    console.log('Button delete clicked');
+                }
+            })
+        });
+
+        });
+    </script>
+
 @endsection

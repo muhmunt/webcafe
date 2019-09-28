@@ -101,10 +101,13 @@
                 </h2>
                 <div class="underline"></div>
             </div>
+            <?php $a = 2 ?>
+            @foreach ($news as $new)            
+            @if ($a % 2 == '1')
             <div class="row schedule-row-1 row-padding">
                 <div class="col-md-4">
                     <div class="schedule-img">
-                        <img src="{{ asset('public/img/content/o-1.jpg') }}" class="img-custom">
+                        <img src="{{ asset('public/upload/news/'.$new->foto) }}" class="img-custom">
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -115,20 +118,34 @@
                                     <i class="far fa-calendar-alt"></i>
                                 </span>
                             </li>
+
                             <li>
                                 <p>
-                                    mar 24, 2019
+                                    {{Carbon\Carbon::parse($new->tgl)->formatLocalized('%d %B %Y')}}
+                                </p>
+                            </li>
+                        </ul>
+                        <ul class="content-ul schedule-ul">
+                            <li>
+                                <span class="icon-schedule">
+                                    <i class="fas fa-location"></i>
+                                </span>
+                            </li>
+
+                            <li>
+                                <p>
+                                    {{$new->location}}
                                 </p>
                             </li>
                         </ul>
                         <div class="sub-title-schedule">
                             <h4>
-                                <span class="text-red">Workshop</span> Caffe Two Stories
+                                {{ucfirst($new->title)}}
                             </h4>
                         </div>
                         <div class="main-schedule">
                             <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis quo omnis, explicabo nulla est fuga nemo doloribus, consequuntur velit, officia minima quos recusandae tenetur necessitatibus earum? Eveniet minima soluta nesciunt.
+                                {!! $new->description !!}
                             </p>
                         </div>
                         <div class="content-top-space">
@@ -140,7 +157,7 @@
                     </div>
                 </div>
             </div>
-
+            @elseif($a % 2 == '0')
             <div class="row schedule-row-2 row-padding">
                 <div class="col-md-8">
                     <div class="schedule-col">
@@ -152,19 +169,19 @@
                             </li>
                             <li>
                                 <p>
-                                    mar 24, 2019
+                                    {{Carbon\Carbon::parse($new->tgl)->formatLocalized('%d %B %Y')}}
                                 </p>
                             </li>
                         </ul>
                         <div class="sub-title-schedule">
                             <h4>
-                                <span class="text-red">Workshop</span> Caffe Two Stories
+                                {{ucfirst($new->title)}}
                             </h4>
                         </div>
-                        <div class="main-schedule">
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis quo omnis, explicabo nulla est fuga nemo doloribus, consequuntur velit, officia minima quos recusandae tenetur necessitatibus earum? Eveniet minima soluta nesciunt.
-                            </p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {!! html_entity_decode($new->description)!!}
+                            </div>
                         </div>
                         <div class="content-top-space">
                             <a href="#" class="readmore">
@@ -176,10 +193,14 @@
                 </div>
                 <div class="col-md-4">
                     <div class="schedule-img">
-                        <img src="{{ asset('public/img/content/o-1.jpg') }}" class="img-custom">
+                        <img src="{{ asset('public/upload/news/'.$new->foto) }}" class="img-custom">
                     </div>
                 </div>
             </div>
+
+            @endif
+            <?php $a++; ?>
+            @endforeach
 
             {{-- <div class="row">
                     <div class="col-md-10 mx-auto">

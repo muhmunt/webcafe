@@ -47,7 +47,7 @@
 	<!-- end::Head -->
 
 	<!-- begin::Body -->
-	<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+	<body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
 
 		@yield('content')
 
@@ -69,13 +69,21 @@
 		<!--begin::Page Scripts -->
 		<script src="{{asset('public/assets/snippets/custom/pages/user/login.js')}}" type="text/javascript"></script>
 		
-
-  
-	  <!--begin::Page Scripts -->
-	  <script src="{{asset('public/assets/app/js/dashboard.js')}}" type="text/javascript"></script>
-  
+		<!--begin::Page Scripts -->
+		<script src="{{asset('public/assets/app/js/dashboard.js')}}" type="text/javascript"></script>
+		<script src="{{asset('public/ckeditor/ckeditor.js')}}"></script>
+		<script src="{{asset('public/assets/customize.js')}}" type="text/javascript"></script>
+		<script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/autosize.js')}}" type="text/javascript"></script>
+		<script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/select2.js')}}" type="text/javascript"></script>
+		<script src="{{asset("public/assets/demo/default/custom/crud/forms/widgets/summernote.js")}}" type="text/javascript"></script>
+		<script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/bootstrap-select.js')}}" type="text/javascript"></script>
+		<script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
+		<script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/bootstrap-datepicker.js')}}" type="text/javascript"></script>
+		<script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/bootstrap-daterangepicker.js')}}" type="text/javascript"></script>
+		<script src="{{asset("public/assets/demo/default/custom/components/base/sweetalert2.js")}}" type="text/javascript"></script>
 	  <!--end::Page Scripts -->
 		<!--end::Page Scripts -->
+		@yield('js')
 	</body>
 
 	<!-- end::Body -->

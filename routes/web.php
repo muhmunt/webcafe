@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/','PageController@index');
 
 Route::get('/profile', function () {
     return view('layouts.profile');
@@ -25,7 +23,7 @@ Route::get('/get', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PageController@index')->name('home');
 
 Route::middleware('auth')->group(function(){
     Route::middleware('admin')->group(function(){
@@ -34,9 +32,14 @@ Route::middleware('auth')->group(function(){
             return view('admin.admin');
         })->name('admin');
 
-        Route::get('/admin/news',function(){
-            return view('admin.news');
+        Route::get('/admin/create/news',function(){
+            return view('admin.create-news');
         });
 
+        Route::resource('adminNews','NewsController')->except([
+            'show','destroy'
+        ]);
+
+        Route::get('/admin/{news}','NewsController@destroy')->name('adminNews.destroy');
     });
 });
