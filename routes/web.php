@@ -13,33 +13,41 @@
 
 Route::get('/','PageController@index');
 
-Route::get('/profile', function () {
-    return view('layouts.profile');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/get', function () {
-    return view('layouts.get');
-});
+// Route::get('/profile', function () {
+//     return view('layouts.profile');
+// });
+
+// Route::get('/get', function () {
+//     return view('layouts.get');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'PageController@index')->name('home');
 
 Route::middleware('auth')->group(function(){
-    Route::middleware('admin')->group(function(){
+    Route::prefix('admin')->middleware('admin')->group(function(){
 
-        Route::get('/admin',function(){
+        Route::get('/',function(){
             return view('admin.admin');
         })->name('admin');
 
-        Route::get('/admin/create/news',function(){
-            return view('admin.create-news');
+        Route::get('/news',function(){
+            return view('admin.news');
         });
 
-        Route::resource('adminNews','NewsController')->except([
+        Route::resource('galleries', 'GalleryController')->except([
             'show','destroy'
         ]);
 
-        Route::get('/admin/{news}','NewsController@destroy')->name('adminNews.destroy');
+        Route::resource('participants', 'ParticipantController')->except([
+            'show','destroy'
+        ]);
+
     });
 });
+
+Route::get('admin/galleries/{gallery}','GalleryController@destroy')->name('galleries.destroy');
+Route::get('admin/participants/{participant}','ParticipantController@destroy')->name('participants.destroy');

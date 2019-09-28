@@ -3,17 +3,17 @@
 
 @include('layouts.admin.header.index')
 @include('layouts.admin.header.left')
-@section('content')    
+@section('content')
 
 <div class="m-grid m-grid--hor m-grid--root m-page">
     <!-- BEGIN: Header -->
-    
+
 
     <!-- begin::Body -->
     <div
       class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body"
-    >          
-      
+    >
+
       <div class="m-grid__item m-grid__item--fluid m-wrapper">
         <!-- BEGIN: Subheader -->
         <div class="m-subheader ">
@@ -44,8 +44,7 @@
         </div>
 
         <!-- END: Subheader -->
-        <div class="m-content">                      
-
+        <div class="m-content">
             <!--Begin::Section-->
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
@@ -254,19 +253,31 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                   
-                                    <!--End::Portlet-->
-                                </div>
-    
-                            <!--End::Section-->
-          
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="m-portlet__body">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <!-- end:: Body -->
+<<<<<<< HEAD
 
 
   </div>
   @endforeach
+=======
+    </div>
+</div>
+</div>
+
+>>>>>>> 9aab8e122e168031277468ba9a3fbbf51cd2caa3
   <!-- end:: Page -->
 
   <!-- begin::Scroll Top -->
@@ -276,6 +287,7 @@
 
   <!-- end::Scroll Top -->
 @endsection
+<<<<<<< HEAD
 @section('js')
     
     <script>
@@ -303,3 +315,5 @@
     </script>
 
 @endsection
+=======
+>>>>>>> 9aab8e122e168031277468ba9a3fbbf51cd2caa3

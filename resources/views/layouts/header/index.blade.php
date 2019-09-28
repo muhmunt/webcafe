@@ -56,9 +56,27 @@
                     </li>
 
                 @else
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-workshop" href="#workshop">{{ __('Workshop') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-yt" href="#youtube">{{ __('Channel') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-news" href="#news">{{ __('News') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-gallery" href="#gallery">{{ __('Gallery') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-get" href="#get">{{ __('What You Get') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="nav-profile" href="#profile">{{ __('Profile') }}</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" id="nav-admin" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            <img src="{{ asset('public/img/ui-images/man.png') }}" width="40">
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right border-white bg-transparent" aria-labelledby="navbarDropdown">
