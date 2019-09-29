@@ -25,19 +25,18 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'PageController@index')->name('home');
 
 Route::middleware('auth')->group(function(){
     Route::prefix('admin')->middleware('admin')->group(function(){
 
         Route::get('/',function(){
             return view('admin.admin');
-        })->name('admin');
+        })->name('admin');        
 
-        Route::get('/news',function(){
-            return view('admin.news');
-        });
-
+        Route::resource('news','NewsController')->except([
+            'show','destroy'
+        ]);
+                    
         Route::resource('galleries', 'GalleryController')->except([
             'show','destroy'
         ]);
@@ -46,8 +45,9 @@ Route::middleware('auth')->group(function(){
             'show','destroy'
         ]);
 
+        Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
+        Route::get('admin/galleries/{gallery}','GalleryController@destroy')->name('galleries.destroy');
+        Route::get('admin/participants/{participant}','ParticipantController@destroy')->name('participants.destroy');
     });
 });
 
-Route::get('admin/galleries/{gallery}','GalleryController@destroy')->name('galleries.destroy');
-Route::get('admin/participants/{participant}','ParticipantController@destroy')->name('participants.destroy');

@@ -15,33 +15,27 @@
     >
 
       <div class="m-grid__item m-grid__item--fluid m-wrapper">
-        <!-- BEGIN: Subheader -->
-        <div class="m-subheader ">
-          <div class="d-flex align-items-center">
-            <div class="mr-auto">
-              <h3 class="m-subheader__title ">Workshop</h3>
-            </div>
-            <div>
-              <span
-                class="m-subheader__daterange"
-                id="m_dashboard_daterangepicker"
-              >
-                <span class="m-subheader__daterange-label">
-                  <span class="m-subheader__daterange-title"></span>
-                  <span
-                    class="m-subheader__daterange-date m--font-brand"
-                  ></span>
-                </span>
-                <a
-                  href="#"
-                  class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill"
-                >
-                  <i class="la la-angle-down"></i>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
+            <div class="m-subheader ">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-auto">
+                            <h3 class="m-subheader__title m-subheader__title--separator">Page</h3>
+                            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                                <li class="m-nav__item m-nav__item--home">
+                                    <a href="#" class="m-nav__link m-nav__link--icon">
+                                        <i class="m-nav__link-icon la la-home"></i>
+                                    </a>
+                                </li>
+                                <li class="m-nav__separator">-</li>
+                                <li class="m-nav__item">
+                                    <a href="{{ route('news.index') }}" class="m-nav__link">
+                                        <span class="m-nav__link-text">Artikel Workshop</span>
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
         <!-- END: Subheader -->
         <div class="m-content">
@@ -109,7 +103,7 @@
                                             <div class="m-portlet__head-tools">
                                                 <ul class="m-portlet__nav">
                                                     <li class="m-portlet__nav-item">
-                                                        <a href="{{url('/admin/create/news')}}" class="btn m-btn btn-danger btn-sm m-btn--icon m-btn--pill m-btn--air">
+                                                        <a href="{{route('news.create')}}" class="btn m-btn btn-danger btn-sm m-btn--icon m-btn--pill m-btn--air">
                                                             <span>
                                                                 <i class="la la-plus"></i>
                                                                 <span>Tambah Artikel</span>
@@ -195,7 +189,7 @@
                                                             <h5 class="">{{Carbon\Carbon::parse($news->tgl)->formatLocalized('%d %B %Y')}}</h5>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-8">
+                                                            <div class="col-md-9">
                                                                 <div class="section__desc">
                                                                     <h5 class="section__title"><a href="" class="m-link info__detail">{{ucfirst($news->title)}}</a></h5>
                                                                     
@@ -213,7 +207,7 @@
                                                                     </div>                     
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-3">
                                                                 <h5>Foto : </h5>
                                                                 <img src="{{asset('public/upload/news/'.$news->foto)}}" width="100px" alt="">
                                                             </div>
@@ -222,13 +216,14 @@
                                                     <div class="section__action">
                                                         <div class="list__section__action">
 
-                                                                    <a href="{{route('adminNews.edit',$news->id)}}" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
+                                                                    <a href="{{route('news.edit',$news->id)}}" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
                                                                                 <span>
                                                                                     <i class="la la-pencil"></i>
                                                                                     <span>Edit List</span>
                                                                                 </span>
                                                                             </a>    
-                                                                    <a href="{{route('adminNews.destroy',$news->id)}}" class="btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only m_sweetalert_5 btn-delete">
+                                                                            
+                                                                    <a href="{{route('news.destroy',$news->id)}}" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
                                                                         <span>
                                                                             <i class="la la-trash"></i>
                                                                         <span>Delete</span>
@@ -267,17 +262,10 @@
             </div>
         </div>
     <!-- end:: Body -->
-<<<<<<< HEAD
 
 
   </div>
   @endforeach
-=======
-    </div>
-</div>
-</div>
-
->>>>>>> 9aab8e122e168031277468ba9a3fbbf51cd2caa3
   <!-- end:: Page -->
 
   <!-- begin::Scroll Top -->
@@ -287,33 +275,29 @@
 
   <!-- end::Scroll Top -->
 @endsection
-<<<<<<< HEAD
-@section('js')
+@section('admin-js')
     
     <script>
         $(document).ready(function(){
 
             $('.btn-delete').click(function(e){
-            e.preventDefault();
-            var link_news = $(this).attr('href');
-            console.log(link_news)
-            swal({
-                title:'Are you sure?',
-                type:'warning',
-                showCancelButton:true,
-                cancelButtonColor:'#d33',
-                confirmButtonColor:'#3085d6',
-            }).then((result)=>{
-                if(result.value){
-                    window.location.href = link_news;
-                    console.log('Button delete clicked');
-                }
-            })
-        });
+                e.preventDefault();                
+                var link_project = $(this).attr('href');
+                swal({
+                    title: 'Are you sure?',
+                    type:'warning',
+                    showCancelButton:true,
+                    cancelButtonColor:'#d33',
+                    confirmButtonColoro:'#3085d6'
+                }).then((result)=>{
+                    if(result.value){
+                        window.location.href= link_project;
+                        console.log('delete button clicked');
+                    }
+                });
+            });
 
         });
     </script>
 
 @endsection
-=======
->>>>>>> 9aab8e122e168031277468ba9a3fbbf51cd2caa3

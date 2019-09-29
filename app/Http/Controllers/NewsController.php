@@ -16,7 +16,7 @@ class NewsController extends Controller
     public function index()
     {
         $data = News::latest()->paginate(10);
-        return view('admin.news',compact('data'));
+        return view('admin.news.news',compact('data'));
     }
 
     /**
@@ -26,7 +26,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.news.create-news');
     }
 
     /**
@@ -59,7 +59,7 @@ class NewsController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('adminNews.index')->with('success','Berhasil menambahkan workshop');
+        return redirect()->route('news.index')->with('success','Berhasil menambahkan workshop');
         // dd($create);
     }
 
@@ -83,7 +83,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $news = News::where('id',$id)->first();
-        return view('admin.edit-news',compact('news'));
+        return view('admin.news.edit-news',compact('news'));
     }
 
     /**
@@ -115,7 +115,7 @@ class NewsController extends Controller
                 'foto' => $namaBaru,
                 'description' => $request->description            
             ]);
-            return redirect()->route('adminNews.index')->with('success','Berhasil menambahkan workshop');
+            return redirect()->route('news.index')->with('success','Berhasil menambahkan workshop');
         }
 
     /**

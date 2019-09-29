@@ -128,7 +128,7 @@
                         <ul class="content-ul schedule-ul">
                             <li>
                                 <span class="icon-schedule">
-                                    <i class="fas fa-location"></i>
+                                    <i class="fa fa-map-maker"></i>
                                 </span>
                             </li>
 
@@ -173,6 +173,19 @@
                                 </p>
                             </li>
                         </ul>
+                        <ul class="content-ul schedule-ul">
+                                <li>
+                                    <span class="icon-schedule">
+                                        <i class="fa-map-maker"></i>
+                                    </span>
+                                </li>
+    
+                                <li>
+                                    <p>
+                                        {{$new->location}}
+                                    </p>
+                                </li>
+                            </ul>
                         <div class="sub-title-schedule">
                             <h4>
                                 {{ucfirst($new->title)}}

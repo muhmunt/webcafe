@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard | Tambah Artikel')
+@section('title','Dashboard | Edit Artikel')
 
 @include('layouts.admin.header.index')
 @include('layouts.admin.header.left')
@@ -19,7 +19,7 @@
         <div class="m-subheader ">
           <div class="d-flex align-items-center">
             <div class="mr-auto">
-              <h3 class="m-subheader__title ">Tambah Artikel</h3>
+              <h3 class="m-subheader__title ">Edit Artikel</h3>
             </div>
             <div>
               <span
@@ -101,15 +101,16 @@
                                                         <i class="la la-edit"></i>
                                                     </span>
                                                     <h3 class="m-portlet__head-text">
-                                                        Tambah Artikel Workshop
+                                                        Edit Artikel Workshop
                                                     </h3>
                                                 </div>
                                             </div>
                                         </div>
     
                                         <!--begin::Form-->
-                                    <form class="m-form m-form--state m-form--label-align-left" action="{{ route('adminNews.store') }}" method="POST" enctype="multipart/form-data">
-                                            {{ csrf_field() }}
+                                    <form class="m-form m-form--state m-form--label-align-left" action="{{ route('news.update',$news->id) }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="m-portlet__body">
                                                 <div class="row">
                                                     <div class="col-xl-12">
@@ -117,14 +118,14 @@
                                                             <div class="form-group m-form__group row">
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Judul Workshop</label>
-                                                                    <input type="text" name="title" class="form-control m-input" placeholder="Masukkan Judul">
+                                                                    <input type="text" name="title" value="{{ucfirst($news->title)}}" class="form-control m-input" placeholder="Masukkan Judul">
                                                                     <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
                                                                     <span class="m-form__help">Please enter your text</span>
                                                                 </div>
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                         <label class="form-control-label">Tanggal & waktu</label>
                                                                         <div class="m-input-icon pull-right">
-                                                                            <input type="text" name="tgl" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                            <input type="text" name="tgl" value="{{$news->tgl}}" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
                                                                             <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
                                                                         </div>
                                                                     </div>
@@ -136,11 +137,11 @@
                                                                 
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Pengisi Workshop</label>
-                                                                    <input type="text" class="form-control" name="author" placeholder="Masukkan Nama">
+                                                                    <input type="text" class="form-control" name="author" placeholder="Masukkan Nama" value="{{ucfirst($news->author)}}">
                                                                 </div>
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Lokasi Workshop</label>
-                                                                    <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi">
+                                                                    <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi"   value="{{$news->location}}">
                                                                 </div>
                                                                 
                                                             </div>
@@ -149,6 +150,7 @@
                                                                             <label class="form-control-label">Upload gambar</label>
                                                                             <div class="input-group file-input">
                                                                                 <input type="file" class="upload" multiple name="foto">
+                                                                                <input type="hidden" name="fotoLama" value="{{$news->foto}}">
                                                                                 <input class="form-control" placeholder="No File Selected" type="text">
                                                                                 <span class="remove-file"><i class="la la-times-circle"></i></span>
                                                                                 <div class="input-group-append">
@@ -160,7 +162,7 @@
                                                             <div class="form-group m-form__group row">
                                                                     <div class="col-sm-12">
                                                                         <label class="col-form-labe">Deskripsi (optional)</label>
-                                                                        <textarea name="description" required id="m_summernote_1" class="summernote" cols="30" rows="10"></textarea>
+                                                                    <textarea name="description" required id="m_summernote_1" class="summernote" cols="30" rows="10">{{$news->description}}</textarea>
                                                                     </div>
                                                                 </div>
                                                            
@@ -172,7 +174,7 @@
                                                 <div class="m-form__actions m-form__actions--solid">
                                                     <div class="row">
                                                         <div class="col-xl-12 m--align-right">
-                                                            <button type="submit" class="btn btn-danger btn-sm m-btn--pill m-btn--air m-btn--wide">Submit</button>
+                                                            <button type="submit" class="btn btn-danger btn-sm m-btn--pill m-btn--air m-btn--wide">Update</button>
                                                             <button type="reset" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">Cancel</button>	
                                                         </div>
                                                     </div>

@@ -176,11 +176,7 @@ a {
 .bg-coffe{
     position: relative;
     background-position: right;
-<<<<<<< HEAD
-    background-image: url(../img/background/co-work.png);
-=======
     background-image: url(../img/ui-images/coffe-work-ui.png);
->>>>>>> 9321c99730214fb5d4f5038e93f229a077bcbf29
     background-size: 50%;
     background-repeat: no-repeat;
 }

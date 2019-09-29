@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Gallery;
 use App\Participant;
+use App\News;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,8 @@ class HomeController extends Controller
         //dd('sdfsd');
         $galleries = Gallery::all();
         $participants = Participant::all();
+        $news = News::latest()->paginate(3);
 
-        return view('home')->with(compact('galleries','participants'));
+        return view('home')->with(compact('galleries','participants','news'));
     }
 }
