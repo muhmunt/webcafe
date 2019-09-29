@@ -10,8 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/','PageController@index');
+// Route::get('/','PageController@index');
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -23,7 +24,6 @@ Route::get('/', 'HomeController@index')->name('home');
 //     return view('layouts.get');
 // });
 
-Auth::routes();
 
 
 Route::middleware('auth')->group(function(){

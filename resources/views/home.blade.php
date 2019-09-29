@@ -143,10 +143,10 @@
                                 {{ucfirst($new->title)}}
                             </h4>
                         </div>
-                        <div class="main-schedule">
-                            <p>
-                                {!! $new->description !!}
-                            </p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {!! html_entity_decode($new->description)!!}
+                            </div>
                         </div>
                         <div class="content-top-space">
                             <a href="#" class="readmore">
@@ -331,9 +331,11 @@
                                     <h4>
                                         {{ $p->title }}
                                     </h4>
-                                    <p class="card-text p-1 pt-4">
-                                        {!! $p->description !!}
-                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            {!! html_entity_decode($p->description)!!}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
