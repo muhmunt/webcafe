@@ -295,9 +295,11 @@
                                         <img src="{{asset('public/upload/participants/'.$p->picture)}}" class="mx-auto rounded-circle" style="height:50%;width:50%">
                                     </div>
                                     <h4>
+                                        lorem ips
                                         {{ $p->title }}
                                     </h4>
                                     <p class="card-text p-1 pt-4">
+                                        
                                         {!! $p->description !!}
                                     </p>
                                 </div>
