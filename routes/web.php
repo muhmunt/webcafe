@@ -24,8 +24,6 @@ Route::get('/', 'HomeController@index')->name('home');
 //     return view('layouts.get');
 // });
 
-
-
 Route::middleware('auth')->group(function(){
     Route::prefix('admin')->middleware('admin')->group(function(){
 

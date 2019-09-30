@@ -332,8 +332,10 @@
                                         {{ $p->title }}
                                     </h4>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            {!! html_entity_decode($p->description)!!}
+                                        <div class="col-md-12">
+                                            <p>
+                                                {!! $p->description!!}    
+                                            </p>      
                                         </div>
                                     </div>
                                 </div>
