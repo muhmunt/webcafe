@@ -15,8 +15,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $data = News::latest()->paginate(10);
-        return view('admin.news.news',compact('data'));
+        $news = News::latest()->paginate(10);
+        return view('admin.news.news',compact('news'));
     }
 
     /**
@@ -42,7 +42,7 @@ class NewsController extends Controller
             'tgl' => 'required',
             'author' => 'required',
             'location' => 'required',
-            'foto' => 'required',    
+            'foto' => 'required',
         ]);
 
         $foto = $request->file('foto');
@@ -107,13 +107,13 @@ class NewsController extends Controller
                 $namaBaru = $foto;
             }
 
-        $update = News::where('id',$id)->update([            
+        $update = News::where('id',$id)->update([
                 'title' => $request->title,
                 'tgl' => $request->tgl,
                 'author' => $request->author,
                 'location' => $request->location,
                 'foto' => $namaBaru,
-                'description' => $request->description            
+                'description' => $request->description
             ]);
             return redirect()->route('news.index')->with('success','Berhasil menambahkan workshop');
         }

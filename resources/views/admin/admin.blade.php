@@ -1,20 +1,18 @@
 @extends('layouts.admin.app')
 @section('title','Dashboard | Home')
 
-@include('layouts.admin.header.index')
-@include('layouts.admin.header.left')
-@section('content')    
+@section('content')
 
 <!-- begin:: Page -->
 <div class="m-grid m-grid--hor m-grid--root m-page">
         <!-- BEGIN: Header -->
-        
-  
+
+
         <!-- begin::Body -->
         <div
           class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body"
-        >          
-          
+        >
+
           <div class="m-grid__item m-grid__item--fluid m-wrapper">
             <!-- BEGIN: Subheader -->
             <div class="m-subheader ">
@@ -43,7 +41,7 @@
                 </div>
               </div>
             </div>
-  
+
             <!-- END: Subheader -->
             <div class="m-content">
               <!--Begin::Section-->
@@ -205,11 +203,11 @@
                           </span>
                         </div>
                       </div>
-  
+
                       <!--end::Widget 5-->
                     </div>
                   </div>
-  
+
                   <!--end:: Widgets/Top Products-->
                 </div>
                 <div class="col-xl-4">
@@ -373,7 +371,7 @@
                       </div>
                     </div>
                   </div>
-  
+
                   <!--end:: Widgets/Activity-->
                 </div>
                 <div class="col-xl-4">
@@ -454,27 +452,27 @@
                       </div>
                     </div>
                   </div>
-  
+
                   <!--end:: Widgets/Blog-->
                 </div>
               </div>
-  
+
               <!--End::Section-->
-  
-              
-  
+
+
+
         <!-- end:: Body -->
-  
-  
+
+
       </div>
-  
+
       <!-- end:: Page -->
-  
+
       <!-- begin::Scroll Top -->
       <div id="m_scroll_top" class="m-scroll-top">
         <i class="la la-arrow-up"></i>
       </div>
-  
+
       <!-- end::Scroll Top -->
 
 @endsection

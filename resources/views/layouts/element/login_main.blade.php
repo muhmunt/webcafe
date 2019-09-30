@@ -40,15 +40,10 @@
 
     <!-- begin:: Page -->
 
-        @include('layouts.element.navbar')
-
-            @include('layouts.element.sidebar')
-
             @section('content')
 
             @show
 
-        @include('layouts.element.footer')
 
 
     <!-- begin::Scroll Top -->

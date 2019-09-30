@@ -1,19 +1,17 @@
 @extends('layouts.admin.app')
 @section('title','Dashboard | Edit Artikel')
 
-@include('layouts.admin.header.index')
-@include('layouts.admin.header.left')
-@section('content')    
+@section('content')
 
 <div class="m-grid m-grid--hor m-grid--root m-page">
     <!-- BEGIN: Header -->
-    
+
 
     <!-- begin::Body -->
     <div
       class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body"
-    >          
-      
+    >
+
       <div class="m-grid__item m-grid__item--fluid m-wrapper">
         <!-- BEGIN: Subheader -->
         <div class="m-subheader ">
@@ -44,9 +42,9 @@
         </div>
 
         <!-- END: Subheader -->
-        <div class="m-content">                      
+        <div class="m-content">
 
-            <!--Begin::Section-->            
+            <!--Begin::Section-->
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
                 <div class="m-alert m-alert--icon alert m-alert--square alert-danger m--margin-bottom-25" role="alert">
@@ -106,7 +104,7 @@
                                                 </div>
                                             </div>
                                         </div>
-    
+
                                         <!--begin::Form-->
                                     <form class="m-form m-form--state m-form--label-align-left" action="{{ route('news.update',$news->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
@@ -130,11 +128,11 @@
                                                                         </div>
                                                                     </div>
                                                             </div>
-                                                            
-                                                            
+
+
                                                             <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space"></div>
                                                             <div class="form-group m-form__group row">
-                                                                
+
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Pengisi Workshop</label>
                                                                     <input type="text" class="form-control" name="author" placeholder="Masukkan Nama" value="{{ucfirst($news->author)}}">
@@ -143,7 +141,7 @@
                                                                     <label class="form-control-label">Lokasi Workshop</label>
                                                                     <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi"   value="{{$news->location}}">
                                                                 </div>
-                                                                
+
                                                             </div>
                                                             <div class="form-group m-form__group row">
                                                                     <div class="col-lg-6 m-form__group-sub">
@@ -155,7 +153,7 @@
                                                                                 <span class="remove-file"><i class="la la-times-circle"></i></span>
                                                                                 <div class="input-group-append">
                                                                                     <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
-                                                                                </div>		
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                             </div>
@@ -165,7 +163,7 @@
                                                                     <textarea name="description" required id="m_summernote_1" class="summernote" cols="30" rows="10">{{$news->description}}</textarea>
                                                                     </div>
                                                                 </div>
-                                                           
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -175,27 +173,25 @@
                                                     <div class="row">
                                                         <div class="col-xl-12 m--align-right">
                                                             <button type="submit" class="btn btn-danger btn-sm m-btn--pill m-btn--air m-btn--wide">Update</button>
-                                                            <button type="reset" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">Cancel</button>	
+                                                            <a href="{{route('news.index')}}" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">Cancel</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
-    
+
                                         <!--end::Form-->
                                     </div>
-    
+
                                     <!--End::Portlet-->
                                 </div>
                             </div>
-    
+
                             <!--End::Section-->
-                            
-
-    <!-- end:: Body -->
-
-
-  </div>
+                      </div>
+                      </div>
+                      </div>
+                      </div>
 
   <!-- end:: Page -->
 

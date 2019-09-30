@@ -1,8 +1,6 @@
 @extends('layouts.admin.app')
 @section('title','Dashboard | Participant')
 
-@include('layouts.admin.header.index')
-@include('layouts.admin.header.left')
 @section('content')
 
 <div class="m-grid m-grid--hor m-grid--root m-page">

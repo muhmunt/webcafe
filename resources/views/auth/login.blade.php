@@ -1,13 +1,13 @@
-@extends('layouts.admin.app')
+@extends('layouts.element.login_main')
 @section('title','Dashboard | Login')
 @section('content')
     <!-- begin:: Page -->
 		<div class="m-grid m-grid--hor m-grid--root m-page">
 			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--desktop m-grid--ver-desktop m-grid--hor-tablet-and-mobile m-login m-login--6 m-login--signin" id="m_login">
-				<div class="m-grid__item m-grid__item--order-tablet-and-mobile-2  m-grid m-grid--hor m-login__aside " style="background-image: url(public/img/background/dashboard.png);">
+				<div class="m-grid__item m-grid__item--order-tablet-and-mobile-2  m-grid m-grid--hor m-login__aside " style="background-image: url(public/img/ui-images/login6-bdp.png);">
 					<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver">
 						<div class="m-grid__item m-grid__item--middle m--align-center">
-							<a href="{{url('/')}}" class="m-login__subtitle m-link" target="_blank">View Frontend<i class="la la-external-link"></i></a>
+
 						</div>
 					</div>
 					<div class="m-grid__item">
@@ -39,7 +39,7 @@
                             <!--begin::Form-->
                             <form method="POST" action="{{ route('login') }}">
 								@csrf
-								
+
 								<div class="form-group m-form__group">
 									<div class="input-group file-input">
 										<div class="input-group-append">
@@ -67,28 +67,28 @@
 												</span>
 											@enderror
 										</div>
-        
-									</div>    
-									
+
+									</div>
+
 									<div class="form-group row">
 											<div class="col-md-6">
 												<div class="form-check">
 													<input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-				
+
 													<label class="form-check-label" for="remember">
 														{{ __('Remember Me') }}
 													</label>
 												</div>
 											</div>
 										</div>
-					
+
 											<div class="form-group row mb-0">
 												<div class="col-md-8 offset-md-4">
 													<button type="submit" class="btn btn-danger m-btn--pill">
 														{{ __('Sign in  ') }}
 													</button>
 												</div>
-											</div>						        
+											</div>
                             </form>
 
 							{{-- <form class="m-form m-form--state" action="">
@@ -105,7 +105,7 @@
 										<input class="form-control m-input" type="password" placeholder="Password" name="password">
 										<div class="input-group-append">
 											<span class="input-group-text"><i class="la la-unlock"></i></span>
-										</div>	
+										</div>
 									</div>
 								</div>
 								<div class="row m-login__form-sub">
@@ -141,7 +141,7 @@
 										<input class="form-control m-input" type="email" placeholder="Email" name="email">
 										<div class="input-group-append">
 											<span class="input-group-text"><i class="la la-envelope"></i></span>
-										</div>	
+										</div>
 									</div>
 								</div>
 								<div class="m-login__action justify-content-center">
@@ -154,13 +154,13 @@
 							<!--end::Form-->
 
 							<!--begin::Action-->
-							
+
 							<!--end::Action-->
 
-						
+
 
 						</div>
-						
+
 						<div class="m-login__account">
 							<span>© 2019</span>
 							<a href="#" class="m-link m--font-primary">WebClient</a>
