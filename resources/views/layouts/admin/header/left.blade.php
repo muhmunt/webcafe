@@ -39,9 +39,9 @@
                 <i class="m-menu__section-icon flaticon-more-v2"></i>
               </li>
               <li class="m-menu__item" aria-haspopup="true">
-                <a href="{{url('/admin/news')}}" class="m-menu__link m-menu__toggle"
-                  ><i class="m-menu__link-icon la la-calendar"></i
-                  ><span class="m-menu__link-text">Workshop</span></a
+                <a href="{{route('news.index')}}" class="m-menu__link m-menu__toggle"
+                  ><i class="m-menu__link-icon la la-tags"></i
+                  ><span class="m-menu__link-text">News</span></a
                 >
               </li>
               <li class="m-menu__item" aria-haspopup="true">

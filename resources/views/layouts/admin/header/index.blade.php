@@ -75,7 +75,7 @@
                 <div class="m-stack__item m-topbar__nav-wrapper">
                   <ul class="m-topbar__nav m-nav m-nav--inline flex">
                     <li id="view-frontend" class="m-nav__item">
-                      <a href="#" class="m-menu__link">
+                      <a href="{{url('/')}}" class="m-menu__link">
                         <span class=" m-menu__link-text">View Frontend</span>
                         <i class="m-menu__link-icon la la-external-link"></i>
                       </a>
