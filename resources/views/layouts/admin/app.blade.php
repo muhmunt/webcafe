@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('/public/assets/demo/default/media/img/logo/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('/public/assets/customize.css') }}">
 
+
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/public/images/logo_compact.png') }}">
 
     <title>@yield('title')</title>
@@ -65,6 +66,8 @@
     <script src="{{ asset('public/assets/demo/default/base/scripts.bundle.js') }}"></script>
     <script src="{{ asset('public/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
     <script src="{{ asset('public/assets/app/js/dashboard.js') }}"></script>
+
+    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
 
     <script src="{{asset('public/assets/customize.js')}}"></script>
     <script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/autosize.js')}}"></script>

@@ -38,6 +38,7 @@
 <script src="{{ asset('public/js/jquery.min.js') }}"></script>
 <script src="{{ asset('public/js/tilt.jquery.min.js') }}"></script>
 <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('public/vendor/jsvalidation/js/jsvalidation.min.js') }}"></script>
 <script src="{{ asset('public/js/aos.js') }}"></script>
 <script src="{{ asset('public/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('public/js/waves.min.js') }}"></script>

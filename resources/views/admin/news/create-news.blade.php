@@ -117,43 +117,59 @@
                                                                     <label class="form-control-label">Judul Workshop</label>
                                                                     <input type="text" name="title" class="form-control m-input" placeholder="Masukkan Judul">
                                                                     <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-                                                                    <span class="m-form__help">Please enter your text</span>
+                                                                    {{-- <span class="m-form__help">Please enter your text</span> --}}
                                                                 </div>
-                                                                <div class="col-lg-6 m-form__group-sub">
-                                                                        <label class="form-control-label">Tanggal & waktu</label>
-                                                                        <div class="m-input-icon pull-right">
-                                                                            <input type="text" name="tgl" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
-                                                                            <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
-                                                                        </div>
-                                                                    </div>
-                                                            </div>
-
-
-                                                            <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space"></div>
-                                                            <div class="form-group m-form__group row">
 
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Pengisi Workshop</label>
                                                                     <input type="text" class="form-control" name="author" placeholder="Masukkan Nama">
                                                                 </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Lokasi Workshop</label>
                                                                     <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi">
                                                                 </div>
 
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Jumlah Seat</label>
+                                                                    <input type="text" name="seat" class="form-control m-input" placeholder="Masukkan Jumlah Seat">
+                                                                    <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Waktu Mulai</label>
+                                                                    <div class="m-input-icon pull-right">
+                                                                        <input type="text" name="tgl_mulai" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Waktu Berakhir</label>
+                                                                    <div class="m-input-icon pull-right">
+                                                                        <input type="text" name="tgl_akhir" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
+                                                                    </div>
+                                                                </div>
+
                                                             </div>
                                                             <div class="form-group m-form__group row">
-                                                                    <div class="col-lg-6 m-form__group-sub">
-                                                                            <label class="form-control-label">Upload gambar</label>
-                                                                            <div class="input-group file-input">
-                                                                                <input type="file" class="upload" multiple name="foto">
-                                                                                <input class="form-control" placeholder="No File Selected" type="text">
-                                                                                <span class="remove-file"><i class="la la-times-circle"></i></span>
-                                                                                <div class="input-group-append">
-                                                                                    <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
-                                                                                </div>
-                                                                            </div>
+
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Upload gambar</label>
+                                                                    <div class="input-group file-input">
+                                                                        <input type="file" class="upload" multiple name="foto">
+                                                                        <input class="form-control" placeholder="No File Selected" type="text">
+                                                                        <span class="remove-file"><i class="la la-times-circle"></i></span>
+                                                                        <div class="input-group-append">
+                                                                            <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
                                                                         </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div class="form-group m-form__group row">
                                                                     <div class="col-sm-12">
@@ -170,7 +186,7 @@
                                                 <div class="m-form__actions m-form__actions--solid">
                                                     <div class="row">
                                                         <div class="col-xl-12 m--align-right">
-                                                            <button type="submit" class="btn btn-danger btn-sm m-btn--pill m-btn--air m-btn--wide">Submit</button>
+                                                            <button type="submit" class="btn btn-primary btn-sm m-btn--pill m-btn--air m-btn--wide">Submit</button>
                                                             <a href="{{route('news.index')}}" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">Cancel</a>
                                                         </div>
                                                     </div>

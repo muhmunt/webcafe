@@ -39,8 +39,10 @@ class NewsController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'tgl' => 'required',
+            'tgl_mulai' => 'required',
+            'tgl_akhir' => 'required',
             'author' => 'required',
+            'seat' => 'required',
             'location' => 'required',
             'foto' => 'required',
         ]);
@@ -52,9 +54,11 @@ class NewsController extends Controller
 
         $create = News::create([
             'title' => $request->title,
-            'tgl' => $request->tgl,
+            'tgl_mulai' => $request->tgl_mulai,
+            'tgl_akhir' => $request->tgl_akhir,
             'author' => $request->author,
             'location' => $request->location,
+            'seat' => $request->seat,
             'foto' => $namafile,
             'description' => $request->description
         ]);
@@ -109,9 +113,11 @@ class NewsController extends Controller
 
         $update = News::where('id',$id)->update([
                 'title' => $request->title,
-                'tgl' => $request->tgl,
+                'tgl_mulai' => $request->tgl_mulai,
+                'tgl_akhir' => $request->tgl_akhir,
                 'author' => $request->author,
                 'location' => $request->location,
+                'seat' => $request->seat,
                 'foto' => $namaBaru,
                 'description' => $request->description
             ]);
