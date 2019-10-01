@@ -13,18 +13,7 @@ form {
   background-color: #f1f1f1;
 }
  
-input[type=text], input[type=submit] {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
- 
-input[type=checkbox] {
-  margin-top: 16px;
-}
+
  
 input[type=submit] {
   background-color: #4CAF50;
@@ -38,22 +27,20 @@ input[type=submit]:hover {
 </style>
 <body>
  
-<h2>CSS Newsletter</h2>
- 
-<form >
   <div class="container">
-    <h2>Subscribe to our Newsletter</h2>
-    <p>Click the below button to subscribe.</p>
-  </div>
- 
-  <div class="container" style="background-color:white">
-    <h1>INI BISA GAGMMMM</h1>
-  </div>
- 
-  <div class="container">
-    <input type="submit" value="Subscribe">
-  </div>
-</form>
- 
+    <img src="{{$foto}}" style="background-size:cover; width:100%; height:20vh; background-position:center" alt="">
+    
+    <div class="main">
+        <h3 class="text-center text-secondary">Uncle Jo Workshop</h3>
+        <br>
+        <p>Halo {{$nama}}, Anda sudah terdaftar di workshop bersama Uncle Jo. Silahkan lakukan pembayaran melalui REK BNI. NO.REK 03420239821389892</p>
+        <p class="text-muted">Setelah membayar silahkan kirim bukti transaksi ke whatsapp dibawah ini.</p>
+        <p class="text-muted">Terimakasih</p>
+        <a href=" https://wa.me/6282217376369?text=Halo%20Admin,%20Saya%20ingin%20mengirim%20bukti%20transfer%20untuk%20Workshop%20hari%20ini"><i class="fab fa-whatsapp"></i>klik disini untuk ke Whatsapp</a>
+    </div>
+
+  </div> 
+
+
 </body>
 </html>

@@ -86,21 +86,12 @@ class AdminAccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $cek = User::where('id',$id)->first();
-        if($request->name == $cek->name | $request->email == $cek->email ){
-            $this->validate($request,[
-                'password' => 'required|min:6|confirmed',
-                'password_confirmation' => 'required|min:6'
-            ]);
-        }else{
-            $this->validate($request,[
-                'name' => 'required|unique:users,name|max:255',
-                'email' => 'required|unique:users,email',
-                'password' => 'required|min:6|confirmed',
-                'password_confirmation' => 'required|min:6'
-            ]);
-        }    
+    {                
+        $this->validate($request,[
+            'email' => 'required|unique:users,email,'.$id,
+            'password' => 'required|min:6|confirmed',
+            'password_confirmation' => 'required|min:6'
+        ]); 
 
         User::where('id',$id)->update([
             'name' => $request->name,

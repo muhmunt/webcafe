@@ -389,35 +389,43 @@
             <h2 class="text-center mb-5">
                 Segera <span style="color:#f44336">Daftarkan</span> diri anda
             </h2>
+            @if ($news->count() == '')
+            <div class="col-md-6">
+                <h3>Maaf Belum ada Workshop untuk saat ini. </h3>
+            </div>
+            @else
+
             <form action="{{ route('register_workshop') }}" method="post" id="form-register">
-            @csrf
-            <div class="row pt-3 pb-5">
-                <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="">Nama anda:</label>
-                      <input type="text" name="nama" id="" class="form-control" placeholder="Masukkan Nama" aria-describedby="helpId">
-                      <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
-                    </div>
-                    <div class="form-group">
-                      <label for="">Email anda:</label>
-                      <input type="text" name="email" id="" class="form-control" placeholder="Masukkan Email" aria-describedby="helpId">
-                      <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
-                    </div>
-                    <div class="row">
+                    @csrf
+                    <div class="row pt-3 pb-5">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Nomor Telp anda:</label>
-                                <input type="number" name="nomor" id="" class="form-control" placeholder="Masukkan Nama" aria-describedby="helpId">
-                                <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
+                              <label for="">Nama anda:</label>
+                              <input type="text" name="nama" id="" class="form-control" placeholder="Masukkan Nama" aria-describedby="helpId">
+                              <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
                             </div>
+                            <div class="form-group">
+                              <label for="">Email anda:</label>
+                              <input type="text" name="email" id="" class="form-control" placeholder="Masukkan Email" aria-describedby="helpId">
+                              <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Nomor Telp anda:</label>
+                                        <input type="number" name="nomor" id="" class="form-control" placeholder="Masukkan No Telp " aria-describedby="helpId">
+                                        <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="status" value="0">
+                            <button class="mt- btn btn-primary" type="submit">Daftar</button>
+        
                         </div>
-                    </div>
-                    <input type="hidden" name="new_id" value="">
-                    <input type="hidden" name="status" value="0">
-                    <button class="mt- btn btn-primary" type="submit">Daftar</button>
-
-                </div>
-                </form>
+                        </form>
+            
+            @endif
+            
                 <div class="col-md-6 map-row">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.423576425507!2d106.79017751419727!3d-6.594160466293701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5b645cddd15%3A0xb95bfdfda7eb8dc!2sUncle%20Jo%20Coffee%20Shop!5e0!3m2!1sen!2sid!4v1568857639806!5m2!1sen!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                 </div>

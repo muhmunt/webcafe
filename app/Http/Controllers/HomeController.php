@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Gallery;
 use App\Participant;
 use App\News;
+use JsValidator;
+use Illuminate\Validation\Validator;
 use Mail;
 
 class HomeController extends Controller

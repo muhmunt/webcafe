@@ -115,26 +115,26 @@
                                                             <div class="form-group m-form__group row">
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Judul Workshop</label>
-                                                                    <input type="text" name="title" class="form-control m-input" placeholder="Masukkan Judul">
+                                                                    <input type="text" name="title" required class="form-control m-input" placeholder="Masukkan Judul">
                                                                     <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
                                                                     {{-- <span class="m-form__help">Please enter your text</span> --}}
                                                                 </div>
 
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Pengisi Workshop</label>
-                                                                    <input type="text" class="form-control" name="author" placeholder="Masukkan Nama">
+                                                                    <input type="text" required class="form-control" name="author" placeholder="Masukkan Nama">
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group m-form__group row">
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Lokasi Workshop</label>
-                                                                    <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi">
+                                                                    <input type="text" class="form-control" name="location" required placeholder="Masukkan Lokasi">
                                                                 </div>
 
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Jumlah Seat</label>
-                                                                    <input type="text" name="seat" class="form-control m-input" placeholder="Masukkan Jumlah Seat">
+                                                                    <input type="number" name="seat"  required class="form-control m-input" placeholder="Masukkan Jumlah Seat">
                                                                     <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
 
                                                                 </div>
@@ -144,14 +144,14 @@
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Waktu Mulai</label>
                                                                     <div class="m-input-icon pull-right">
-                                                                        <input type="text" name="tgl_mulai" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                        <input type="text" name="tgl_mulai" required class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
                                                                         <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Waktu Berakhir</label>
                                                                     <div class="m-input-icon pull-right">
-                                                                        <input type="text" name="tgl_akhir" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                        <input type="text" name="tgl_akhir" class="form-control" id="m_datetimepicker_3" readonly required placeholder="Pilih tanggal dan waktu" />
                                                                         <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
                                                                     </div>
                                                                 </div>

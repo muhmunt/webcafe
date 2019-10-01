@@ -8,6 +8,7 @@ use App\News;
 use JsValidator;
 use Illuminate\Validation\Validator;
 use App\Http\Requests\RegisterWorkshopRequest;
+use Mail;
 
 class RegisterWorkshopController extends Controller
 {
@@ -47,15 +48,28 @@ class RegisterWorkshopController extends Controller
         $seat_update = $seat_order < $seat ;
 
         //dd($seat_update);
-
-        if($seat_update){
-            RegisterWorkshop::create([
+        // $create = [];
+        if($seat_update){            
+            $create = RegisterWorkshop::create([
                 'nama' => $request->nama,
                 'email' => $request->email,
                 'number_telp' => $request->nomor,
                 'new_id' => $new->id,
                 'status' => $request->status,
             ]);
+
+            // dd($ambil);      
+            $email = $request->email;          
+                Mail::send('gmailview',array(
+                    'nama'=>$request->get('nama'),
+                    'email'=>$request->get('email'),
+                    'foto'=>'public/images/confirm1.png'
+                
+                    ),function($message) use ($email){
+                        $message->to($email,'Pendaftaran Workshop Uncle Jo')
+                        ->subject('Pendaftaran Workshop Uncle Jo');
+                        $message->from('agamtwiche@gmail.com',' Uncle JO Coffe Shop');
+                });            
 
             $message = 'Selamat '. $request->nama .', Berhasil Terdaftar Dalam Work Shop';
             $skinMessage = 'success';
@@ -68,8 +82,7 @@ class RegisterWorkshopController extends Controller
             $bg = 'public/images/denied.png';
             $icon = 'la-exclamation-triangle';
         }
-
-
+            
 
         return view('layouts.registered')
             ->with(compact(
