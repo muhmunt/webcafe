@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard | Participants')
+@section('title','Dashboard | Create Admin Account')
 @section('content')
 
 <div class="m-grid m-grid--hor m-grid--root m-page">
@@ -32,7 +32,7 @@
                         <li class="m-nav__separator">-</li>
                         <li class="m-nav__item">
                             <a href="" class="m-nav__link">
-                                <span class="m-nav__link-text">Add Picture</span>
+                                <span class="m-nav__link-text">Add Admin Account</span>
                             </a>
                         </li>
                     </ul>
@@ -42,6 +42,50 @@
 
         <!-- END: Subheader -->
         <div class="m-content">
+                @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="m-alert m-alert--icon alert m-alert--square alert-danger m--margin-bottom-25" role="alert">
+                    <div class="m-alert__icon">
+                        <i class="la la-exclamation-triangle"></i>
+                    </div>
+                    <div class="m-alert__text">
+                        {{$error}}
+                    </div>
+                    <div class="m-alert__close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                </div>
+                @endforeach
+            @endif
+            @if (session('warning'))
+            <div class="m-alert m-alert--icon alert m-alert--square alert-warning m--margin-bottom-25" role="alert">
+                <div class="m-alert__icon">
+                    <i class="la la-exclamation-triangle"></i>
+                </div>
+                <div class="m-alert__text">
+                    {{session('warning')}}
+                </div>
+                <div class="m-alert__close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+            </div>
+            @endif
+            @if (session('success'))
+            <div class="m-alert m-alert--icon alert m-alert--square alert-success m--margin-bottom-25" role="alert">
+                <div class="m-alert__icon">
+                    <i class="la la-exclamation-triangle"></i>
+                </div>
+                <div class="m-alert__text">
+                    {{session('success')}}
+                </div>
+                <div class="m-alert__close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+            </div>
+            @endif
 			<div class="row">
                 <div class="col-xl-12">
                     <!--Begin::Portlet-->
@@ -54,14 +98,14 @@
                                             <i class="la la-table"></i>
                                         </span>
                                         <h3 class="m-portlet__head-text">
-                                            Participants Add
+                                            Add Admin Account
                                         </h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <form action="{{ route('participants.store') }}" method="POST" enctype="multipart/form-data" class="m-form m-form--state m-form--label-align-left">
+                        <form action="{{ route('adminAccount.store') }}" method="POST" class="m-form m-form--state m-form--label-align-left">
                             @csrf
                             <div class="m-portlet__body">
                                 <div class="row">
@@ -71,37 +115,53 @@
 
 												<div class="col-lg-6 m-form__group-sub">
 													<label class="form-control-label">
-                                                        Title
+                                                        Name
                                                     </label>
-													<input type="text" name="title" class="form-control m-input" placeholder="Enter text">
+													<input type="text" name="name" class="form-control m-input" placeholder="Enter admin Name">
 													<div class="form-control-feedback">
                                                         Sorry, that username's taken. Try another?
                                                     </div>
 													<span class="m-form__help">
-                                                        Please enter your text
+                                                        Please enter your name
                                                     </span>
                                                 </div>
                                                 <div class="col-lg-6 m-form__group-sub">
-                                                    <label class="form-control-label">Gambar</label>
-													<div class="input-group file-input">
-														<input type="file" name="file" class="upload" multiple>
-														<input class="form-control"  name="picture" placeholder="No File Selected" type="text">
-														<span class="remove-file"><i class="la la-times-circle"></i></span>
-														<div class="input-group-append">
-															<button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
-														</div>
-													</div>
+                                                    <label class="form-control-label">Email</label>
+													<input type="email" name="email" class="form-control m-input" placeholder="Enter admin Email">
                                                 </div>
 
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-12 m-form__group-sub">
-                                                    <label class="col-form-labe">
-                                                        Description
+
+												<div class="col-lg-6 m-form__group-sub">
+													<label class="form-control-label">
+                                                        Password
                                                     </label>
-                                                    <textarea class="summernote" name="description" id="m_summernote_1"></textarea>
+													<input type="password" name="password" class="form-control m-input" placeholder="Enter password">	
+													<span class="m-form__help">
+                                                        Please enter your password
+                                                    </span>
                                                 </div>
+                                                <div class="col-lg-6 m-form__group-sub">
+                                                    <label class="form-control-label">Confirm Password</label>
+													<input type="password" name="password_confirmation" class="form-control m-input" placeholder="Enter Confirm password">
+                                                </div>
+
                                             </div>
+                                            <div class="form-group m-form__group row">
+
+												<div class="col-lg-6 m-form__group-sub">
+													<label class="form-control-label">
+                                                        Hak Akses
+                                                    </label>
+                                                    <select name="role" class="form-control" id="">
+                                                        <option value="1">Admin</option>
+                                                        <option value="2">Super Admin</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +173,7 @@
                                             <button type="submit" class="btn btn-danger btn-sm m-btn--pill m-btn--air m-btn--wide">
                                                 Submit
                                             </button>
-                                            <a href="{{route('participants.index')}}" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">Cancel</a>
+                                            <a href="{{route('adminAccount.index')}}" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">Cancel</a>
                                         </div>
                                     </div>
                                 </div>

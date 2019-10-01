@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Gallery;
 use App\Participant;
 use App\News;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -21,12 +22,28 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        //dd('sdfsd');
+    {        
         $galleries = Gallery::all();
         $participants = Participant::all();
         $news = News::latest()->paginate(3);
 
         return view('home')->with(compact('galleries','participants','news'));
+    }
+
+    public function sendGmail(){
+        $data = array('name'=>"Sam Jose", "body" => "Test mail");
+    
+        Mail::send('gmailview', $data, function($message) {
+            $message->to('muhmunt@gmail.com', 'Agam Bocil')
+            ->subject('From Laravel With Gmail');
+            $message->from('dimasroger89@gmail.com',' Rogersovich');
+ 
+          });
+ 
+          if (Mail::failures()) {
+            return response()->Fail('Sorry! Please try again latter');
+          }else{
+            return response()->json('Yes, You have sent email to GMAIL from LARAVEL !!');
+          }
     }
 }

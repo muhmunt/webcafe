@@ -113,9 +113,7 @@
                                             <button type="submit" class="btn btn-danger btn-sm m-btn--pill m-btn--air m-btn--wide">
                                                 Submit
                                             </button>
-                                            <button type="reset" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">
-                                                Cancel
-                                            </button>
+                                            <a href="{{route('galleries.index')}}" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">Cancel</a>
                                         </div>
                                     </div>
                                 </div>

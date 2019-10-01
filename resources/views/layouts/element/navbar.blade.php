@@ -179,12 +179,15 @@ m-minimize-mobile-offset="200"
                           class="m-nav__separator m-nav__separator--fit"
                         ></li>
                         <li class="m-nav__item">
-                          <a href="login.html" class="m-nav__link">
-                            <i
-                              class="m-nav__link-icon la la-sign-out"
-                            ></i>
-                            <span class="m-nav__link-text">Logout</span>
-                          </a>
+                          <a class="dropdown-item text-center" id="text-admin" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                       </ul>
                     </div>

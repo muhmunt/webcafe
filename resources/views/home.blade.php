@@ -385,6 +385,7 @@
             <h2 class="text-center mb-5">
                 Segera <span style="color:#f44336">Daftarkan</span> diri anda
             </h2>
+            <a href="https://wa.me/6285716433458?text=Saya%20tertarik%20untuk%20membeli%20mobil%20Anda">chat wa</a>
             <div class="row pt-3 pb-5">
                 <div class="col-md-6">
                     <div class="form-group">

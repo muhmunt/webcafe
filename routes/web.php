@@ -12,17 +12,8 @@
 */
 Auth::routes();
 
-// Route::get('/','PageController@index');
-
-Route::get('/', 'HomeController@index')->name('home');
-
-// Route::get('/profile', function () {
-//     return view('layouts.profile');
-// });
-
-// Route::get('/get', function () {
-//     return view('layouts.get');
-// });
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/sendgmail', 'HomeController@sendGmail');
 
 Route::middleware('auth')->group(function(){
     Route::prefix('admin')->middleware('admin')->group(function(){
@@ -43,7 +34,12 @@ Route::middleware('auth')->group(function(){
             'show','destroy'
         ]);
 
+        Route::resource('adminAccount', 'AdminAccountController')->except([
+            'show','destroy'
+        ]);
+
         Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
+        Route::get('/account/{account}','AdminAccountController@destroy')->name('account.destroy');
         Route::get('admin/galleries/{gallery}','GalleryController@destroy')->name('galleries.destroy');
         Route::get('admin/participants/{participant}','ParticipantController@destroy')->name('participants.destroy');
     });
