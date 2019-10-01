@@ -16,8 +16,12 @@
                 {{-- <h1 class="text-center text-white rounded-circle"><i class="fas fa-coffee fa-2x"></i> </h1> --}}
                 <img style="width: 100px;" src="{{ asset('/public/img/UNCLE-JO/logo1.png') }}">
                 {{-- HEADING --}}
-                <h2 class="display-3 font-weight-bold text-white mb-2" align="center">Uncle Jo</h2>
-                <p class="text-center text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia a doloremque </p>
+                <h2 class="display-3 font-weight-bold text-white mb-2" align="center">
+                    WorkShop Bisnis Coffee
+                </h2>
+                <p class="text-center text-white">
+                    How To Make a Coffee
+                </p>
                 <button class="btn btn-primary rounded-pill bg-gradient" type="button" id="start">Start here.</button>
                 {{-- BUTTON --}}
                 </div>
@@ -385,7 +389,8 @@
             <h2 class="text-center mb-5">
                 Segera <span style="color:#f44336">Daftarkan</span> diri anda
             </h2>
-            <a href="https://wa.me/6285716433458?text=Saya%20tertarik%20untuk%20membeli%20mobil%20Anda">chat wa</a>
+            <form action="{{ route('register_workshop') }}" method="post" id="form-register">
+            @csrf
             <div class="row pt-3 pb-5">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -406,22 +411,13 @@
                                 <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Harga:</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Rp.450.000,00</option>
-                                </select>
-                                <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
-                            </div>
-                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for=""></label>
-                      <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                      <small id="helpId" class="text-muted">Help text</small>
-                    </div>
+                    <input type="hidden" name="new_id" value="">
+                    <input type="hidden" name="status" value="0">
+                    <button class="mt- btn btn-primary" type="submit">Daftar</button>
+
                 </div>
+                </form>
                 <div class="col-md-6 map-row">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.423576425507!2d106.79017751419727!3d-6.594160466293701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5b645cddd15%3A0xb95bfdfda7eb8dc!2sUncle%20Jo%20Coffee%20Shop!5e0!3m2!1sen!2sid!4v1568857639806!5m2!1sen!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                 </div>
@@ -432,6 +428,7 @@
 @endsection
 
 @section('scripts')
+    {!! JsValidator::formRequest('App\Http\Requests\RegisterWorkshopRequest', '#form-register') !!}
     <script>
         $(document).ready(function(){
 

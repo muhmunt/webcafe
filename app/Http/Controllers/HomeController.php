@@ -26,8 +26,9 @@ class HomeController extends Controller
         $galleries = Gallery::all();
         $participants = Participant::all();
         $news = News::latest()->paginate(3);
+        $new = News::where('id','desc')->first();
 
-        return view('home')->with(compact('galleries','participants','news'));
+        return view('home')->with(compact('galleries','participants','news','new'));
     }
 
     public function sendGmail(){

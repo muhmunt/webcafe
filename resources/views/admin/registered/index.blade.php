@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard | Galleries')
+@section('title','Dashboard | Registered Workshop')
 
 @section('content')
 
@@ -26,7 +26,7 @@
                         </li>
                         <li class="m-nav__separator">-</li>
                         <li class="m-nav__item">
-                            <a href="{{ route('news.index') }}" class="m-nav__link">
+                            <a href="{{ route('registered.index') }}" class="m-nav__link">
                                 <span class="m-nav__link-text">Page</span>
                             </a>
                         </li>
@@ -68,13 +68,13 @@
                 </div>
             </div>
             @endif
-            @if (session('success'))
+            @if (session('message'))
             <div class="m-alert m-alert--icon alert m-alert--square alert-success m--margin-bottom-25" role="alert">
                 <div class="m-alert__icon">
-                    <i class="la la-exclamation-triangle"></i>
+                    <i class="la la-check-circle-o"></i>
                 </div>
                 <div class="m-alert__text">
-                    {{session('success')}}
+                    {{session('message')}}
                 </div>
                 <div class="m-alert__close">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -94,21 +94,12 @@
                                             <i class="la la-table"></i>
                                         </span>
                                         <h3 class="m-portlet__head-text">
-                                            Table News
+                                            Table Register Workshop
                                         </h3>
                                     </div>
                                 </div>
                                 <div class="m-portlet__head-tools">
-                                <ul class="m-portlet__nav">
-                                    <li class="m-portlet__nav-item">
-                                        <a href="{{ route('news.create') }}" class="btn m-btn btn-primary btn-sm m-btn--icon m-btn--pill m-btn--air">
-                                            <span>
-                                                <i class="la la-plus"></i>
-                                                <span>Add News</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
+
                             </div>
                             </div>
                         </div>
@@ -117,44 +108,86 @@
                             <table class="table table-bordered" id="table-id">
                                 <thead>
                                     <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Desctription</th>
-                                    <th scope="col">Picture</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Workshop</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">No Telp</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($news as $g)
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($data as $g)
                                     <tr>
-                                        <th>{{ $g->id }}</th>
-                                        <td>{{ $g->title }}</td>
-                                        <td>{!! $g->description !!}</td>
-                                        <td>
-                                            <img src="{{asset('public/upload/news/'.$g->foto)}}" width="100px" alt="foto">
-                                        </td>
+                                        <th>{{$no++}}</th>
+                                        <td>{{ $g->nama }}</td>
+                                        <td>{{ ucfirst($g->news->title) }}</td>
+                                        <td>{{ $g->email }}</td>
+                                        <td>{{ $g->number_telp }}</td>
+                                        <td><div class="section__status">
+                                        @if ( $g->status == '0')
+                                            <span class="m-badge m-badge--warning text-white m-badge--wide">Belum bayar</span>
+                                        @else
+                                            <span class="m-badge m-badge--success m-badge--wide">Bayar</span>
+                                        @endif
+                                        </div></td>
                                         <td>
                                             <div class="section__action">
 												<div class="list__section__action">
+                                                </div>
+                                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--up" m-dropdown-toggle="click" aria-expanded="true">
+														<a href="#" data-toggle="kt-tooltip" data-placement="bottom" title="Action" data-skin="brand" class="btn m-btn btn-outline-metal m-btn--icon btn-sm m-btn--icon-only m-btn--square  m-dropdown__toggle">
+															<i class="la la-ellipsis-h"></i>
+														</a>
+														<div class="m-dropdown__wrapper" style="z-index: 101;">
+														<div class="m-dropdown__inner">
+															<div class="m-dropdown__body">
+																<div class="m-dropdown__content">
+																	<ul class="m-nav">
+																		<li class="m-nav__section m-nav__section--first">
+																			<span class="m-nav__section-text">Quick Actions</span>
+																		</li>
+																		<li class="m-nav__separator m-nav__separator--fit"></li>
+																		<li class="m-nav__item">
+                                                                            <form action="{{route('registered.pay',$g->id)}}" method="POST">
+                                                                            @csrf
+                                                                            @method('put')
+																			@if ($g->status == '1')
+                                                                            <h5>Sudah dibayar</h5>
+                                                                                @else
+                                                                                <button type="submit" class="btn m-btn btn-outline-danger btn-sm" >
+                                                                                        <i class="m-nav__link-icon flat la la-pencil-square"></i>
+                                                                                        <span class="m-nav__link-text">Bayar</span>
+                                                                                    </button>
 
-													<a href="{{ route('news.edit', $g->id) }}" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Edit" class="btn m-btn btn-brand btn-sm m-btn--icon m-btn--air icon-only">
-														<span>
-															<i class="la la-pencil"></i>
-														</span>
-													</a>
-													<a href="{{route('news.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
+                                                                            @endif
+                                                                            </form>
+																		</li>
+																	</ul>
+																	<!--Move Here-->
+																</div>
+															</div>
+														</div>
+														<span class="m-dropdown__arrow m-dropdown__arrow--right"></span>
+													</div>
+                                                    </div>
+                                                    <a href="{{route('registered.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
                                                             <span>
                                                                 <i class="la la-trash"></i>
                                                             <span>Delete</span>
                                                             </span>
                                                         </a>
+                                            </div>
 
-												</div>
 
-											</div>
                                         </td>
                                     </tr>
                                     @endforeach
+                                    {{ $data->render() }}
                                 </tbody>
                             </table>
                         </div>

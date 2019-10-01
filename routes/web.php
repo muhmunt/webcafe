@@ -15,17 +15,19 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/sendgmail', 'HomeController@sendGmail');
 
+Route::post('/registered','RegisterWorkshopController@store')->name('register_workshop');
+
 Route::middleware('auth')->group(function(){
     Route::prefix('admin')->middleware('admin')->group(function(){
 
         Route::get('/',function(){
             return view('admin.admin');
-        })->name('admin');        
+        })->name('admin');
 
         Route::resource('news','NewsController')->except([
             'show','destroy'
         ]);
-                    
+
         Route::resource('galleries', 'GalleryController')->except([
             'show','destroy'
         ]);
@@ -40,6 +42,13 @@ Route::middleware('auth')->group(function(){
 
         Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
         Route::get('/account/{account}','AdminAccountController@destroy')->name('account.destroy');
+        Route::resource('registered', 'RegisterWorkshopController')->except([
+            'show','destroy','create','store','update'
+        ]);
+
+        Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
+        Route::get('/registered/{registered}','RegisterWorkshopController@destroy')->name('registered.destroy');
+        Route::put('/registered/bayar/{registered}','RegisterWorkshopController@update')->name('registered.pay');
         Route::get('admin/galleries/{gallery}','GalleryController@destroy')->name('galleries.destroy');
         Route::get('admin/participants/{participant}','ParticipantController@destroy')->name('participants.destroy');
     });
