@@ -15,19 +15,10 @@ use App\User;
 */
 Auth::routes();
 
-// Route::get('/','PageController@index');
-
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/sendgmail', 'HomeController@sendGmail');
 
 Route::post('/registered','RegisterWorkshopController@store')->name('register_workshop');
-
-// Route::get('/profile', function () {
-//     return view('layouts.profile');
-// });
-
-// Route::get('/get', function () {
-//     return view('layouts.get');
-// });
 
 Route::middleware('auth')->group(function(){
     Route::prefix('admin')->middleware('admin')->group(function(){
@@ -51,10 +42,15 @@ Route::middleware('auth')->group(function(){
             'show','destroy'
         ]);
 
+        Route::resource('adminAccount', 'AdminAccountController')->except([
+            'show','destroy'
+        ]);
+
+        Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
+        Route::get('/account/{account}','AdminAccountController@destroy')->name('account.destroy');
         Route::resource('registered', 'RegisterWorkshopController')->except([
             'show','destroy','create','store','update'
         ]);
-
 
         Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
         Route::get('/registered/{registered}','RegisterWorkshopController@destroy')->name('registered.destroy');

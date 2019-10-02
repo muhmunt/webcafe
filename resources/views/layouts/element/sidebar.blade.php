@@ -20,11 +20,11 @@ class="m-grid__item	m-aside-left  m-aside-left--skin-light "
 >
   <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
     <li class="m-menu__item" aria-haspopup="true">
-        <a href="{{ route('admin') }}" class="m-menu__link ">
+        <a href="{{url('/home')}}" class="m-menu__link ">
             <i class="m-menu__link-icon la la-dashboard"></i>
             <span class="m-menu__link-title">
                 <span class="m-menu__link-wrap">
-                    <span class="m-menu__link-text">Dashboard</span>
+                    <span class="m-menu__link-text">Front End</span>
                 </span>
             </span>
         </a
@@ -51,6 +51,11 @@ class="m-grid__item	m-aside-left  m-aside-left--skin-light "
           ><i class="m-menu__link-icon la la-archive"></i
           ><span class="m-menu__link-text">Particpant Get</span></a
         >
+      </li>
+      <li class="m-menu__item" aria-haspopup="true">
+        <a href="{{ route('adminAccount.index') }}" class="m-menu__link m-menu__toggle"
+          ><i class="m-menu__link-icon la la-user"></i
+          ><span class="m-menu__link-text">Add Admin Account</span></a>
       </li>
       <li class="m-menu__item" aria-haspopup="true">
         <a href="{{ route('registered.index') }}" class="m-menu__link m-menu__toggle"

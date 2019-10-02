@@ -121,11 +121,9 @@
                                     <div class="row">
                                         <div class="col-xl-12 m--align-right">
                                             <button type="submit" class="btn btn-danger btn-sm m-btn--pill m-btn--air m-btn--wide">
-                                                Submit
+                                                Update
                                             </button>
-                                            <button type="reset" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">
-                                                Cancel
-                                            </button>
+                                            <a href="{{route('participants.index')}}" class="btn btn-secondary btn-sm m-btn--wide m-btn--pill m--margin-left-5">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
