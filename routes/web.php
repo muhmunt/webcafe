@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +33,10 @@ Route::middleware('auth')->group(function(){
     Route::prefix('admin')->middleware('admin')->group(function(){
 
         Route::get('/',function(){
-            return view('admin.admin');
+
+            $user = Auth::user();
+
+            return view('admin.admin', compact('user'));
         })->name('admin');
 
         Route::resource('news','NewsController')->except([

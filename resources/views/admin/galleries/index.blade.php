@@ -17,17 +17,17 @@
         <div class="m-subheader ">
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
-                    <h3 class="m-subheader__title m-subheader__title--separator">Page</h3>
+                    <h3 class="m-subheader__title m-subheader__title--separator">Galleries</h3>
                     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                         <li class="m-nav__item m-nav__item--home">
-                            <a href="#" class="m-nav__link m-nav__link--icon">
+                            <a href="{{ route('admin') }}" class="m-nav__link m-nav__link--icon">
                                 <i class="m-nav__link-icon la la-home"></i>
                             </a>
                         </li>
                         <li class="m-nav__separator">-</li>
                         <li class="m-nav__item">
-                            <a href="{{ route('galleries.index') }}" class="m-nav__link">
-                                <span class="m-nav__link-text">Page</span>
+                            <a href="{{ route('galleries.index') }}" class="m-nav__link ">
+                                <span class="m-nav__link-text">Galleries</span>
                             </a>
                         </li>
 
@@ -57,7 +57,7 @@
                                 <div class="m-portlet__head-tools">
                                 <ul class="m-portlet__nav">
                                     <li class="m-portlet__nav-item">
-                                        <a href="{{ route('galleries.create') }}" class="btn m-btn btn-primary btn-sm m-btn--icon m-btn--pill m-btn--air">
+                                        <a href="{{ route('galleries.create') }}" class="btn m-btn btn-brand btn-sm m-btn--icon m-btn--pill m-btn--air">
                                             <span>
                                                 <i class="la la-plus"></i>
                                                 <span>Add Picture</span>
@@ -93,12 +93,12 @@
                                             <div class="section__action">
 												<div class="list__section__action">
 
-													<a href="{{ route('galleries.edit', $g->id) }}" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
+													<a href="{{ route('galleries.edit', $g->id) }}" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Edit" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
 														<span>
 															<i class="la la-pencil"></i>
 														</span>
 													</a>
-													<a href="#" data-id="{{ route('galleries.destroy', $g->id) }}" class="btn m-btn btn-danger btn-sm  m-btn--icon m-btn--pill icon-only m_sweetalert_5">
+													<a href="#" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Delete" data-id="{{ route('galleries.destroy', $g->id) }}" class="btn m-btn btn-danger btn-sm  m-btn--icon m-btn--pill icon-only m_sweetalert_5">
                                                         <span>
 															<i class="la la-trash"></i>
 														</span>
@@ -134,6 +134,10 @@
 @section('admin-js')
   <script>
         $(document).ready(function() {
+
+            $(function () {
+                $('[data-toggle="kt-tooltip"]').tooltip();
+            })
 
             $('.btn-danger').on('click', function() {
 

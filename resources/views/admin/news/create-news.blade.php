@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard | Tambah Artikel')
+@section('title','Dashboard | Tambah Workshop')
 
 @section('content')
 
@@ -17,7 +17,7 @@
         <div class="m-subheader ">
           <div class="d-flex align-items-center">
             <div class="mr-auto">
-              <h3 class="m-subheader__title ">Tambah Artikel</h3>
+              <h3 class="m-subheader__title ">Tambah Workshop</h3>
             </div>
             <div>
               <span
@@ -128,20 +128,6 @@
 
                                                             <div class="form-group m-form__group row">
                                                                 <div class="col-lg-6 m-form__group-sub">
-                                                                    <label class="form-control-label">Lokasi Workshop</label>
-                                                                    <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi">
-                                                                </div>
-
-                                                                <div class="col-lg-6 m-form__group-sub">
-                                                                    <label class="form-control-label">Jumlah Seat</label>
-                                                                    <input type="text" name="seat" class="form-control m-input" placeholder="Masukkan Jumlah Seat">
-                                                                    <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group m-form__group row">
-                                                                <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Waktu Mulai</label>
                                                                     <div class="m-input-icon pull-right">
                                                                         <input type="text" name="tgl_mulai" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
@@ -157,7 +143,25 @@
                                                                 </div>
 
                                                             </div>
+
                                                             <div class="form-group m-form__group row">
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Jumlah Seat</label>
+                                                                    <input type="text" name="seat" class="form-control m-input" placeholder="Masukkan Jumlah Seat">
+                                                                    <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
+
+                                                                </div>
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Lokasi Workshop</label>
+                                                                    <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi">
+                                                                </div>
+                                                            </div>
+
+
+
+                                                            <div class="form-group m-form__group row">
+
+
 
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Upload gambar</label>

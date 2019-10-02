@@ -7,18 +7,18 @@ use Illuminate\Foundation\Http\FormRequest;
 class RegisterWorkshopRequest extends FormRequest
 {
 
-    // public function authorize()
-    // {
-    //     return false;
-    // }
+    public function authorize()
+    {
+        return true;
+    }
 
 
     public function rules()
     {
         return [
             'nama' => 'required',
-            'email' => 'required|email',
-            'nomor' => 'required'
+            'email' => 'required|email|unique:register_workshops,email',
+            'nomor' => 'required|numeric|phone:ID'
         ];
     }
 }

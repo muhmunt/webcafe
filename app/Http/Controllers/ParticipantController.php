@@ -6,21 +6,26 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Participant;
 use View;
+use Illuminate\Support\Facades\Auth;
 
 class ParticipantController extends Controller
 {
     public function index(){
 
+        $user = Auth::user();
+
         $participants = Participant::all();
 
-        return view('admin.participants.index')->with(compact('participants'));
+        return view('admin.participants.index')->with(compact('participants','user'));
     }
 
     public function create(){
+
+        $user = Auth::user();
         $participants = Participant::all();
 
         return View::make('admin.participants.add')
-            ->with(compact('participants'));
+            ->with(compact('participants','user'));
     }
 
     public function store(Request $request){
@@ -42,11 +47,13 @@ class ParticipantController extends Controller
 
     public function edit($id){
 
+        $user = Auth::user();
+
         $participant  = Participant::where('id',$id)->first();
 
 
         return View::make('admin.participants.edit')
-            ->with(compact('participant'));
+            ->with(compact('participant','user'));
 
     }
 

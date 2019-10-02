@@ -8,16 +8,19 @@ use App\News;
 use JsValidator;
 use Illuminate\Validation\Validator;
 use App\Http\Requests\RegisterWorkshopRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterWorkshopController extends Controller
 {
 
     public function index()
     {
-        //dd('sdfsd');
+
+        $user = Auth::user();
+
         $data = RegisterWorkshop::with('News')->latest()->paginate(10);
         // dd($data);
-        return view('admin.registered.index',compact('data'));
+        return view('admin.registered.index',compact('data','user'));
     }
     public function create()
     {

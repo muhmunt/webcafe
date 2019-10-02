@@ -79,9 +79,11 @@ m-minimize-mobile-offset="200"
               m-dropdown-toggle="click"
             >
               <a href="#" class="m-nav__link m-dropdown__toggle">
-                <span class="m-topbar__username">Administrator</span>
+                <span class="m-topbar__username">
+                    {{ $user->name }}
+                </span>
                 <span class="m-topbar__userpic">
-                  <img src="{{ asset('public/assets/app/media/img/users/user4.jpg') }}" class="m--img-rounded m--marginless" />
+                  <img src="{{ asset('public/img/ui-images/user.png') }}" class="m--img-rounded m--marginless" />
                 </span>
               </a>
               <div class="m-dropdown__wrapper">
@@ -95,16 +97,15 @@ m-minimize-mobile-offset="200"
                   >
                     <div class="m-card-user m-card-user--skin-light">
                       <div class="m-card-user__pic">
-                        <img src="{{ asset('public/assets/app/media/img/users/user4.jpg') }}" class="m--img-rounded m--marginless" />
+                        <img src="{{ asset('public/img/ui-images/user.png') }}" class="m--img-rounded m--marginless" />
                       </div>
                       <div class="m-card-user__details">
-                        <span
-                          class="m-card-user__name m--font-weight-500"
-                          >Administrator</span
-                        >
-                        <a href="" class="m-card-user__email m-link"
-                          >admin@4visionmedia.com</a
-                        >
+                        <span class="m-card-user__name m--font-weight-500">
+                            {{ $user->name }}
+                        </span>
+                        <a href="javascript:;" class="m--font-info" style="text-decoration:none;">
+                            {{ $user->email }}
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -117,74 +118,38 @@ m-minimize-mobile-offset="200"
                           >
                         </li>
                         <li class="m-nav__item">
-                          <a href="#!" class="m-nav__link">
+                          <a href="javascript:;" class="m-nav__link">
                             <i class="m-nav__link-icon la la-user"></i>
                             <span class="m-nav__link-text"
                               >My Profile</span
                             >
                           </a>
                         </li>
+
                         <li class="m-nav__item">
-                          <a href="#!" class="m-nav__link">
+                          <a href="{{route('home')}}" class="m-nav__link">
                             <i
-                              class="m-nav__link-icon la la-share-alt"
+                              class="m-nav__link-icon la la-globe"
                             ></i>
-                            <span class="m-nav__link-title">
-                              <span class="m-nav__link-wrap">
-                                <span class="m-nav__link-text"
-                                  >Activity</span
-                                >
-                                <span class="m-nav__link-badge"
-                                  ><span
-                                    class="m-badge m-badge--success"
-                                    >2</span
-                                  ></span
-                                >
-                              </span>
+                            <span class="m-nav__link-text">
+                                Front End
                             </span>
                           </a>
                         </li>
+
                         <li class="m-nav__item">
-                          <a href="#!" class="m-nav__link">
-                            <i
-                              class="m-nav__link-icon la la-comments"
-                            ></i>
-                            <span class="m-nav__link-text"
-                              >Messages</span
-                            >
-                          </a>
-                        </li>
-                        <li
-                          class="m-nav__separator m-nav__separator--fit"
-                        ></li>
-                        <li class="m-nav__item">
-                          <a href="#!" class="m-nav__link">
-                            <i
-                              class="m-nav__link-icon la la-question-circle"
-                            ></i>
-                            <span class="m-nav__link-text">FAQ</span>
-                          </a>
-                        </li>
-                        <li class="m-nav__item">
-                          <a href="#!" class="m-nav__link">
-                            <i
-                              class="m-nav__link-icon la la-life-bouy"
-                            ></i>
-                            <span class="m-nav__link-text"
-                              >Support</span
-                            >
-                          </a>
-                        </li>
-                        <li
-                          class="m-nav__separator m-nav__separator--fit"
-                        ></li>
-                        <li class="m-nav__item">
-                          <a href="login.html" class="m-nav__link">
-                            <i
-                              class="m-nav__link-icon la la-sign-out"
-                            ></i>
-                            <span class="m-nav__link-text">Logout</span>
-                          </a>
+
+                            <a class="m-nav__link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                <i class="m-nav__link-icon la la-sign-out"></i>
+                                <span class="m-nav__link-text">Logout</span>
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+
                         </li>
                       </ul>
                     </div>

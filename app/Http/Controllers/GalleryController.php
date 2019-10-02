@@ -5,22 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Gallery;
+use Illuminate\Support\Facades\Auth;
 use View;
 
 class GalleryController extends Controller
 {
     public function index(){
 
+        $user = Auth::user();
+
         $galleries = Gallery::all();
 
-        return view('admin.galleries.index')->with(compact('galleries'));
+        return view('admin.galleries.index')->with(compact('galleries', 'user'));
     }
 
     public function create(){
+        $user = Auth::user();
         $galleries = Gallery::all();
 
         return View::make('admin.galleries.add')
-            ->with(compact('galleries'));
+            ->with(compact('galleries','user'));
     }
 
     public function store(Request $request){
@@ -44,11 +48,13 @@ class GalleryController extends Controller
 
     public function edit($id){
 
+        $user = Auth::user();
+
         $gallery  = Gallery::where('id',$id)->first();
 
 
         return View::make('admin.galleries.edit')
-            ->with(compact('gallery'));
+            ->with(compact('gallery','user'));
 
     }
 

@@ -2,7 +2,7 @@
 @section('title','Dashboard | Registered')
 @section('content')
 
-<div class="container">
+    <div class="container">
     <div class="m-alert m-alert--icon alert m-alert--square alert-{{ $skinMessage }} m--margin-bottom-25" role="alert">
         <div class="m-alert__icon">
             <i class="la {{ $icon }}"></i>

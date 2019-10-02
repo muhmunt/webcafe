@@ -5,18 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\News;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
+        $user = Auth::user();
+
         $news = News::latest()->paginate(10);
-        return view('admin.news.news',compact('news'));
+        return view('admin.news.news',compact('news','user'));
     }
 
     /**
@@ -26,7 +25,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create-news');
+        $user = Auth::user();
+        return view('admin.news.create-news', compact('user'));
     }
 
     /**
@@ -86,8 +86,10 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
+
         $news = News::where('id',$id)->first();
-        return view('admin.news.edit-news',compact('news'));
+        return view('admin.news.edit-news',compact('news','user'));
     }
 
     /**
