@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\News;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\WorkshopRequest;
 
 class NewsController extends Controller
 {
@@ -18,34 +19,19 @@ class NewsController extends Controller
         return view('admin.news.news',compact('news','user'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $user = Auth::user();
         return view('admin.news.create-news', compact('user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(Request $request, WorkshopRequest $requests)
     {
-        $this->validate($request,[
-            'title' => 'required',
-            'tgl_mulai' => 'required',
-            'tgl_akhir' => 'required',
-            'author' => 'required',
-            'seat' => 'required',
-            'location' => 'required',
-            'foto' => 'required',
-        ]);
+        //dd($requests);
+        $validated = $requests->validated();
+        //dd($validated);
 
         $foto = $request->file('foto');
         $namafile = Carbon::now()->timestamp . '_' . uniqid() . '.' . $foto->getClientOriginalExtension();

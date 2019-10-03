@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Gallery;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\GalleryRequest;
 use View;
 
 class GalleryController extends Controller
@@ -27,9 +28,9 @@ class GalleryController extends Controller
             ->with(compact('galleries','user'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, GalleryRequest $requests){
 
-        //dd($request->all());
+        $validated = $requests->validated();
 
         $gambar = $request->file('file');
         //dd($gambar);
