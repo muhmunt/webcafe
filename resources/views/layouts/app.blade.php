@@ -35,7 +35,7 @@
 
         @include('layouts.footer.index')
 </body>
-<script src="{{ asset('public/js/jquery.min.js') }}"></script>
+<script src="{{ asset('public/js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('public/js/tilt.jquery.min.js') }}"></script>
 <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('public/vendor/jsvalidation/js/jsvalidation.min.js') }}"></script>

@@ -17,23 +17,31 @@
         <div class="m-subheader ">
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
-                    <h3 class="m-subheader__title m-subheader__title--separator">Page</h3>
+                    <h3 class="m-subheader__title m-subheader__title--separator">Galleries</h3>
                     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                         <li class="m-nav__item m-nav__item--home">
-                            <a href="#" class="m-nav__link m-nav__link--icon">
+                            <a href="{{ route('admin') }}" class="m-nav__link m-nav__link--icon">
                                 <i class="m-nav__link-icon la la-home"></i>
                             </a>
                         </li>
                         <li class="m-nav__separator">-</li>
                         <li class="m-nav__item">
-                            <a href="" class="m-nav__link">
-                                <span class="m-nav__link-text">Page</span>
+                            <a href="{{ route('galleries.index') }}" class="m-nav__link ">
+                                <span class="m-nav__link-text">Galleries</span>
                             </a>
                         </li>
                         <li class="m-nav__separator">-</li>
                         <li class="m-nav__item">
-                            <a href="" class="m-nav__link">
-                                <span class="m-nav__link-text">Add Picture</span>
+                            <a href="{{ route('galleries.edit', $gallery->id) }}" class="m-nav__link ">
+                                <span class="m-nav__link-text">Edit</span>
+                            </a>
+                        </li>
+                        <li class="m-nav__separator">-</li>
+                        <li class="m-nav__item">
+                            <a href="javascript:;" class="m-nav__link ">
+                                <span class="m-nav__link-text">
+                                    {{$gallery->id }}
+                                </span>
                             </a>
                         </li>
                     </ul>

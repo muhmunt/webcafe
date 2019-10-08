@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard | Galleries')
+@section('title','Dashboard | Workshop')
 
 @section('content')
 
@@ -17,19 +17,20 @@
         <div class="m-subheader ">
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
-                    <h3 class="m-subheader__title m-subheader__title--separator">Page</h3>
+                    <h3 class="m-subheader__title m-subheader__title--separator">Workshop</h3>
                     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                         <li class="m-nav__item m-nav__item--home">
-                            <a href="#" class="m-nav__link m-nav__link--icon">
+                            <a href="{{ route('admin') }}" class="m-nav__link m-nav__link--icon">
                                 <i class="m-nav__link-icon la la-home"></i>
                             </a>
                         </li>
                         <li class="m-nav__separator">-</li>
                         <li class="m-nav__item">
-                            <a href="{{ route('news.index') }}" class="m-nav__link">
-                                <span class="m-nav__link-text">Page</span>
+                            <a href="{{ route('news.index') }}" class="m-nav__link ">
+                                <span class="m-nav__link-text">Workshop</span>
                             </a>
                         </li>
+
 
                     </ul>
                 </div>
@@ -94,17 +95,17 @@
                                             <i class="la la-table"></i>
                                         </span>
                                         <h3 class="m-portlet__head-text">
-                                            Table News
+                                            Table Workshop
                                         </h3>
                                     </div>
                                 </div>
                                 <div class="m-portlet__head-tools">
                                 <ul class="m-portlet__nav">
                                     <li class="m-portlet__nav-item">
-                                        <a href="{{ route('news.create') }}" class="btn m-btn btn-primary btn-sm m-btn--icon m-btn--pill m-btn--air">
+                                        <a href="{{ route('news.create') }}" class="btn m-btn btn-brand btn-sm m-btn--icon m-btn--pill m-btn--air">
                                             <span>
                                                 <i class="la la-plus"></i>
-                                                <span>Add News</span>
+                                                <span>Add Workshop</span>
                                             </span>
                                         </a>
                                     </li>
@@ -120,16 +121,35 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Desctription</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Waktu</th>
+                                    <th scope="col">Seat</th>
                                     <th scope="col">Picture</th>
                                     <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                     @php
+                                        $no = 1;
+                                    @endphp
                                     @foreach ($news as $g)
                                     <tr>
-                                        <th>{{ $g->id }}</th>
+                                        <th>{{ $no++ }}</th>
                                         <td>{{ $g->title }}</td>
                                         <td>{!! $g->description !!}</td>
+                                        @php
+                                            $tgl = date("Y-m-d", strtotime($g->tgl_mulai));
+                                            $mulai = date("H:i", strtotime($g->tgl_mulai));
+                                            $akhir = date("H:i", strtotime($g->tgl_akhir));
+                                            $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
+                                        @endphp
+                                        <td>
+                                            {{ $tanggal }}
+                                        </td>
+                                        <td>
+                                            {{ $mulai.' - '.$akhir }}
+                                        </td>
+                                        <td>{{ $g->seat }}</td>
                                         <td>
                                             <img src="{{asset('public/upload/news/'.$g->foto)}}" width="100px" alt="foto">
                                         </td>
@@ -137,7 +157,7 @@
                                             <div class="section__action">
 												<div class="list__section__action">
 
-													<a href="{{ route('news.edit', $g->id) }}" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Edit" class="btn m-btn btn-brand btn-sm m-btn--icon m-btn--air icon-only">
+													<a href="{{ route('news.edit', $g->id) }}" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Edit" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
 														<span>
 															<i class="la la-pencil"></i>
 														</span>

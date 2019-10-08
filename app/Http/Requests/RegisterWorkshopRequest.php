@@ -17,8 +17,8 @@ class RegisterWorkshopRequest extends FormRequest
     {
         return [
             'nama' => 'required',
-            'email' => 'required|email',
-            'nomor' => 'required'
+            'email' => 'required|email|unique:register_workshops,email',
+            'nomor' => 'required|numeric|phone:ID'
         ];
     }
 }

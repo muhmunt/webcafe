@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard | Edit Artikel')
+@section('title','Dashboard | Edit Workshop')
 
 @section('content')
 
@@ -16,29 +16,37 @@
         <!-- BEGIN: Subheader -->
         <div class="m-subheader ">
           <div class="d-flex align-items-center">
-            <div class="mr-auto">
-              <h3 class="m-subheader__title ">Edit Artikel</h3>
+                <div class="mr-auto">
+                    <h3 class="m-subheader__title m-subheader__title--separator">Workshop</h3>
+                    <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                        <li class="m-nav__item m-nav__item--home">
+                            <a href="{{ route('admin') }}" class="m-nav__link m-nav__link--icon">
+                                <i class="m-nav__link-icon la la-home"></i>
+                            </a>
+                        </li>
+                        <li class="m-nav__separator">-</li>
+                        <li class="m-nav__item">
+                            <a href="{{ route('news.index') }}" class="m-nav__link ">
+                                <span class="m-nav__link-text">Workshop</span>
+                            </a>
+                        </li>
+                        <li class="m-nav__separator">-</li>
+                        <li class="m-nav__item">
+                            <a href="{{ route('news.edit', $news->id) }}" class="m-nav__link ">
+                                <span class="m-nav__link-text">Edit</span>
+                            </a>
+                        </li>
+                        <li class="m-nav__separator">-</li>
+                        <li class="m-nav__item">
+                            <a href="javascript:;" class="m-nav__link ">
+                                <span class="m-nav__link-text">
+                                    {{$news->id }}
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div>
-              <span
-                class="m-subheader__daterange"
-                id="m_dashboard_daterangepicker"
-              >
-                <span class="m-subheader__daterange-label">
-                  <span class="m-subheader__daterange-title"></span>
-                  <span
-                    class="m-subheader__daterange-date m--font-brand"
-                  ></span>
-                </span>
-                <a
-                  href="#"
-                  class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill"
-                >
-                  <i class="la la-angle-down"></i>
-                </a>
-              </span>
-            </div>
-          </div>
         </div>
 
         <!-- END: Subheader -->
@@ -99,7 +107,7 @@
                                                         <i class="la la-edit"></i>
                                                     </span>
                                                     <h3 class="m-portlet__head-text">
-                                                        Edit Artikel Workshop
+                                                        Edit Workshop
                                                     </h3>
                                                 </div>
                                             </div>
@@ -127,8 +135,6 @@
 
                                                             </div>
 
-
-                                                            <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space"></div>
                                                             <div class="form-group m-form__group row">
 
                                                                 <div class="col-lg-6 m-form__group-sub">
@@ -152,8 +158,13 @@
                                                             <div class="form-group m-form__group row">
 
                                                                 <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Jumlah Seat</label>
+                                                                    <input type="text" class="form-control" name="seat" value="{{$news->seat}}">
+                                                                </div>
+
+                                                                <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Lokasi Workshop</label>
-                                                                    <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi"   value="{{$news->location}}">
+                                                                    <input type="text" class="form-control" name="location" value="{{$news->location}}">
                                                                 </div>
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Seat</label>

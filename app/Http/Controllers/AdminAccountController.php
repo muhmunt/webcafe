@@ -4,18 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class AdminAccountController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+        $user = Auth::user();
+
         $data = User::latest()->paginate(5);
-        return view('admin.adminaccount.index',compact('data'));
+        return view('admin.adminaccount.index',compact('data','user'));
     }
 
     /**
@@ -25,7 +23,9 @@ class AdminAccountController extends Controller
      */
     public function create()
     {
-        return view('admin.adminaccount.add');
+        $user = Auth::user();
+
+        return view('admin.adminaccount.add', compact('user'));
     }
 
     /**
@@ -48,7 +48,7 @@ class AdminAccountController extends Controller
             'email' => $request->email,
             'password' => $request->password,
             'role' => $request->role
-        ]); 
+        ]);
 
         // dd($create);
 
@@ -74,8 +74,10 @@ class AdminAccountController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
+
         $admin = User::where('id',$id)->first();
-        return view('admin.adminaccount.edit',compact('admin'));
+        return view('admin.adminaccount.edit',compact('admin','user'));
     }
 
     /**
@@ -86,12 +88,12 @@ class AdminAccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {                
+    {
         $this->validate($request,[
             'email' => 'required|unique:users,email,'.$id,
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6'
-        ]); 
+        ]);
 
         User::where('id',$id)->update([
             'name' => $request->name,
