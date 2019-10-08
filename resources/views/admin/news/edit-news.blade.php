@@ -155,7 +155,10 @@
                                                                     <label class="form-control-label">Lokasi Workshop</label>
                                                                     <input type="text" class="form-control" name="location" placeholder="Masukkan Lokasi"   value="{{$news->location}}">
                                                                 </div>
-
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Seat</label>
+                                                                    <input type="text" class="form-control" name="seat" placeholder="Masukkan Lokasi"   value="{{$news->seat}}">
+                                                                </div>
                                                                 <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Upload gambar</label>
                                                                     <div class="input-group file-input">

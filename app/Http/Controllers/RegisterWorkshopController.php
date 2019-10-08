@@ -48,6 +48,11 @@ class RegisterWorkshopController extends Controller
         $seat_update = $seat_order < $seat ;
 
         //dd($seat_update);
+        $this->validate($request,[
+            'nama' => 'required|alpha',
+            'email' => 'required|email',
+            'nomor' => 'required|numeric'
+        ]);
         // $create = [];
         if($seat_update){            
             $create = RegisterWorkshop::create([
@@ -55,7 +60,7 @@ class RegisterWorkshopController extends Controller
                 'email' => $request->email,
                 'number_telp' => $request->nomor,
                 'new_id' => $new->id,
-                'status' => $request->status,
+                'status' => 0,
             ]);
 
             // dd($ambil);      
@@ -63,7 +68,7 @@ class RegisterWorkshopController extends Controller
                 Mail::send('gmailview',array(
                     'nama'=>$request->get('nama'),
                     'email'=>$request->get('email'),
-                    'foto'=>'public/images/confirm1.png'
+                    'foto'=>'public/images/confirm1.png',
                 
                     ),function($message) use ($email){
                         $message->to($email,'Pendaftaran Workshop Uncle Jo')

@@ -13,6 +13,7 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/landing', 'HomeController@landing')->name('landing');
 Route::get('/sendgmail', 'HomeController@sendGmail');
 
 Route::post('/registered','RegisterWorkshopController@store')->name('register_workshop');

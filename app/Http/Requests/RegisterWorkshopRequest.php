@@ -7,10 +7,10 @@ use Illuminate\Foundation\Http\FormRequest;
 class RegisterWorkshopRequest extends FormRequest
 {
 
-    // public function authorize()
-    // {
-    //     return false;
-    // }
+    public function authorize()
+    {
+        return true;
+    }
 
 
     public function rules()

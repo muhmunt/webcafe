@@ -7,14 +7,11 @@
         </div>
     @endif
 <header>
-
     <div id="intro" class="view" style="height:120vh; width:100%;">
         <div class="container-fluid full-bg-img d-flex align-items-center justify-content-center mx-auto" style="padding-top:230px">
             <div class="row d-flex justify-content-center">
-                <div class="col-md-10 text-center">
-                {{-- LOGO --}}
-                {{-- <h1 class="text-center text-white rounded-circle"><i class="fas fa-coffee fa-2x"></i> </h1> --}}
-                <img style="width: 100px;" src="{{ asset('/public/img/UNCLE-JO/logo1.png') }}">
+                <div class="col-md-10 text-center">                
+                <img style="width: 100px;" class="text-center" src="{{ asset('/public/img/UNCLE-JO/logo1.png') }}">
                 {{-- HEADING --}}
                 <h2 class="display-3 font-weight-bold text-white mb-2" align="center">
                     WorkShop Bisnis Coffee
@@ -277,7 +274,7 @@
                 <div class="container">
                     <div class="row mx-auto">
                         @foreach ($galleries as $g)
-                        <div class="col-md-4 galleries-img" style="padding: 10px;">
+                        <div class="col-md-4 card" style="padding: 10px;border-radius: 30px;">
                             <a href="{{asset('public/upload/galleries/'.$g->picture)}}" data-lightbox="roadtrip">
                                 <img class="img-gallery js-tilt" data-tilt src="{{asset('public/upload/galleries/'.$g->picture)}}">
                             </a>
@@ -296,12 +293,10 @@
 
         .galleries-img:hover{
             /* border: 1px #fdcb6e solid; */
-            /* background: rgba(33, 33, 33, 0.9); */
-
+            /* background: rgba(33, 33, 33, 0.9); */            
         }
 
-        .img-gallery{
-
+        .img-gallery{            
             width: 100%;
             height: 250px;
         }

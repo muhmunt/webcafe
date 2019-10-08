@@ -11,16 +11,15 @@ a {
 }
 
 #intro{
-    margin-top: -80px;
+    /* margin-top: -80px; */
     background: linear-gradient(rgba(0, 0, 0, 0.459),rgba(0, 0, 0, 0.432),rgba(0, 0, 0, 0.6)),url(../img/content/coffe.jpg);
+    background-size:cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     -webkit-background-size:cover;
     -moz-background-size:cover;
     -o-background-size:cover;
-    background-size:cover;
-
 }
 
 .bg-gradient{

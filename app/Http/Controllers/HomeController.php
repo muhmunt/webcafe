@@ -17,7 +17,24 @@ class HomeController extends Controller
      *
      * @return void
      */
+    public function landing(){
+      
 
+      $galleries = Gallery::latest()->paginate(6);
+      $participants = Participant::all();
+      $news = News::latest()->paginate(3);
+
+      foreach ($news as $key => $v) {
+          if ($key === 0) {
+            $color = 'primary';
+          }elseif($key == 1){
+            $color = 'success';
+          }else{
+            $color = 'info';
+          }
+      }
+      return view('landing',compact('galleries','participants','news','color'));
+    }
     /**
      * Show the application dashboard.
      *
