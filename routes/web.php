@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Gallery;
+use App\Participant;
+use App\News;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,25 @@ use App\User;
 |
 */
 Auth::routes();
+
+// Route::get('/',function(){
+
+//     $galleries = Gallery::latest()->paginate(6);
+//     $participants = Participant::all();
+//     $news = News::latest()->paginate(3);
+
+//     foreach ($news as $key => $v) {
+//           if ($key === 0) {
+//             $color = 'primary';
+//           }elseif($key == 1){
+//             $color = 'success';
+//           }else{
+//             $color = 'info';
+//           }
+//       }
+//       return view('landing',compact('galleries','participants','news','color'));
+
+// });
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/landing', 'HomeController@landing')->name('landing');

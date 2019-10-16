@@ -10,7 +10,7 @@
     <div id="intro" class="view" style="height:120vh; width:100%;">
         <div class="container-fluid full-bg-img d-flex align-items-center justify-content-center mx-auto" style="padding-top:230px">
             <div class="row d-flex justify-content-center">
-                <div class="col-md-10 text-center">                
+                <div class="col-md-10 text-center">
                 <img style="width: 100px;" class="text-center" src="{{ asset('/public/img/UNCLE-JO/logo1.png') }}">
                 {{-- HEADING --}}
                 <h2 class="display-3 font-weight-bold text-white mb-2" align="center">
@@ -60,7 +60,7 @@
     {{-- <hr style="width:70%;text-align:center"> --}}
 
     <section class="section-padding bg-youtube" id="youtube" >
-        <div class="container" id="youtube" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
             <div class="title-padding text-center">
                 <h2 class="text-white">
                     Nonton dulu biar makin<span style="color:#f44336">Yakin!</span>  <i class="fas fa-coffee text-white"></i>
@@ -293,10 +293,10 @@
 
         .galleries-img:hover{
             /* border: 1px #fdcb6e solid; */
-            /* background: rgba(33, 33, 33, 0.9); */            
+            /* background: rgba(33, 33, 33, 0.9); */
         }
 
-        .img-gallery{            
+        .img-gallery{
             width: 100%;
             height: 250px;
         }

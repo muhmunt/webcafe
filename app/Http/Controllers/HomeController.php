@@ -18,11 +18,16 @@ class HomeController extends Controller
      * @return void
      */
     public function landing(){
-      
+
 
       $galleries = Gallery::latest()->paginate(6);
       $participants = Participant::all();
       $news = News::latest()->paginate(3);
+      $new = News::orderBy(
+          'id', 'desc'
+        )->first();
+
+      //dd($new);
 
       foreach ($news as $key => $v) {
           if ($key === 0) {
@@ -33,7 +38,7 @@ class HomeController extends Controller
             $color = 'info';
           }
       }
-      return view('landing',compact('galleries','participants','news','color'));
+      return view('landing',compact('galleries','participants','news','new','color'));
     }
     /**
      * Show the application dashboard.
@@ -41,7 +46,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {        
+    {
         $galleries = Gallery::all();
         $participants = Participant::all();
         $news = News::latest()->paginate(3);
@@ -52,14 +57,14 @@ class HomeController extends Controller
 
     public function sendGmail(){
         $data = array('name'=>"Sam Jose", "body" => "Test mail");
-    
+
         Mail::send('gmailview', $data, function($message) {
             $message->to('muhmunt@gmail.com', 'Agam Bocil')
             ->subject('From Laravel With Gmail');
             $message->from('dimasroger89@gmail.com',' Rogersovich');
- 
+
           });
- 
+
           if (Mail::failures()) {
             return response()->Fail('Sorry! Please try again latter');
           }else{
