@@ -70,6 +70,7 @@
                         </div>
 
                         <div class="m-portlet__body">
+                            <div class="m_datatable">
                             <table class="table table-bordered" id="table-id">
                                 <thead>
                                     <tr>
@@ -111,6 +112,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
                     </div>

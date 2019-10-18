@@ -36,6 +36,7 @@
                             <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif --}}
+
                     <li class="nav-item">
                         <a class="nav-link text-white" id="nav-workshop" href="#workshop">{{ __('Workshop') }}</a>
                     </li>

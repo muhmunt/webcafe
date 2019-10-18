@@ -18,27 +18,12 @@ use App\News;
 */
 Auth::routes();
 
-// Route::get('/',function(){
+Route::get('/',function(){
 
-//     $galleries = Gallery::latest()->paginate(6);
-//     $participants = Participant::all();
-//     $news = News::latest()->paginate(3);
-
-//     foreach ($news as $key => $v) {
-//           if ($key === 0) {
-//             $color = 'primary';
-//           }elseif($key == 1){
-//             $color = 'success';
-//           }else{
-//             $color = 'info';
-//           }
-//       }
-//       return view('landing',compact('galleries','participants','news','color'));
-
-// });
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/landing', 'HomeController@landing')->name('landing');
+    return redirect('/home');
+});
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@landing')->name('landing');
 Route::get('/sendgmail', 'HomeController@sendGmail');
 
 Route::post('/registered','RegisterWorkshopController@store')->name('register_workshop');

@@ -34,6 +34,8 @@ class RegisterWorkshopController extends Controller
         //dd($requests->validated());
         $validated = $requests->validated();
 
+        // dd($request->all());
+
         $registered = RegisterWorkshop::all();
 
         if(empty($registered )){
@@ -46,18 +48,13 @@ class RegisterWorkshopController extends Controller
 
         $seat = $new->seat;
 
-        //dd($request->all());
-
         $seat_update = $seat_order < $seat ;
 
-        //dd($seat_update);
-        $this->validate($request,[
-            'nama' => 'required|alpha',
-            'email' => 'required|email',
-            'nomor' => 'required|numeric'
-        ]);
+        //dd($request->all());
+
         // $create = [];
         if($seat_update){
+            // dd('rest');
             $create = RegisterWorkshop::create([
                 'nama' => $request->nama,
                 'email' => $request->email,
@@ -66,13 +63,13 @@ class RegisterWorkshopController extends Controller
                 'status' => 0,
             ]);
 
-            // dd($ambil);
             $email = $request->email;
                 Mail::send('gmailview',array(
                     'nama'=>$request->get('nama'),
                     'email'=>$request->get('email'),
+                    'tgl' => $new->tgl_mulai,
                     'foto'=>'public/images/confirm1.png',
-                
+
                     ),function($message) use ($email){
                         $message->to($email,'Pendaftaran Workshop Uncle Jo')
                         ->subject('Pendaftaran Workshop Uncle Jo');

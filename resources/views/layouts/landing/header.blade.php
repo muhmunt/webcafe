@@ -1,3 +1,13 @@
+<style>
+    #text-logout:hover{
+        color: #3b3b3b!important;
+    }
+
+    #text-dashboard:hover{
+        color: #3b3b3b!important;
+    }
+</style>
+
 <header class="header-global">
         <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
           <div class="container">
@@ -12,7 +22,7 @@
               <div class="navbar-collapse-header">
                 <div class="row">
                   <div class="col-6 collapse-brand">
-                    <a href="../index.html">
+                    <a href="javascript:;">
                       <img src="{{asset('public/argon/assets/img/brand/blue.png')}}" alt="brand">
                     </a>
                   </div>
@@ -66,6 +76,37 @@
                     Daftar
                   </a>
                 </li>
+                @php
+                    $user = Auth::user();
+                    //dd($user);
+
+                @endphp
+                @if ($user == null)
+
+                @else
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" id="nav-admin" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <img src="{{ asset('public/img/ui-images/man.png') }}" width="40">
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right border-white bg-transparent" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-white text-center" id="text-logout" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <a class="dropdown-item text-white text-center" id="text-dashboard" href="{{ route('admin') }}">
+                            {{ __('Dashboard') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+
+                @endif
 
               </ul>
 

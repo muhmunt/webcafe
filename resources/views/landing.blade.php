@@ -193,7 +193,7 @@
                 </div>
             </div>
 
-            <div class="owl-carousel owl-theme owl-1">
+            {{-- <div class="owl-carousel owl-theme owl-1">
                     <div class="item">
                         <div class="text-center">
                             <div class="card-title">
@@ -215,7 +215,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </section>
@@ -319,7 +319,7 @@
               </div>
                 <div class="row mx-auto">
                     @foreach ($galleries as $g)
-                    <div class="col-md-4 galleries-img pl-5 pb-5">
+                    <div class="col-md-4 galleries-img pb-5">
                         <a href="{{asset('public/upload/galleries/'.$g->picture)}}" data-lightbox=" roadtrip">
                             <img class="img-gallery js-tilt shadow" data-tilt src="{{asset('public/upload/galleries/'.$g->picture)}}">
                         </a>
@@ -367,7 +367,7 @@
                     <span class="d-block mb-1">{{ucfirst($p->title)}}</span>
                     <small class="h6 text-muted">{!!ucfirst(strtolower($p->description))!!}</small>
                   </h5>
-                  <div class="mt-3">
+                  <div class="mt-3 mb-5">
                     <a href="#" class="btn btns-{{$color}} btn-icon-only rounded-circle">
                       <i class="fa fa-home text-secondary"></i>
                     </a>
@@ -422,14 +422,7 @@
     {{-- begin register  --}}
     <section class="section section-lg bg-gradient-primary" id="register">
         <div class="container pt-lg pb-100">
-
         </div>
-
-        {{-- <div class="separator separator-bottom separator-skew zindex-100">
-          <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-          </svg>
-        </div> --}}
     </section>
 
     <section class="section section-lg pt-lg-0 bg-gradient-primary">
@@ -440,7 +433,7 @@
                     <div class="col-7 pr-0">
                         <form action="{{ route('register_workshop') }}" method="post" id="form-register">
                         @csrf
-                        <div class="card bg-white" style="height: 100vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-bottom: 100px; padding-top: 20px;">
+                        <div class="card bg-white" style="border: none!important; border-radius: 5px 0px 0px 5px!important; padding-bottom: 100px; padding-top: 20px;">
                             <div class="card-body p-lg-5">
                               <div class="icon icon-lg icon-shape bg-gradient-primary shadow rounded-circle mb-3">
                                 <i class="ni ni-single-02 text-secondary"></i>
@@ -494,7 +487,7 @@
                         </form>
                     </div>
                     <div class="col-5 pl-0">
-                        <div class="card bg-white" style="height: 100vh; border: none!important; border-radius: 0px 5px 5px 0px!important;">
+                        <div class="card bg-white" style="height: 100%; border: none!important; border-radius: 0px 5px 5px 0px!important;">
                             <div class="container" style="padding-top: 125px; padding-bottom: 125px;">
                                 <img style="height: auto;" src="{{asset('public/img/ui-images/daftar.png')}}" class="img-fluid p-3">
                             </div>

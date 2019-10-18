@@ -127,7 +127,7 @@ m-minimize-mobile-offset="200"
                         </li>
 
                         <li class="m-nav__item">
-                          <a href="{{route('home')}}" class="m-nav__link">
+                          <a href="{{route('landing')}}" class="m-nav__link">
                             <i
                               class="m-nav__link-icon la la-globe"
                             ></i>
@@ -137,37 +137,7 @@ m-minimize-mobile-offset="200"
                           </a>
                         </li>
 
-                        <li class="m-nav__item">
-                          <a href="#!" class="m-nav__link">
-                            <i
-                              class="m-nav__link-icon la la-comments"
-                            ></i>
-                            <span class="m-nav__link-text"
-                              >Messages</span
-                            >
-                          </a>
-                        </li>
-                        <li
-                          class="m-nav__separator m-nav__separator--fit"
-                        ></li>
-                        <li class="m-nav__item">
-                          <a href="#!" class="m-nav__link">
-                            <i
-                              class="m-nav__link-icon la la-question-circle"
-                            ></i>
-                            <span class="m-nav__link-text">FAQ</span>
-                          </a>
-                        </li>
-                        <li class="m-nav__item">
-                          <a href="#!" class="m-nav__link">
-                            <i
-                              class="m-nav__link-icon la la-life-bouy"
-                            ></i>
-                            <span class="m-nav__link-text"
-                              >Support</span
-                            >
-                          </a>
-                        </li>
+
                         <li
                           class="m-nav__separator m-nav__separator--fit"
                         ></li>
