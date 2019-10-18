@@ -1,12 +1,3 @@
-{{-- Progress --}}
-<div class="progress">
-        <div class="progress-bar"
-        role="progressbar"
-        style="width:0%"
-        aria-valuenow="0"
-        aria-valuemin="0"
-        aria-valuemax="100"></div>
-</div>
 {{-- Nav - app --}}
 <nav class="navbar navbar-expand-md navbar-light shadow-sm fixed-top" id="navbar-custom">
     <div class="container" id="nav-con">

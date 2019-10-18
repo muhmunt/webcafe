@@ -221,88 +221,101 @@
     </section>
     {{-- end youtube --}}
     {{-- begin news  --}}
-    <section class="section bg-white section-lg swiper-container" id="news">
-        <div class="container swiper-wrapper">
-            @foreach ($news as $n)
-
-            <div class="row p-5 swiper-slide" id="new-{{$n->id}}">
-              <div class="col-md-6 order-md-2">
-                <img src="{{asset('public/img/ui-images/team.png')}}" class="img-fluid floating" alt="image">
-              </div>
-              <div class="col-md-6 order-md-1">
-                <div class="pr-md-5">
-                  <div class="icon icon-lg icon-shape icon-shape-{{$color}} shadow rounded-circle mb-5">
-                    <i class="ni ni-settings-gear-65"></i>
-                  </div>
-                  <h3>
-                      {{$n->title}}
-                  </h3>
-                  <p>
-                      {!!$n->description!!}
-                  </p>
-                  <ul class="list-unstyled mt-5">
-                    <li class="py-2">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="badge badge-circle badge-{{$color}} mr-3">
-                            <i class="ni ni-settings-gear-65"></i>
-                          </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+    @foreach ($news as $key => $n)
+            <?php
+            if($key === 0 ){
+              $color = 'warning';
+            }elseif($key == 1){
+              $color = 'success';
+            }else{
+              $color = 'primary';
+            }
+            ?>
+      <section class="section swiper-slide bg-white section-lg" id="news">
+        <div class="container">
+          <div class="row">
+                  <div class="col-md-6 order-md-2">
+                      <img src="{{asset('public/img/ui-images/team.png')}}" class="img-fluid floating" alt="image">
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                      <div class="pr-md-5">
+                        <div class="icon icon-lg icon-shape icon-shape-{{$color}} shadow rounded-circle mb-5">
+                          <i class="ni ni-settings-gear-65"></i>
                         </div>
-                        @php
-                            $tgl = date("Y-m-d", strtotime($n->tgl_mulai));
-                            $mulai = date("H:i", strtotime($n->tgl_mulai));
-                            $akhir = date("H:i", strtotime($n->tgl_akhir));
-                            $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
-                        @endphp
-                        <div>
-                          <h6 class="mb-0">
-                            {{ $tanggal }}
-                          </h6>
-                        </div>
+                        <h3>
+                            {{$n->title}}
+                        </h3>
+                        <p>
+                            {!!$n->description!!}
+                        </p>
+                        <ul class="list-unstyled mt-5">
+                          <li class="py-2">
+                            <div class="d-flex align-items-center">
+                              <div>
+                                <div class="badge badge-circle badge-{{$color}} mr-3">
+                                  <i class="ni ni-settings-gear-65"></i>
+                                </div>
+                              </div>
+                              @php
+                                  $tgl = date("Y-m-d", strtotime($n->tgl_mulai));
+                                  $mulai = date("H:i", strtotime($n->tgl_mulai));
+                                  $akhir = date("H:i", strtotime($n->tgl_akhir));
+                                  $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
+                              @endphp
+                              <div>
+                                <h6 class="mb-0">
+                                  {{ $tanggal }}
+                                </h6>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="py-2">
+                            <div class="d-flex align-items-center">
+                              <div>
+                                <div class="badge badge-circle badge-{{$color}} mr-3">
+                                  <i class="ni ni-html5"></i>
+                                </div>
+                              </div>
+                              <div>
+                                <h6 class="mb-0">
+                                  {{ $mulai.' - '.$akhir }}
+                                </h6>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="py-2">
+                            <div class="d-flex align-items-center">
+                              <div>
+                                <div class="badge badge-circle badge-{{$color}} mr-3">
+                                  <i class="ni ni-satisfied"></i>
+                                </div>
+                              </div>
+                              <div>
+                                <h6 class="mb-0">
+                                    {{ $n->seat }}
+                                    Seat
+                                </h6>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
-                    </li>
-                    <li class="py-2">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="badge badge-circle badge-{{$color}} mr-3">
-                            <i class="ni ni-html5"></i>
-                          </div>
-                        </div>
-                        <div>
-                          <h6 class="mb-0">
-                            {{ $mulai.' - '.$akhir }}
-                          </h6>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="py-2">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="badge badge-circle badge-{{$color}} mr-3">
-                            <i class="ni ni-satisfied"></i>
-                          </div>
-                        </div>
-                        <div>
-                          <h6 class="mb-0">
-                              {{ $n->seat }}
-                              Seat
-                          </h6>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                    </div>
               </div>
             </div>
-
+          </section>
             @endforeach
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </section>
 
     {{-- end news  --}}
+
     {{-- begin gallery  --}}
+
     <section class="section bg-gradient-primary" id="gallery" style="padding-bottom: 100px;">
         <div class="container">
           <div class="row row-grid align-items-center">
@@ -433,53 +446,38 @@
                     <div class="col-7 pr-0">
                         <form action="{{ route('register_workshop') }}" method="post" id="form-register">
                         @csrf
-                        <div class="card bg-white" style="border: none!important; border-radius: 5px 0px 0px 5px!important; padding-bottom: 100px; padding-top: 20px;">
+                        <div class="card bg-white" style="height: 110vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-bottom: 100px; padding-top: 20px;">
                             <div class="card-body p-lg-5">
                               <div class="icon icon-lg icon-shape bg-gradient-primary shadow rounded-circle mb-3">
                                 <i class="ni ni-single-02 text-secondary"></i>
                               </div>
-                              <h4 class="mb-1">Want to work with us?</h4>
+                              <h4 class="font-weight-bold">Register to Workshop</h4>
+                              <h4 class="mb-1">Interested in joining our workshop? </h4>
                               <div class="form-group mt-5">
                                   <label for="">Your Name</label>
                                   <div class="input-group input-group-alternative">
-                                    <input style="border: 1px solid #d2d3d6;" type="text" name="nama"class="form-control" value="{{old('nama')}}">
+                                    <input style="border: 1px solid #d2d3d6;" type="text" placeholder="type your name..." name="nama"class="form-control" value="{{old('nama')}}">
                                   </div>
 
                               </div>
                               <div class="form-group">
                                   <label for="">Your Email</label>
                                   <div class="input-group input-group-alternative">
-                                    <input style="border: 1px solid #d2d3d6;" type="text" name="email"class="form-control" value="{{old('email')}}">
+                                    <input style="border: 1px solid #d2d3d6;" type="text" name="email"class="form-control" value="{{old('email')}}" placeholder="type your email here ...">
                                   </div>
 
                               </div>
 
                               <div class="form-group pb-5">
                                   <label for="">Your Phone Number</label>
-                                  <div class="input-group input-group-alternative">
-                                    <input style="border: 1px solid #d2d3d6;" type="text" name="nomor"class="form-control" value="{{old('nomor')}}">
-                                  </div>
-
+                                  <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                      </div>
+                                      <input style="border: 1px solid #d2d3d6;" type="text" name="nomor"class="form-control" placeholder="+6281234567890" value="{{old('nomor')}}">
                               </div>
-                            {{-- <div class="form-group">
-                                <div class="input-group input-group-alternative">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                </div>
-                                <input type="text" name="email" id="" class="form-control" placeholder="Masukkan Email" aria-describedby="helpId" value="{{old('email')}}">
-                                </div>
-                                <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
-                            </div>
-                            <div class="form-group pb-5">
-                                <div class="input-group input-group-alternative">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
-                                </div>
-                                <input type="number" name="nomor" id="" class="form-control" placeholder="Masukkan No Telp " aria-describedby="helpId" value="{{old('nomor')}}">
-                                </div>
-                                <small id="helpId" class="text-muted">Required <span style="color:#f44336">*</span></small>
-                            </div> --}}
-                              <div class="">
+                              </div>
+                              <div class="" style="margin-top:-7%">
                                   <button type="submit" class="btn btn-primary btn-round">Register Now</button>
                               </div>
                             </div>
@@ -487,7 +485,7 @@
                         </form>
                     </div>
                     <div class="col-5 pl-0">
-                        <div class="card bg-white" style="height: 100%; border: none!important; border-radius: 0px 5px 5px 0px!important;">
+                        <div class="card bg-white" style="height: 110vh; border: none!important; border-radius: 0px 5px 5px 0px!important;">
                             <div class="container" style="padding-top: 125px; padding-bottom: 125px;">
                                 <img style="height: auto;" src="{{asset('public/img/ui-images/daftar.png')}}" class="img-fluid p-3">
                             </div>
