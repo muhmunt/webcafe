@@ -69,16 +69,15 @@
                             </div>
                         </div>
 
-                        <div class="m-portlet__body">
-                            <div class="m_datatable">
-                            <table class="table table-bordered" id="table-id">
-                                <thead>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush" id="table-id">
+                                <thead class="thead-light">
                                     <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Desctription</th>
-                                    <th scope="col">Picture</th>
-                                    <th scope="col">Action</th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Desctription</th>
+                                        <th scope="col">Picture</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -112,7 +111,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            </div>
                         </div>
 
                     </div>

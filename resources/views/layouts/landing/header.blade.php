@@ -11,7 +11,7 @@
 <header class="header-global">
         <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
           <div class="container">
-            <a class="navbar-brand mr-lg-5" href="../index.html">
+            <a class="navbar-brand mr-lg-5" href="javascript:;">
               {{-- <img src="{{ asset('/public/img/UNCLE-JO/logo2.jpg') }}" alt="brand"> --}}
               <h3 class="text-white">Uncle Jo</h3>
             </a>

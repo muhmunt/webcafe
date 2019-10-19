@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="{{ asset('/public/assets/demo/default/media/img/logo/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('/public/assets/customize.css') }}">
 
+    {{-- ARGON --}}
+    {{-- <link type="text/css" href="{{asset('public/argon/assets/css/argon.css?v=1.1.0')}}" rel="stylesheet"> --}}
+
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/public/images/logo_compact.png') }}">
 
@@ -78,6 +81,10 @@
     <script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('public/assets/demo/default/custom/crud/forms/widgets/bootstrap-daterangepicker.js')}}"></script>
     <script src="{{asset('public/assets/demo/default/custom/components/base/sweetalert2.js')}}"></script>
+
+    {{-- ARGON --}}
+    {{-- <script src="{{asset('public/argon/assets/js/argon.js?v=1.1.0')}}"></script> --}}
+
 
     @yield('admin-js')
 

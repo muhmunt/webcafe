@@ -105,9 +105,9 @@
                             </div>
                         </div>
 
-                        <div class="m-portlet__body">
-                            <table class="table table-bordered" id="table-id">
-                                <thead>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush" id="table-id">
+                                <thead class="thead-light">
                                     <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Name</th>

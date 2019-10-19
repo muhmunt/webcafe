@@ -163,7 +163,9 @@
                                         Halo {{ $nama }}, Anda sudah terdaftar di Workshop bersama Uncle Jo.
                                     </h3>
                                     <p style="color: #3b3b3b;">
-                                        Harga Workshop sebesar :<b>Rp. 350.000,00</b>
+                                        Harga Workshop: <b>Rp. 350.000,00</b>
+                                        <br>
+                                        Judul Workshop: <b>{{ ucwords($workshop) }}</b>
                                     </p>
                                     <p style="color: red">
                                         <i>*Workshop akan diselenggarakan pada tanggal {{\Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')}}</i>
@@ -173,10 +175,10 @@
                                     </p>
                                     &nbsp;
                                     <div style="border: 1px #3b3b3b solid; padding: 10px 10px; text-align: center; width: auto;color: #555555;"">
-                                        <h2 style="color: #3b3b3b;">BCA 124234 234234 23423 343 a/n Agam Muhmunt</h2>
+                                        <h3 style="color: #3b3b3b;">BCA 124234 234234 23423 343 a/n Agam Muhmunt</h3>
                                     </div>
                                     <div style="width: auto; padding: 15px 10px 15px 10px; text-align: center;">
-                                        <p>
+                                        <p style="color: #3b3b3b;">
                                             <i>Keterangan Transfer: </i>
                                             <b>
                                                 BWAFWDEVG< spasi >NamaAnda
@@ -203,7 +205,8 @@
                                         <tr>
 
                                             <td class="button-td button-td-primary">
-											     <a class="button-a button-a-primary" href=" https://wa.me/6282217376369?text=Halo%20Admin,%20Saya%20ingin%20mengirim%20bukti%20transfer%20untuk%20Workshop%20hari%20ini" style="background: #8E2DE2;
+                                                 <a class="button-a button-a-primary" href=" https://wa.me/6282217376369?text=Halo%20Admin,%20Saya%20ingin%20mengirim%20bukti%20transfer%20untuk%20Workshop%20hari%20ini" style="
+                                                 background: #8E2DE2;
                                                  background: -webkit-linear-gradient(to right, #24c6dc, #29ffc6);
                                                  background: linear-gradient(to right, #24c6dc, #29ffc6);
                                                  border: none;

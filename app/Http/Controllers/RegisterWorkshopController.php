@@ -68,6 +68,7 @@ class RegisterWorkshopController extends Controller
                     'nama'=>$request->get('nama'),
                     'email'=>$request->get('email'),
                     'tgl' => $new->tgl_mulai,
+                    'workshop' => $new->title,
                     'foto'=>'public/images/confirm1.png',
 
                     ),function($message) use ($email){

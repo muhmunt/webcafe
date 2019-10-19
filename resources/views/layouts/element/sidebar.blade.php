@@ -63,28 +63,6 @@ class="m-grid__item	m-aside-left  m-aside-left--skin-light "
           ><span class="m-menu__link-text">Registered</span></a
         >
       </li>
-    <li class="m-menu__section ">
-      <h4 class="m-menu__section-text">Template</h4>
-      <i class="m-menu__section-icon flaticon-more-v2"></i>
-    </li>
-    <li class="m-menu__item" aria-haspopup="true">
-      <a href="javascript:;" class="m-menu__link m-menu__toggle"
-        ><i class="m-menu__link-icon la la-language"></i
-        ><span class="m-menu__link-text">Language File</span></a
-      >
-    </li>
-    <li class="m-menu__item" aria-haspopup="true">
-      <a href="javascript:;" class="m-menu__link m-menu__toggle"
-        ><i class="m-menu__link-icon la la-gears"></i
-        ><span class="m-menu__link-text">Widget</span></a
-      >
-    </li>
-    <li class="m-menu__item" aria-haspopup="true">
-      <a href="javascript:;" class="m-menu__link m-menu__toggle"
-        ><i class="m-menu__link-icon la la-flag-o"></i
-        ><span class="m-menu__link-text">Template Preference</span></a
-      >
-    </li>
 
   </ul>
 </div>

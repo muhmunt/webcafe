@@ -8,6 +8,10 @@
             background: linear-gradient(87deg, #f4f5f7 0, #f4f5f7 100%) !important;
         }
 
+        .bg-gradient-black {
+            background: linear-gradient(87deg, #232526 0, #3b3b3b 100%) !important;
+        }
+
         .bg-white{
             background: #ffffff;
         }
@@ -18,6 +22,20 @@
 
         .bg-black{
             background: #383838;
+        }
+
+        .bg-gradient-red{
+            background: #FF416C;
+            background: -webkit-linear-gradient(to left, #FF4B2B, #FF416C);
+            background: linear-gradient(to left, #FF4B2B, #FF416C);
+        }
+
+        .btns-gradient-red{
+            background: #FF416C;
+            background: -webkit-linear-gradient(to left, #FF4B2B, #FF416C);
+            background: linear-gradient(to left, #FF4B2B, #FF416C);
+
+            border: none !important;
         }
 
         .btns-primary{
@@ -31,6 +49,28 @@
         .btns-success{
             background: linear-gradient(87deg, #2dce89 0, #2dcecc 100%) !important;
 
+        }
+
+        input[type=text] {
+            color: rgba(59, 59, 59, 0.8) !important;
+        }
+
+        input[type=email] {
+            color: rgba(59, 59, 59, 0.8) !important;
+        }
+
+        .f-black{
+            color: rgba(59, 59, 59, 1) !important;
+        }
+
+        .f-red{
+            background: -webkit-linear-gradient(#FF4B2B, #FF416C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .fill-reds{
+            fill: #FF4B2B;
         }
 
         .shadow-little{
@@ -143,7 +183,7 @@
 
             <div class="col-md-6">
               <div class="pl-md-5">
-                <div class="icon icon-lg icon-shape bg-gradient-primary shadow rounded-circle mb-5">
+                <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-5">
                   <i class="ni ni-single-02 text-secondary"></i>
                 </div>
                 <h1 class="display-3 text-primary">Workshop Uncle Jo</h1>
@@ -155,12 +195,12 @@
             </div>
 
             <div class="col-md-6">
-              <div class="card bg-primary shadow border-0">
+              <div class="card bg-dark shadow border-0">
                 <img src="{{asset('public/img/UNCLE-JO/coffe-1.jpg')}}" class="card-img-top" alt="image">
                 <blockquote class="card-blockquote">
                   <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="svg-bg">
-                    <polygon points="0,52 583,95 0,95" class="fill-primary" />
-                    <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-primary" />
+                    <polygon points="0,52 583,95 0,95" class="fill-dark" />
+                    <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-dark" />
                   </svg>
                   <h4 class="display-3 font-weight-bold text-white">Coffe Time</h4>
                   <p class="lead text-italic text-white">The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens.</p>
@@ -174,7 +214,7 @@
     {{-- end workshop --}}
     {{-- begin youtube --}}
 
-    <section class="section bg-gradient-primary" id="youtube">
+    <section class="section bg-gradient-black" id="youtube">
 
         <div class="container" data-aos="fade-up">
             <div class="title-padding text-center">
@@ -316,14 +356,14 @@
 
     {{-- begin gallery  --}}
 
-    <section class="section bg-gradient-primary" id="gallery" style="padding-bottom: 100px;">
+    <section class="section bg-gradient-black" id="gallery" style="padding-bottom: 100px;">
         <div class="container">
           <div class="row row-grid align-items-center">
             <div class="col-lg-12 order-lg-1">
               <div class="d-flex px-3">
                 <div>
                   <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
-                    <i class="ni ni-building text-dark"></i>
+                    <i class="ni ni-building text-primary"></i>
                   </div>
                 </div>
                 <div class="pl-4" style="padding-bottom: 70px;">
@@ -404,12 +444,12 @@
         <div class="container">
           <div class="row row-grid align-items-center">
             <div class="col-md-6">
-              <div class="card bg-primary shadow border-0">
+              <div class="card bg-dark shadow border-0">
                 <img src="{{asset('public/img/UNCLE-JO/coffe-1.jpg')}}" class="card-img-top" alt="image">
                 <blockquote class="card-blockquote">
                   <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="svg-bg">
-                    <polygon points="0,52 583,95 0,95" class="fill-primary" />
-                    <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-primary" />
+                    <polygon points="0,52 583,95 0,95" class="fill-dark" />
+                    <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-dark" />
                   </svg>
                   <h4 class="display-3 font-weight-bold text-white">Coffe Time</h4>
                   <p class="lead text-italic text-white">The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens.</p>
@@ -418,14 +458,14 @@
             </div>
             <div class="col-md-6">
               <div class="pl-md-5">
-                <div class="icon icon-lg icon-shape bg-gradient-primary shadow rounded-circle mb-5">
+                <div class="icon icon-lg icon-shape bg-gradient-red shadow rounded-circle mb-5">
                   <i class="ni ni-single-02 text-secondary"></i>
                 </div>
-                <h1 class="display-3 text-primary">Profile Uncle Jo</h1>
+                <h1 class="display-3 f-red">Profile Uncle Jo</h1>
                 <p class="lead font-weight-light text-dark">Don't let your uses guess by attaching tooltips and popoves to any element. Just make sure you enable them first via JavaScript.</p>
                 <p class="text-dark font-weight-light">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
                 <p class="text-dark font-weight-light">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
-                <a href="#" class="font-weight-bold text-primary mt-5">A beautiful UI Kit for impactful websites</a>
+                <a href="#" class="font-weight-bold f-red mt-5">A beautiful UI Kit for impactful websites</a>
               </div>
             </div>
           </div>
@@ -433,12 +473,12 @@
     </section>
     {{-- end profile  --}}
     {{-- begin register  --}}
-    <section class="section section-lg bg-gradient-primary" id="register">
+    <section class="section section-lg bg-gradient-black" id="register">
         <div class="container pt-lg pb-100">
         </div>
     </section>
 
-    <section class="section section-lg pt-lg-0 bg-gradient-primary">
+    <section class="section section-lg pt-lg-0 bg-gradient-black">
         <div class="container">
           <div class="row mt--300">
             <div class="col-lg-12">
@@ -448,37 +488,49 @@
                         @csrf
                         <div class="card bg-white" style="height: 110vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-bottom: 100px; padding-top: 20px;">
                             <div class="card-body p-lg-5">
-                              <div class="icon icon-lg icon-shape bg-gradient-primary shadow rounded-circle mb-3">
-                                <i class="ni ni-single-02 text-secondary"></i>
+                              <div class="icon icon-lg icon-shape bg-gradient-red shadow rounded-circle mb-3">
+                                <i class="ni ni-single-02 text-white"></i>
                               </div>
-                              <h4 class="font-weight-bold">Register to Workshop</h4>
-                              <h4 class="mb-1">Interested in joining our workshop? </h4>
+                              <h4 class="font-weight-bold f-black">Register to Workshop</h4>
+                              <h4 class="mb-1 f-black">Interested in joining our workshop? </h4>
                               <div class="form-group mt-5">
-                                  <label for="">Your Name</label>
-                                  <div class="input-group input-group-alternative">
-                                    <input style="border: 1px solid #d2d3d6;" type="text" placeholder="type your name..." name="nama"class="form-control" value="{{old('nama')}}">
+                                  <label class="f-black">Your Name</label>
+                                  <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
+                                            <i class="fa fa-user f-black"></i>
+                                        </span>
+                                      </div>
+                                    <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="text" placeholder="type your name..." name="nama"class="form-control" value="{{old('nama')}}">
                                   </div>
 
                               </div>
                               <div class="form-group">
-                                  <label for="">Your Email</label>
-                                  <div class="input-group input-group-alternative">
-                                    <input style="border: 1px solid #d2d3d6;" type="text" name="email"class="form-control" value="{{old('email')}}" placeholder="type your email here ...">
+                                  <label class="f-black">Your Email</label>
+                                  <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
+                                            <i class="fa fa-envelope f-black"></i>
+                                        </span>
+                                      </div>
+                                    <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="email" name="email"class="form-control" value="{{old('email')}}" placeholder="type your email here ...">
                                   </div>
 
                               </div>
 
                               <div class="form-group pb-5">
-                                  <label for="">Your Phone Number</label>
+                                  <label class="f-black">Your Phone Number</label>
                                   <div class="input-group">
                                       <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
+                                            <i class="fa fa-phone f-black"></i>
+                                        </span>
                                       </div>
-                                      <input style="border: 1px solid #d2d3d6;" type="text" name="nomor"class="form-control" placeholder="+6281234567890" value="{{old('nomor')}}">
+                                      <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="text" name="nomor"class="form-control" placeholder="0898123456790" value="{{old('nomor')}}">
                               </div>
                               </div>
                               <div class="" style="margin-top:-7%">
-                                  <button type="submit" class="btn btn-primary btn-round">Register Now</button>
+                                  <button type="submit" class="btn btns-gradient-red btn-round text-white">Register Now</button>
                               </div>
                             </div>
                         </div>
