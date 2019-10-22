@@ -77,7 +77,7 @@ class RegisterWorkshopController extends Controller
                         $message->from('agamtwiche@gmail.com',' Uncle JO Coffe Shop');
                 });
 
-            $message = 'Selamat '. $request->nama .', Berhasil Terdaftar Dalam Work Shop';
+            $message = 'Selamat '. ucwords($request->nama) .', Berhasil Terdaftar Dalam Work Shop';
             $skinMessage = 'success';
             $bg = 'public/images/confirm1.png';
             $icon = 'la-check-circle-o';

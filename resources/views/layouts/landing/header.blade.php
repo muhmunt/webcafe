@@ -1,9 +1,21 @@
 <style>
+    #text-logout{
+        color: #ffffff!important;
+        background: #3b3b3b !important;
+    }
+
+    #text-dashboard{
+      color: #ffffff!important;
+        background: #3b3b3b !important;
+    }
+
     #text-logout:hover{
+        background: #ffffff !important;
         color: #3b3b3b!important;
     }
 
     #text-dashboard:hover{
+      background: #ffffff !important;
         color: #3b3b3b!important;
     }
 </style>
@@ -34,48 +46,7 @@
                   </div>
                 </div>
               </div>
-              <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-
-                <li class="nav-item">
-                  <a class="nav-link nav-link-icon" id="nav-workshop" href="#workshop">
-                    Workshop
-                    {{-- <span class="nav-link-inner--text d-lg-none">Workshop</span> --}}
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-link-icon" id="nav-yt" href="#youtube">
-                    Channel
-                    {{-- <span class="nav-link-inner--text d-lg-none">Channel</span> --}}
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-link-icon" id="nav-news" href="#news">
-                    News
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-link-icon" id="nav-gallery" href="#gallery">
-                    Gallery
-                    {{-- <span class="nav-link-inner--text d-lg-none">Gallery</span> --}}
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-link-icon" id="nav-get" href="#get">
-                    Participant Get
-                    {{-- <span class="nav-link-inner--text d-lg-none">Participant Get</span> --}}
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-link-icon" id="nav-profile" href="#profile">
-                    Profile
-                    {{-- <span class="nav-link-inner--text d-lg-none">Profile</span> --}}
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link nav-link-icon" id="nav-register" href="#register">
-                    Daftar
-                  </a>
-                </li>
+              <ul class="navbar-nav navbar-nav-hover align-items-lg-right">                
                 @php
                     $user = Auth::user();
                     //dd($user);
@@ -83,7 +54,7 @@
                 @endphp
                 @if ($user == null)
 
-                @else
+                @else 
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" id="nav-admin" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -91,13 +62,13 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right border-white bg-transparent" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-white text-center" id="text-dashboard" href="{{ route('admin') }}">
+                            {{ __('Dashboard') }}
+                        </a>
                         <a class="dropdown-item text-white text-center" id="text-logout" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
-                        </a>
-                        <a class="dropdown-item text-white text-center" id="text-dashboard" href="{{ route('admin') }}">
-                            {{ __('Dashboard') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -69,6 +69,10 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .pb-50{
+          padding-bottom: 50px;
+        }
+
         .fill-reds{
             fill: #FF4B2B;
         }
@@ -79,9 +83,9 @@
 
         .img-gallery{
 
-            min-width: 500x;
             width: 250px;
             height: 250px;
+            /* padding: 15px; */
             border-radius: 15px;
         }
 
@@ -112,9 +116,10 @@
                   <div class="row mt-3 d-flex justify-content-center">
                     <div class="col-lg-10 text-center">
                       <img class="mx-auto" style="width: 100px;" src="{{ asset('/public/img/UNCLE-JO/logo1.png') }}">
-                      <h1 class="display-3  text-white">A beautiful Design System<span>completed with examples</span></h1>
-                      <p class="lead  text-white">The design system comes with four pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
+                      <h1 class="display-3 text-white">Bisnis Kopi 2.0<span class="f-red"> How to start Bisnis Kopi Low Budget</span></h1>
+                      <p class="lead  text-white"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus culpa ab dolores necessitati.</p>
                       <div class="btn-wrapper">
+                        <a href="#register" id="btn-register" class="btn btns-gradient-red rounded text-white">Daftar Sekarang</a>
                       </div>
                     </div>
                   </div>
@@ -186,11 +191,9 @@
                 <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-5">
                   <i class="ni ni-single-02 text-secondary"></i>
                 </div>
-                <h1 class="display-3 text-primary">Workshop Uncle Jo</h1>
-                <p class="lead font-weight-light text-dark">Don't let your uses guess by attaching tooltips and popoves to any element. Just make sure you enable them first via JavaScript.</p>
-                <p class="text-dark font-weight-light">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
-                <p class="text-dark font-weight-light">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
-                <a href="#" class="font-weight-bold text-primary mt-5">A beautiful UI Kit for impactful websites</a>
+                <h1 class="display-3 text-dark">Workshop Uncle Jo</h1>
+                <p class="lead font-weight-light text-dark">50 lebih kedai kopi sudah lahir dari workshop ini. Tidak ada yang perlu di ragukan lagi! kita harus mempersiapkan diri untuk menghadapi bonus demografi yang akan terjadi pada waktu mendatang. Oleh karena itu kita harus berinvestasi untuk keberlangsungan hidup. <br> Nah buat kamu yang bosen bekerja dikantoran, kamu yang memiliki waktu fleksible, kamu yang punya passion dalam berkarya khususnya didunia perkopian, kamu yang mau meraih mimpi memiliki kedai kopi impian, dan kamu yang mau merintis usaha mandiri. Segera daftar silahkan klik dibawah ini.</p>
+                <a href="#register" id="link_r" class="font-weight-bold text-primary mt-5">Daftar Workshop Coffe Shop</a>
               </div>
             </div>
 
@@ -202,8 +205,8 @@
                     <polygon points="0,52 583,95 0,95" class="fill-dark" />
                     <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-dark" />
                   </svg>
-                  <h4 class="display-3 font-weight-bold text-white">Coffe Time</h4>
-                  <p class="lead text-italic text-white">The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens.</p>
+                  <h4 class="display-3 font-weight-bold text-white">Coffe Workshop</h4>
+                  <p class="lead text-italic text-white">Usaha kedai kopi ini cocok banget buat kamu yang mau keluar dari zona nyaman kamu! <br>Dan semua yang dibutuhkan untuk membangun sebuah kedai kopi yang profitable ada di depan mata, kalian ga jalan sendiri, ada partner, mitra karya, dan komunitas pengusaha kopi lainnya yang saling support dalam prosesnya.</p>
                 </blockquote>
               </div>
             </div>
@@ -224,38 +227,38 @@
                             <i class="ni ni-building text-dark"></i>
                         </div>
                     </div>
-                    <div class="pl-4">
-                        <h4 class="display-3 text-white">
-                            Coffe Document
+                    <div class="pl-3">
+                        <h4 class="display-4 text-white">
+                            Workshop Documentation
                         </h4>
 
                     </div>
                 </div>
             </div>
 
-            {{-- <div class="owl-carousel owl-theme owl-1">
+            <div class="owl-carousel owl-theme owl-1">
                     <div class="item">
                         <div class="text-center">
                             <div class="card-title">
-                                <iframe class="frame-yt" src="https://www.youtube.com/embed/N2Y2vQ-1m7M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe class="frame-yt" src="https://www.youtube.com/embed/ydVDXhpXys0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="text-center">
                             <div class="card-title">
-                                <iframe class="frame-yt" src="https://www.youtube.com/embed/mobbPE8_Npc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe class="frame-yt" src="https://www.youtube.com/embed/PIQrt0HEn7Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             </div>
                         </div>
                     <div class="item">
                     <div class="text-center">
                         <div class="card-title">
-                            <iframe class="frame-yt" src="https://www.youtube.com/embed/0jA83apkSic" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe class="frame-yt" src="https://www.youtube.com/embed/PYciG2kz468" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
         </div>
     </section>
@@ -277,13 +280,13 @@
         <div class="container">
           <div class="row">
                   <div class="col-md-6 order-md-2">
-                      <img src="{{asset('public/img/ui-images/team.png')}}" class="img-fluid floating" alt="image">
+                      <iframe class="frame-yt2" src="https://www.youtube.com/embed/ydVDXhpXys0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="col-md-6 order-md-1">
                       <div class="pr-md-5">
-                        <div class="icon icon-lg icon-shape icon-shape-{{$color}} shadow rounded-circle mb-5">
+                        {{-- <div class="icon icon-lg icon-shape icon-shape-{{$color}} shadow rounded-circle mb-5">
                           <i class="ni ni-settings-gear-65"></i>
-                        </div>
+                        </div> --}}
                         <h3>
                             {{$n->title}}
                         </h3>
@@ -367,12 +370,12 @@
                   </div>
                 </div>
                 <div class="pl-4" style="padding-bottom: 70px;">
-                  <h4 class="display-3 text-white">Caffee Gallery</h4>
+                  <h4 class="display-3 text-white">Workshop Gallery</h4>
                 </div>
               </div>
                 <div class="row mx-auto">
                     @foreach ($galleries as $g)
-                    <div class="col-md-4 galleries-img pb-5">
+                    <div class="col-md-4 galleries-img pb-5 text-center">
                         <a href="{{asset('public/upload/galleries/'.$g->picture)}}" data-lightbox=" roadtrip">
                             <img class="img-gallery js-tilt shadow" data-tilt src="{{asset('public/upload/galleries/'.$g->picture)}}">
                         </a>
@@ -413,8 +416,8 @@
             }
             ?>
             <div class="col-lg-4">
-              <div class="px-4">
-                <img src="{{asset('public/upload/participants/'.$p->picture)}}" class="rounded-circle shadow-little bg-gradient-{{$color}} img-gallery p-4">
+              <div class="px-4 text-center">
+                <img style="padding: 15px;" src="{{asset('public/upload/participants/'.$p->picture)}}" class="rounded-circle shadow-little bg-gradient-{{$color}} img-gallery">
                 <div class="pt-4 text-center">
                   <h5 class="title">
                     <span class="d-block mb-1">{{ucfirst($p->title)}}</span>
@@ -438,6 +441,31 @@
           </div>
         </div>
     </section>
+
+    {{-- Begin Benefit --}}
+    <section class="section bg-gradient-black" id="youtube">
+
+        <div class="container" data-aos="fade-up">
+            <div class="title-padding text-center">
+                <div class="d-flex px-4">
+                    <div>
+                        <div class="icon icon-lg icon-shape bg-gradient-secondary shadow rounded-circle text-white">
+                            <i class="ni ni-building text-dark"></i>
+                        </div>
+                    </div>
+                    <div class="pl-3">
+                        <h4 class="display-4 text-white" style="text-decoration:underline;text-decoration-color:#fff200">
+                            Workshop Benefit
+                        </h4>
+                    </div>
+                  </div>
+                </div>
+                
+
+        </div>
+    </section>
+    {{-- End Benefit --}}
+
     {{-- end participants get  --}}
     {{-- begin profile  --}}
     <section class="section" id="profile">
@@ -451,21 +479,39 @@
                     <polygon points="0,52 583,95 0,95" class="fill-dark" />
                     <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-dark" />
                   </svg>
-                  <h4 class="display-3 font-weight-bold text-white">Coffe Time</h4>
-                  <p class="lead text-italic text-white">The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens.</p>
+                  <h5 class="display-6 font-weight-bold text-white" style="text-decoration:underline;text-decoration-color:#fff200">Objective</h5>
+                  <p class="text-italic text-white">Influence people to become an enterpreneur.</p>
+                  <h5 class="display-6 font-weight-bold text-white" style="text-decoration:underline;text-decoration-color:#fff200">Education</h5>
+                  <p class="text-italic text-white">Gunadarma University.</p>
+                  <h5 class="display-6 font-weight-bold text-white" style="text-decoration:underline;text-decoration-color:#fff200">Volunteer Experience</h5>
+                  <p class="text-italic text-white"><span class="font-weight-bold">Mawar Sharon Church</span> <br> Bassis Player <br>Event Organizer</p>                  
                 </blockquote>
               </div>
             </div>
             <div class="col-md-6">
               <div class="pl-md-5">
-                <div class="icon icon-lg icon-shape bg-gradient-red shadow rounded-circle mb-5">
+                <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-5">
                   <i class="ni ni-single-02 text-secondary"></i>
                 </div>
-                <h1 class="display-3 f-red">Profile Uncle Jo</h1>
-                <p class="lead font-weight-light text-dark">Don't let your uses guess by attaching tooltips and popoves to any element. Just make sure you enable them first via JavaScript.</p>
-                <p class="text-dark font-weight-light">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
-                <p class="text-dark font-weight-light">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
-                <a href="#" class="font-weight-bold f-red mt-5">A beautiful UI Kit for impactful websites</a>
+                <h1 class="font-weight-bold">Profile</h1>
+                <h3 class="font-weight-light">YOHANES HANDOYO</h3>
+                <h5 class="font-weight-bold text-dark" style="text-decoration:underline;text-decoration-color:#fff200">Work Experience</h5>
+                <p style="font-size: 14px;" class="font-weight-bold text-dark">General Manager (2006-2008) at Kuntum Nurseries Bogor <br>Digital Content Optimizer (2010-Present) <br>Founders Raincity Fingerboard (2010-2012) <br>Founder Teras Hijau Landscape (2013-Present) <br>Founder Home IDEA Project (2014-Present) <br>CEO & Founder Uncle Jo Coffe Shop (2017-Present) <br><br>Digital Content Creator for PHO 24 INDONESIA (2018-Present) <br>Interior designer for OMAH KULINA BSD & KantinSOEKA Bintaro</p>
+                <p style="font-size: 14px;" class="font-weight-bold text-dark">
+                  Busines Consultant for SHARING BISNIS KOPI GROUP
+                  <br>
+                  <i style="font-size: 14px;" class="font-weight-light text-dark">Intern</i>
+                </p>
+                <p style="font-size: 14px;" class="font-weight-light text-dark">
+                  200+ people in a group coach by me to have a goal, leadership, relation, enggagement in social media and build personal brandingm. And also doing a workshop Coffee Shop Low Budget every month in Bogor, Bandung and Bsd City
+                </p>
+
+                <h5 class="font-weight-bold text-dark" style="text-decoration:underline;text-decoration-color:#fff200">Contacts</h5>
+                <p style="font-size: 14px;" class="font-weight-bold text-dark">
+                  terashijauidea@gmail.com
+                  <br>
+                  +62811956985
+                </p>
               </div>
             </div>
           </div>
@@ -473,22 +519,22 @@
     </section>
     {{-- end profile  --}}
     {{-- begin register  --}}
-    <section class="section section-lg bg-gradient-black" id="register">
+    {{-- <section class="section section-lg bg-gradient-black" id="register">
         <div class="container pt-lg pb-100">
         </div>
-    </section>
+    </section> --}}
 
-    <section class="section section-lg pt-lg-0 bg-gradient-black">
+    <section class="section bg-gradient-black" id="register">
         <div class="container">
-          <div class="row mt--300">
+          <div class="row">
             <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-7 pr-0">
+                <div class="row bg-white rounded">
+                    <div class="col-md-6">
                         <form action="{{ route('register_workshop') }}" method="post" id="form-register">
                         @csrf
-                        <div class="card bg-white" style="height: 110vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-bottom: 100px; padding-top: 20px;">
+                        <div class="card bg-white" style="height: 115vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
                             <div class="card-body p-lg-5">
-                              <div class="icon icon-lg icon-shape bg-gradient-red shadow rounded-circle mb-3">
+                              <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
                                 <i class="ni ni-single-02 text-white"></i>
                               </div>
                               <h4 class="font-weight-bold f-black">Register to Workshop</h4>
@@ -536,8 +582,8 @@
                         </div>
                         </form>
                     </div>
-                    <div class="col-5 pl-0">
-                        <div class="card bg-white" style="height: 110vh; border: none!important; border-radius: 0px 5px 5px 0px!important;">
+                    <div class="col-md-6">
+                        <div class="card bg-white" style="height: 115vh; border: none!important; border-radius: 0px 5px 5px 0px!important;">
                             <div class="container" style="padding-top: 125px; padding-bottom: 125px;">
                                 <img style="height: auto;" src="{{asset('public/img/ui-images/daftar.png')}}" class="img-fluid p-3">
                             </div>
@@ -649,7 +695,13 @@
                 },900,'linear');
             });
 
-            $('#nav-register').on('click',function(e){
+            $('#btn-register').on('click',function(e){
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $('#register').offset().top,
+                },900,'linear');
+            });
+            $('#link_r').on('click',function(e){
                 e.preventDefault();
                 $('html, body').animate({
                     scrollTop: $('#register').offset().top,

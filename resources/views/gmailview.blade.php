@@ -157,25 +157,27 @@
                             <tr>
                                 <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
                                     <h1 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;">
-                                        Uncle Jo Workshop
+                                        Workshop Bisnis Kopi
                                     </h1>
-                                    <h3 style="margin: 0;padding:5px;color: #555555;"">
-                                        Halo {{ $nama }}, Anda sudah terdaftar di Workshop bersama Uncle Jo.
+                                    <h3 style="margin: 0;padding:1px;color: #3b3b3b;">
+                                        Halo {{ ucwords($nama) }}, Anda sudah terdaftar di Workshop Bisnis Kopi 2.0
                                     </h3>
-                                    <p style="color: #3b3b3b;">
-                                        Harga Workshop: <b>Rp. 350.000,00</b>
-                                        <br>
-                                        Judul Workshop: <b>{{ ucwords($workshop) }}</b>
+                                    <br>
+                                    <h4 style="margin: 0;padding:1px;color: #3b3b3b;">How to start Bisnis Kopi <b>Low Budget</b></h4>
+                                    <p style="color: red;">
+                                        *Harga Workshop Pre Order: <b>Rp. 420.000,00</b><br>
+                                        <i style="color:red"><strike>Harga Workshop On the Spot: <b>Rp. 525.000,00</strike></i></b>
                                     </p>
-                                    <p style="color: red">
+                                    <p style="color: #3b3b3b;">Judul Workshop: <b>{{ ucwords($workshop) }}</b></p>
+                                    {{-- <p style="color: red">
                                         <i>*Workshop akan diselenggarakan pada tanggal {{\Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')}}</i>
-                                    </p>
+                                    </p> --}}
                                     <p style="margin: 0;padding-bottom:5px;color: #555555;"">
                                         Silahkan transfer uang sebesar nominal diatas kepada rekening:
                                     </p>
                                     &nbsp;
                                     <div style="border: 1px #3b3b3b solid; padding: 10px 10px; text-align: center; width: auto;color: #555555;"">
-                                        <h3 style="color: #3b3b3b;">BCA 124234 234234 23423 343 a/n Agam Muhmunt</h3>
+                                        <h3 style="color: #3b3b3b;">BCA 124234 234234 23423 343 a/n Agam</h3>
                                     </div>
                                     <div style="width: auto; padding: 15px 10px 15px 10px; text-align: center;">
                                         <p style="color: #3b3b3b;">
@@ -237,11 +239,9 @@
 	        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                 <tr>
                     <td style="padding: 20px; font-family: sans-serif; font-size: 12px; line-height: 15px; text-align: center; color: #3b3b3b;">
-                        <webversion style="color: #3b3b3b; text-decoration: underline; font-weight: bold;">View as a Web Page</webversion>
+                        <br>
+						Bisnis Kopi 2.0<br><span class="unstyle-auto-detected-links">Jl.Gedong Sawah No.2B, Pabaton, Bogor Tengah, Kota Bogor, Jawa Barat, Bogor, Indonesia<br>(123) 456-7890</span>
                         <br><br>
-						Company Name<br><span class="unstyle-auto-detected-links">123 Fake Street, SpringField, OR, 97477 US<br>(123) 456-7890</span>
-                        <br><br>
-                        <unsubscribe style="color: #3b3b3b; text-decoration: underline;">unsubscribe</unsubscribe>
                     </td>
                 </tr>
             </table>

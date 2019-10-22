@@ -83,7 +83,7 @@ m-minimize-mobile-offset="200"
                     {{ $user->name }}
                 </span>
                 <span class="m-topbar__userpic">
-                  <img src="{{ asset('public/img/ui-images/user.png') }}" class="m--img-rounded m--marginless" />
+                  <img src="{{ asset('public/img/ui-images/manp.png') }}" class="m--img-rounded m--marginless" />
                 </span>
               </a>
               <div class="m-dropdown__wrapper">
@@ -97,7 +97,7 @@ m-minimize-mobile-offset="200"
                   >
                     <div class="m-card-user m-card-user--skin-light">
                       <div class="m-card-user__pic">
-                        <img src="{{ asset('public/img/ui-images/user.png') }}" class="m--img-rounded m--marginless" />
+                        <img src="{{ asset('public/img/ui-images/man.png') }}" class="m--img-rounded m--marginless" />
                       </div>
                       <div class="m-card-user__details">
                         <span class="m-card-user__name m--font-weight-500">
@@ -121,7 +121,7 @@ m-minimize-mobile-offset="200"
                           <a href="javascript:;" class="m-nav__link">
                             <i class="m-nav__link-icon la la-user"></i>
                             <span class="m-nav__link-text"
-                              >My Profile</span
+                              >Coming soon</span
                             >
                           </a>
                         </li>

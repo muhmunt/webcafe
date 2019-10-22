@@ -19788,9 +19788,10 @@ article h5 + figure
 {
     padding-top: .5rem;
     padding-bottom: .5rem;
-    background: #FF416C;
+    /* background: #FF416C;
             background: -webkit-linear-gradient(to left, #FF4B2B, #FF416C);
-            background: linear-gradient(to left, #FF4B2B, #FF416C);
+            background: linear-gradient(to left, #FF4B2B, #FF416C); */
+    background: linear-gradient(87deg, #232526 0, #3b3b3b 100%) !important;
     box-shadow: 0 1px 10px rgba(130, 130, 134, .1);
 }
 

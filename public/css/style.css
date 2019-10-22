@@ -12,7 +12,7 @@ a {
 
 #intro{
     /* margin-top: -80px; */
-    background: linear-gradient(rgba(0, 0, 0, 0.459),rgba(0, 0, 0, 0.432),rgba(0, 0, 0, 0.6)),url(../img/content/coffe.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.658),rgba(0, 0, 0, 0.637),rgb(0, 0, 0)),url(../img/content/coffe.jpg);
     background-size:cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -286,6 +286,10 @@ a {
     width: 380px;
     height: 350px;
 }
+.frame-yt2{
+    width: 480px;
+    height: 450px;
+}
 
 @media only screen and (max-width: 1200px) {
     .frame-yt{
@@ -310,15 +314,9 @@ a {
     .bg-coffe{
         position: relative;
         background-position: center;
-<<<<<<< HEAD
-        background-image: url(../img/background/co-work.png);
-        background-size: 100%;
-        background-repeat: no-repeat;
-=======
         background-image: url(../img/background/coffe-work-ui.png);
         background-size: 100%;
         background-repeat: no-repeat;
->>>>>>> 9321c99730214fb5d4f5038e93f229a077bcbf29
     }
 }
 
@@ -326,6 +324,10 @@ a {
     .frame-yt{
         width: 320px;
         height: 400px;
+    }
+    .frame-yt2{
+        width: 330px;
+        height: 450px;
     }
     .bg-coffe{
         position: relative;
