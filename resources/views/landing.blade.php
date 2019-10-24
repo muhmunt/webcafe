@@ -236,7 +236,7 @@
                 </div>
             </div>
 
-            <div class="owl-carousel owl-theme owl-1">
+            {{-- <div class="owl-carousel owl-theme owl-1">
                     <div class="item">
                         <div class="text-center">
                             <div class="card-title">
@@ -258,7 +258,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </section>
@@ -441,6 +441,42 @@
           </div>
         </div>
     </section>
+    <section class="section section-lg" id="get">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-lg">
+            <div class="col-lg-8">
+              <h2 class="display-3 text-dark">Apa kata peserta workshop</h2>
+              <p class="lead font-weight-light text-black">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record maximum.</p>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="swiper-container swiper-container2">
+              <div class="swiper-wrapper">
+                  @foreach ($participants as $key => $p)
+                  <?php
+                  if($key === 0 ){
+                    $color = 'warning';
+                  }elseif($key == 1){
+                    $color = 'success';
+                  }else{
+                    $color = 'primary';
+                  }
+                  ?>
+                  
+                  <div class="swiper-slide text-center p-5">
+                      <div class="justify-content-center">
+                          <img style="padding: 15px;" src="{{asset('public/upload/participants/'.$p->picture)}}" class="rounded-circle shadow-little bg-gradient-{{$color}} img-gallery mx-auto ">
+                      </div>
+                      <h4 class="mt-3 f-black font-weight-bold">{{ucwords($p->title)}}</h4>
+                      <p class="lead font-weight-light text-black">{!! $p->description !!}</p>
+                  </div>
+                @endforeach
+              </div><br>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+    </section>
 
     {{-- Begin Benefit --}}
     <section class="section bg-gradient-black" id="youtube">
@@ -455,13 +491,35 @@
                     </div>
                     <div class="pl-3">
                         <h4 class="display-4 text-white" style="text-decoration:underline;text-decoration-color:#fff200">
-                            Workshop Benefit
+                            Apa yang didapat ketika Mengikuti Workhsop Bisnis Kopi.
                         </h4>
                     </div>
                   </div>
                 </div>
-                
-
+                <div class="text-white">
+                  <p><b>Setelah ratusan peserta</b> mulai dari JABODETABEK, Bandung, Sukabumi, Surabaya, Pekanbaru, Padang, Medan, Makassar, Samarinda, Lampung, NTT dan dari daerah - daerah lainnya berdatangan hadir u/ sama - sama belajar membuka <b>Kedai Kopi Low Budget</b>, kali ini <b>Giliran</b> kamu yang ikut, iya kamu yang mau meraih mimpi memiliki waktu yang lebih fleksible, kamu yang punya passion dalam berkarya khususnya didunia perkopian, coba cek informasi dibawah ini.</p>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="text-white" style="text-decoration:underline;text-decoration-color:#fff200">Peserta akan belajar dalam 3 sesi:</h5>
+                      <ol>
+                        <li><b>Konsep</b> Kedai Kopi</li>
+                        <li><b>Peluang Bisnis Kedai Kopi</b> (Hulu - Hilir) dan,</li>
+                        <li><b>Marketing Plan</b> (Strategi bersaing dengan brand besar)</li>
+                      </ol>
+                    </div>
+                    <div class="col-md-6">
+                      <h4 class="text-white" style="text-decoration:underline;text-decoration-color:#fff200;background-color:#cfc500">Dengan menguasai 3 Materi Dasar ini, 100% Predictable sudah cukup u/ kamu membuka kedai kopi impiannmu.</h4>
+                    </div>
+                  </div>
+                  <h5 class="text-white" style="text-decoration:underline;text-decoration-color:#fff200">Selain Materi diatas peserta akan mendapatkan:</h5>
+                  <ol>
+                      <li>Modul Materi</li>
+                      <li>E-Book</li>
+                      <li>Sertifikat</li>
+                      <li>Coffe & Snack</li>
+                      <li><b>Free Merchandise</b> #genkuncle</li>
+                    </ol>
+                </div>
         </div>
     </section>
     {{-- End Benefit --}}
@@ -529,10 +587,25 @@
           <div class="row">
             <div class="col-lg-12">
                 <div class="row bg-white rounded">
+                    @if ($news->count() == '')
                     <div class="col-md-6">
                         <form action="{{ route('register_workshop') }}" method="post" id="form-register">
                         @csrf
-                        <div class="card bg-white" style="height: 115vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
+                        <div class="card bg-white" style="height: 130vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
+                            <div class="card-body p-lg-5">
+                              <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
+                                <i class="fa fa-exclamation-triangle text-danger " aria-hidden="true"></i>
+                              </div>
+                              <h4 class="font-weight-bold f-black">Maaf untuk sekarang belum ada Workshop.</h4>
+                            </div>  
+                        </div>
+                        </form>
+                    </div>
+                    @else
+                    <div class="col-md-6">
+                        <form action="{{ route('register_workshop') }}" method="post" id="form-register">
+                        @csrf
+                        <div class="card bg-white" style="height: 130vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
                             <div class="card-body p-lg-5">
                               <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
                                 <i class="ni ni-single-02 text-white"></i>
@@ -564,7 +637,7 @@
 
                               </div>
 
-                              <div class="form-group pb-5">
+                              <div class="form-group">
                                   <label class="f-black">Your Phone Number</label>
                                   <div class="input-group">
                                       <div class="input-group-prepend">
@@ -573,17 +646,36 @@
                                         </span>
                                       </div>
                                       <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="text" name="nomor"class="form-control" placeholder="0898123456790" value="{{old('nomor')}}">
+                                  </div>
                               </div>
+                              <div class="form-group pb-5">
+                                  <label class="f-black">Ukuran Baju</label>
+                                  <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
+                                            <i class="fas fa-tshirt f-black"></i>
+                                        </span>
+                                      </div>
+                                      <select name="size_chart" class="form-control">
+                                        <option>-- Silahkan Pilih Ukuran Baju --</option>
+                                        <option value="s">S</option>
+                                        <option value="m">M</option>
+                                        <option value="l">L</option>
+                                        <option value="xl">XL</option>
+                                      </select>
+                                  </div>
                               </div>
                               <div class="" style="margin-top:-7%">
                                   <button type="submit" class="btn btns-gradient-red btn-round text-white">Register Now</button>
                               </div>
-                            </div>
+                            </div>  
                         </div>
                         </form>
                     </div>
+                    @endif
+                    
                     <div class="col-md-6">
-                        <div class="card bg-white" style="height: 115vh; border: none!important; border-radius: 0px 5px 5px 0px!important;">
+                        <div class="card bg-white" style="height: 120vh; border: none!important; border-radius: 0px 5px 5px 0px!important;">
                             <div class="container" style="padding-top: 125px; padding-bottom: 125px;">
                                 <img style="height: auto;" src="{{asset('public/img/ui-images/daftar.png')}}" class="img-fluid p-3">
                             </div>
@@ -610,6 +702,13 @@
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
+            });
+
+            var swiper = new Swiper('.swiper-container2', {
+              pagination: {
+                el: '.swiper-pagination',
+                dynamicBullets: true,
+              },
             });
 
             $('.js-tilt').tilt({

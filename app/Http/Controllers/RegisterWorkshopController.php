@@ -60,6 +60,7 @@ class RegisterWorkshopController extends Controller
                 'email' => $request->email,
                 'number_telp' => $request->nomor,
                 'new_id' => $new->id,
+                'size_chart' => $request->size_chart,
                 'status' => 0,
             ]);
 

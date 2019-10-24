@@ -20,7 +20,7 @@ class AdminMiddleware
     {
         if(auth()->user()->role != '1'){
             Session::flash('auth','You are not authorized to view this page.');
-            return redirect()->route('home');
+            return redirect()->route('landing');
         }
         return $next($request);
     }
