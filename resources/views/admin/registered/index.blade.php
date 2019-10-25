@@ -130,7 +130,7 @@
                                         <td>{{ ucfirst($g->news->title) }}</td>
                                         <td>{{ $g->email }}</td>
                                         <td>{{ $g->number_telp }}</td>
-                                        <td>{{ ucfirst($g->size_chart) }}</td>
+                                        <td>{{ strtoupper($g->size_chart) }}</td>
                                         <td><div class="section__status">
                                         @if ( $g->status == '0')
                                             <span class="m-badge m-badge--warning text-white m-badge--wide">Belum bayar</span>
