@@ -114,6 +114,7 @@
                                     <th scope="col">Workshop</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">No Telp</th>
+                                    <th scope="col">Ukuran Baju</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                     </tr>
@@ -129,6 +130,7 @@
                                         <td>{{ ucfirst($g->news->title) }}</td>
                                         <td>{{ $g->email }}</td>
                                         <td>{{ $g->number_telp }}</td>
+                                        <td>{{ strtoupper($g->size_chart) }}</td>
                                         <td><div class="section__status">
                                         @if ( $g->status == '0')
                                             <span class="m-badge m-badge--warning text-white m-badge--wide">Belum bayar</span>

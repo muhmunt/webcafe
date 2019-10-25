@@ -85,7 +85,7 @@
                                     <tr>
                                         <th>{{ $g->id }}</th>
                                         <td>{{ $g->title }}</td>
-                                        <td>{{ $g->description }}</td>
+                                        <td>{!! $g->description !!}</td>
                                         <td>
                                             <img src="{{asset('public/upload/participants/'.$g->picture)}}" width="100px" alt="foto">
                                         </td>

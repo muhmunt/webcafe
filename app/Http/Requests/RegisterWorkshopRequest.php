@@ -18,7 +18,8 @@ class RegisterWorkshopRequest extends FormRequest
         return [
             'nama' => 'required',
             'email' => 'required|email|unique:register_workshops,email',
-            'nomor' => 'required|numeric|phone:ID'
+            'nomor' => 'required|numeric|phone:ID',
+            'size_chart' => 'required'
         ];
     }
 }

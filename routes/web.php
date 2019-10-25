@@ -16,14 +16,13 @@ use App\News;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes(['register' => false]);
-
+Auth::routes();
+// ['register' => false]
 Route::get('/password/reset',function(){
     return redirect('/home');
 });
 
 Route::get('/',function(){
-
     return redirect('/home');
 });
 // Route::get('/home', 'HomeController@index')->name('home');

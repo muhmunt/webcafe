@@ -26,19 +26,8 @@ class HomeController extends Controller
       $new = News::orderBy(
           'id', 'desc'
         )->first();
-
-      //dd($new);
-
-      foreach ($news as $key => $v) {
-          if ($key === 0) {
-            $color = 'primary';
-          }elseif($key == 1){
-            $color = 'success';
-          }else{
-            $color = 'info';
-          }
-      }
-      return view('landing',compact('galleries','participants','news','new','color'));
+      
+      return view('landing',compact('galleries','participants','news','new'));
     }
     /**
      * Show the application dashboard.

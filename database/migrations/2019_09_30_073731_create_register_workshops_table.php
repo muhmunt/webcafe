@@ -20,6 +20,7 @@ class CreateRegisterWorkshopsTable extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('number_telp');
+            $table->string('size_chart');
             $table->integer('status')->default(0);
             $table->integer('delete_is')->default(0);
             $table->timestamps();
