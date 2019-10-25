@@ -78,7 +78,7 @@ class RegisterWorkshopController extends Controller
                 });
 
             $message = 'Selamat '. ucwords($request->nama) .', Berhasil Terdaftar Dalam Work Shop';
-            $skinMessage = 'success';
+            $skinMessage = 'dark';
             $bg = 'public/images/confirm1.png';
             $icon = 'la-check-circle-o';
 

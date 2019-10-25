@@ -89,7 +89,6 @@
             border-radius: 15px;
         }
 
-
     </style>
 
 @endsection
@@ -116,11 +115,19 @@
                   <div class="row mt-3 d-flex justify-content-center">
                     <div class="col-lg-10 text-center">
                       <img class="mx-auto" style="width: 100px;" src="{{ asset('/public/img/UNCLE-JO/logo1.png') }}">
-                      <h1 class="display-3 text-white">Bisnis Kopi 2.0<span class="f-red"> How to start Bisnis Kopi Low Budget</span></h1>
-                      <p class="lead  text-white"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus culpa ab dolores necessitati.</p>
-                      <div class="btn-wrapper">
+                        <h1 class="display-2 text-white">
+                            Bisnis Kopi 2.0
+                        </h1>
+                        <span class="display-3 f-red font-weight-normal">
+                            Cara Membangun Kedai Kopi Dengan Budget Minim
+                        </span>
+                        {{-- <p class="lead text-white">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus culpa ab dolores necessitati.
+                        </p> --}}
+                      <div class="btn-wrapper pt-3">
                         <a href="#register" id="btn-register" class="btn btns-gradient-red rounded text-white">Daftar Sekarang</a>
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -191,9 +198,9 @@
                 <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-5">
                   <i class="ni ni-single-02 text-secondary"></i>
                 </div>
-                <h1 class="display-3 text-dark">Workshop Uncle Jo</h1>
+                <h1 class="display-3 text-dark">Workshop Bisnis Kopi</h1>
                 <p class="lead font-weight-light text-dark">50 lebih kedai kopi sudah lahir dari workshop ini. Tidak ada yang perlu di ragukan lagi! kita harus mempersiapkan diri untuk menghadapi bonus demografi yang akan terjadi pada waktu mendatang. Oleh karena itu kita harus berinvestasi untuk keberlangsungan hidup. <br> Nah buat kamu yang bosen bekerja dikantoran, kamu yang memiliki waktu fleksible, kamu yang punya passion dalam berkarya khususnya didunia perkopian, kamu yang mau meraih mimpi memiliki kedai kopi impian, dan kamu yang mau merintis usaha mandiri. Segera daftar silahkan klik dibawah ini.</p>
-                <a href="#register" id="link_r" class="font-weight-bold text-primary mt-5">Daftar Workshop Coffe Shop</a>
+                <a href="#register" id="link_r" class="font-weight-bold text-primary mt-5">Daftar Workshop Bisnis Kopi</a>
               </div>
             </div>
 
@@ -205,7 +212,7 @@
                     <polygon points="0,52 583,95 0,95" class="fill-dark" />
                     <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-dark" />
                   </svg>
-                  <h4 class="display-3 font-weight-bold text-white">Coffe Workshop</h4>
+                  <h4 class="display-3 font-weight-bold text-white">Bisnis Kopi</h4>
                   <p class="lead text-italic text-white">Usaha kedai kopi ini cocok banget buat kamu yang mau keluar dari zona nyaman kamu! <br>Dan semua yang dibutuhkan untuk membangun sebuah kedai kopi yang profitable ada di depan mata, kalian ga jalan sendiri, ada partner, mitra karya, dan komunitas pengusaha kopi lainnya yang saling support dalam prosesnya.</p>
                 </blockquote>
               </div>
@@ -223,20 +230,20 @@
             <div class="title-padding text-center">
                 <div class="d-flex px-4">
                     <div>
-                        <div class="icon icon-lg icon-shape bg-gradient-secondary shadow rounded-circle text-white">
-                            <i class="ni ni-building text-dark"></i>
+                        <div class="icon icon-lg icon-shape shadow rounded-circle text-white">
+                            {{-- <i class="ni ni-building text-dark"></i> --}}
+                            <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-video1.png') }}">
                         </div>
                     </div>
-                    <div class="pl-3">
-                        <h4 class="display-4 text-white">
-                            Workshop Documentation
+                    <div class="pl-4 pt-2">
+                        <h4 style="text-decoration:underline;text-decoration-color:#fff200" class="display-4 text-white">
+                            Dokumentasi Workshop
                         </h4>
-
                     </div>
                 </div>
             </div>
 
-            <div class="owl-carousel owl-theme owl-1">
+            {{-- <div class="owl-carousel owl-theme owl-1">
                     <div class="item">
                         <div class="text-center">
                             <div class="card-title">
@@ -258,7 +265,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </section>
@@ -298,7 +305,7 @@
                             <div class="d-flex align-items-center">
                               <div>
                                 <div class="badge badge-circle badge-{{$color}} mr-3">
-                                  <i class="ni ni-settings-gear-65"></i>
+                                  <i class="far fa-clock"></i>
                                 </div>
                               </div>
                               @php
@@ -318,7 +325,7 @@
                             <div class="d-flex align-items-center">
                               <div>
                                 <div class="badge badge-circle badge-{{$color}} mr-3">
-                                  <i class="ni ni-html5"></i>
+                                  <i style="font-size: 20px;" class="far fa-calendar-alt"></i>
                                 </div>
                               </div>
                               <div>
@@ -363,14 +370,15 @@
         <div class="container">
           <div class="row row-grid align-items-center">
             <div class="col-lg-12 order-lg-1">
-              <div class="d-flex px-3">
+              <div class="d-flex px-3 pb-5">
                 <div>
-                  <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
-                    <i class="ni ni-building text-primary"></i>
+                  <div class="icon icon-lg icon-shape shadow rounded-circle text-primary">
+                    {{-- <i class="ni ni-building text-primary"></i> --}}
+                    <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-gallery3.png') }}">
                   </div>
                 </div>
-                <div class="pl-4" style="padding-bottom: 70px;">
-                  <h4 class="display-3 text-white">Workshop Gallery</h4>
+                <div class="pl-4 pt-2">
+                  <h4 style="text-decoration:underline;text-decoration-color:#fff200" class="display-4 text-white">Galeri Workshop</h4>
                 </div>
               </div>
                 <div class="row mx-auto">
@@ -401,7 +409,9 @@
           <div class="row justify-content-center text-center mb-lg">
             <div class="col-lg-8">
               <h2 class="display-3 text-dark">Apa kata peserta workshop</h2>
-              <p class="lead font-weight-light text-black">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record maximum.</p>
+              <p class="lead font-weight-light text-black">
+                  Testimoni dari orang orang yang pernah mengikuti workshop kami
+              </p>
             </div>
           </div>
           <div class="row d-flex justify-content-center">
@@ -449,18 +459,19 @@
             <div class="title-padding text-center">
                 <div class="d-flex px-4">
                     <div>
-                        <div class="icon icon-lg icon-shape bg-gradient-secondary shadow rounded-circle text-white">
-                            <i class="ni ni-building text-dark"></i>
+                        <div class="icon icon-lg icon-shape shadow rounded-circle text-white">
+                            {{-- <i class="ni ni-building text-dark"></i> --}}
+                            <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-benefit1.png') }}">
                         </div>
                     </div>
-                    <div class="pl-3">
+                    <div class="pl-4 pt-2">
                         <h4 class="display-4 text-white" style="text-decoration:underline;text-decoration-color:#fff200">
-                            Workshop Benefit
+                            Keuntungan Workshop
                         </h4>
                     </div>
                   </div>
                 </div>
-                
+
 
         </div>
     </section>
@@ -484,7 +495,7 @@
                   <h5 class="display-6 font-weight-bold text-white" style="text-decoration:underline;text-decoration-color:#fff200">Education</h5>
                   <p class="text-italic text-white">Gunadarma University.</p>
                   <h5 class="display-6 font-weight-bold text-white" style="text-decoration:underline;text-decoration-color:#fff200">Volunteer Experience</h5>
-                  <p class="text-italic text-white"><span class="font-weight-bold">Mawar Sharon Church</span> <br> Bassis Player <br>Event Organizer</p>                  
+                  <p class="text-italic text-white"><span class="font-weight-bold">Mawar Sharon Church</span> <br> Bassis Player <br>Event Organizer</p>
                 </blockquote>
               </div>
             </div>
@@ -534,13 +545,15 @@
                         @csrf
                         <div class="card bg-white" style="height: 115vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
                             <div class="card-body p-lg-5">
-                              <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
-                                <i class="ni ni-single-02 text-white"></i>
-                              </div>
-                              <h4 class="font-weight-bold f-black">Register to Workshop</h4>
-                              <h4 class="mb-1 f-black">Interested in joining our workshop? </h4>
+                                <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
+                                    <i class="ni ni-single-02 text-white"></i>
+                                </div>
+                                <h4 class="font-weight-bold f-black">Daftar Kedalam Workshop</h4>
+                                <h4 class="mb-1 f-black">
+                                    Tertarik bergabung ke dalam workshop kita ?
+                                </h4>
                               <div class="form-group mt-5">
-                                  <label class="f-black">Your Name</label>
+                                  <label class="f-black">Nama</label>
                                   <div class="input-group">
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="validationTooltipUsernamePrepend">
@@ -552,7 +565,7 @@
 
                               </div>
                               <div class="form-group">
-                                  <label class="f-black">Your Email</label>
+                                  <label class="f-black">Email</label>
                                   <div class="input-group">
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="validationTooltipUsernamePrepend">
@@ -565,7 +578,7 @@
                               </div>
 
                               <div class="form-group pb-5">
-                                  <label class="f-black">Your Phone Number</label>
+                                  <label class="f-black">Nomer Telepon</label>
                                   <div class="input-group">
                                       <div class="input-group-prepend">
                                         <span class="input-group-text" id="validationTooltipUsernamePrepend">
