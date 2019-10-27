@@ -73,6 +73,10 @@
           padding-bottom: 50px;
         }
 
+        .mb-50{
+          margin-bottom: 50px;
+        }
+
         .fill-reds{
             fill: #FF4B2B;
         }
@@ -87,6 +91,23 @@
             height: 100px;
             /* padding: 15px; */
             border-radius: 15px;
+        }
+
+        .img-gallery-2{
+
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+        }
+
+        .swiper-container2 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .meta-subtitle{
+          color: #b3b3b3;
+          font-size: 14px;
         }
 
     </style>
@@ -118,7 +139,7 @@
                         <h1 class="display-2 text-white">
                             Bisnis Kopi 2.0
                         </h1>
-                        <span class="display-3 f-red font-weight-normal">
+                        <span class="display-3 text-white font-weight-normal">
                             Cara Membangun Kedai Kopi Dengan Budget Minim
                         </span>
                         {{-- <p class="lead text-white">
@@ -222,23 +243,72 @@
         </div>
     </section>
     {{-- end workshop --}}
+    {{-- begin participant get  --}}
+    <section class="section section-lg" id="recent-workshop">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-50">
+            <div class="col-lg-8">
+                <h1 class="text-dark" style="font-weight: 900;">
+                    <span style="padding: 0px 5px 0px 5px; background: #000; color: #fff;">Recent</span> Workshop
+                </h1>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            @foreach ($recentNews as $rn)
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+               <div class="card mb-3">
+                <img src="{{asset('public/upload/news/'.$rn->foto)}}" class="card-img-top">
+                <div class="card-body">
+                    <h3 class="font-weight-bold">
+                        {{ $rn->title }}
+                    </h3>
+                    @php
+                        $tgl = date("Y-m-d", strtotime($n->tgl_mulai));
+                        $mulai = date("H:i", strtotime($n->tgl_mulai));
+                        $akhir = date("H:i", strtotime($n->tgl_akhir));
+                        $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
+                    @endphp
+                    <div class="meta-subtitle mb-4">
+                        {{ $rn->author }}
+                        <span class="mx-2">-</span>
+                        {{ $tanggal }}
+                    </div>
+                    <p class="card-text">
+                        {!!$n->description!!}
+                    </p>
+                    <a href="#" class="card-text">
+                        <small class="text-muted">Baca Selengkapnya</small>
+                    </a>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+    </section>
+    {{-- end --}}
     {{-- begin youtube --}}
-
     <section class="section bg-gradient-black" id="youtube">
 
         <div class="container" data-aos="fade-up">
             <div class="title-padding text-center">
-                <div class="d-flex px-4">
+                {{-- <div class="d-flex px-4">
                     <div>
                         <div class="icon icon-lg icon-shape shadow rounded-circle text-white">
-                            {{-- <i class="ni ni-building text-dark"></i> --}}
                             <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-video1.png') }}">
                         </div>
                     </div>
                     <div class="pl-4 pt-2">
-                        <h4 style="text-decoration:underline;text-decoration-color:#fff200" class="display-4 text-white">
+                        <h2 style="text-decoration:underline;text-decoration-color:#fff200" class="text-white">
                             Dokumentasi Workshop
-                        </h4>
+                        </h2>
+                    </div>
+                </div> --}}
+                <div class="row justify-content-center text-center mb-50">
+                    <div class="col-lg-8">
+                        <h1 class="text-white" style="font-weight: 900;">
+                            <span style="padding: 0px 5px 0px 5px; background: #fff; color: #3b3b3b;">Dokumentasi</span> Workshop
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -370,22 +440,28 @@
         <div class="container">
           <div class="row row-grid align-items-center">
             <div class="col-lg-12 order-lg-1">
-              <div class="d-flex px-3 pb-5">
+              {{-- <div class="d-flex px-3 pb-5">
                 <div>
                   <div class="icon icon-lg icon-shape shadow rounded-circle text-primary">
-                    {{-- <i class="ni ni-building text-primary"></i> --}}
                     <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-gallery3.png') }}">
                   </div>
                 </div>
                 <div class="pl-4 pt-2">
                   <h4 style="text-decoration:underline;text-decoration-color:#fff200" class="display-4 text-white">Galeri Workshop</h4>
                 </div>
-              </div>
+              </div> --}}
+                <div class="row justify-content-center text-center mb-50">
+                    <div class="col-lg-8">
+                        <h1 class="text-white" style="font-weight: 900;">
+                            <span style="padding: 0px 5px 0px 5px; background: #fff; color: #3b3b3b;">Galeri</span> Workshop
+                        </h1>
+                    </div>
+                </div>
                 <div class="row mx-auto">
                     @foreach ($galleries as $g)
                     <div class="col-md-4 galleries-img pb-5 text-center">
                         <a href="{{asset('public/upload/galleries/'.$g->picture)}}" data-lightbox=" roadtrip">
-                            <img class="img-gallery js-tilt shadow" data-tilt src="{{asset('public/upload/galleries/'.$g->picture)}}">
+                            <img class="img-gallery-2 js-tilt shadow" data-tilt src="{{asset('public/upload/galleries/'.$g->picture)}}">
                         </a>
                     </div>
                     @endforeach
@@ -408,11 +484,13 @@
         <div class="container">
           <div class="row justify-content-center text-center">
             <div class="col-lg-8">
-              <h2 class="display-3 text-dark">Apa kata peserta workshop</h2>
+                <h1 style="font-weight: 700;" class="text-dark">
+                    Apa kata peserta workshop
+                </h1>
             </div>
           </div>
           <div class="row d-flex justify-content-center">
-            <div class="swiper-container swiper-container2">
+            <div class="swiper-container2">
               <div class="swiper-wrapper">
                   @foreach ($participants as $key => $p)
                   <?php
@@ -433,31 +511,38 @@
                       <h4 class="mt-3 f-black font-weight-bold">{{ucwords($p->title)}}</h4>
                   </div>
                 @endforeach
-              </div><br>
-              <div class="swiper-pagination"></div>
+              </div>
+              <div style="margin-bottom: 100px;" class="swiper-pagination"></div>
             </div>
           </div>
         </div>
     </section>
+    {{-- end --}}
 
     {{-- Begin Benefit --}}
     <section class="section bg-gradient-black" id="youtube">
 
         <div class="container" data-aos="fade-up">
             <div class="title-padding text-center">
-                <div class="d-flex px-4">
+                {{-- <div class="d-flex px-4">
                     <div>
-                        <div class="icon icon-lg icon-shape shadow rounded-circle text-white">
-                            {{-- <i class="ni ni-building text-dark"></i> --}}
+                        <div class="icon icon-lg icon-shape shadow rounded-circle text-white"
                             <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-benefit1.png') }}">
                         </div>
                     </div>
                     <div class="pl-4 pt-2">
                         <h4 class="display-4 text-white" style="text-decoration:underline;text-decoration-color:#fff200">
-                            Apa yang didapat ketika Mengikuti Workhsop Bisnis Kopi.
+                            Keuntungan Mengikuti Workshop
                         </h4>
                     </div>
-                  </div>
+                </div> --}}
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="text-white" style="font-weight: 800;">
+                            <span style="padding: 0px 5px 0px 5px; background: #fff; color: #3b3b3b;">Keuntungan</span> Mengikuti Workshop
+                        </h1>
+                    </div>
+                </div>
                 </div>
                 <div class="text-white">
                   <p style="font-size:20px;"><b>Setelah ratusan peserta</b> mulai dari JABODETABEK, Bandung, Sukabumi, Surabaya, Pekanbaru, Padang, Medan, Makassar, Samarinda, Lampung, NTT dan dari daerah - daerah lainnya berdatangan hadir u/ sama - sama belajar membuka <b>Kedai Kopi Low Budget</b>, kali ini <b>Giliran</b> kamu yang ikut, iya kamu yang mau meraih mimpi memiliki waktu yang lebih fleksible, kamu yang punya passion dalam berkarya khususnya didunia perkopian, coba cek informasi dibawah ini.</p>
@@ -566,81 +651,72 @@
                     </div>
                     @else
                     <div class="col-md-6">
-                        <form action="{{ route('register_workshop') }}" method="post" id="form-register">
-                        @csrf
-                        <div class="card bg-white" style="height: 130vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
-                            <div class="card-body p-lg-5">
-                                <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
-                                    <i class="ni ni-single-02 text-white"></i>
+                        <div class="container">
+
+                            <form action="{{ route('register_workshop') }}" method="post" id="form-register">
+                            @csrf
+                            <div class="card bg-white" style="height: auto; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
+                                <div class="card-body p-lg-5">
+                                    <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
+                                        <i class="ni ni-single-02 text-white"></i>
+                                    </div>
+                                    <h4 class="font-weight-bold f-black">Daftar Kedalam Workshop</h4>
+                                    <h4 class="mb-1 f-black">
+                                        Tertarik bergabung ke dalam workshop kita ?
+                                    </h4>
+                                  <div class="form-group mt-5">
+                                      <label class="f-black">Nama</label>
+                                      <div class="input-group">
+                                          {{-- <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-user f-black"></i>
+                                            </span>
+                                          </div> --}}
+                                        <input style="padding-left: 10px;" type="text" placeholder="Nama Lengkap" name="nama" class="form-control" value="{{old('nama')}}">
+                                      </div>
+
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="f-black">Email</label>
+                                      <div class="input-group">
+
+                                        <input style="padding-left: 10px;" type="email" name="email" class="form-control" value="{{old('email')}}" placeholder="Alamat Email">
+                                      </div>
+
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label class="f-black">Nomer Telepon</label>
+                                      <div class="input-group">
+
+                                          <input style="padding-left: 10px;" type="text" name="nomor"class="form-control" placeholder="Nomer Telepon" value="{{old('nomor')}}">
+                                      </div>
+                                  </div>
+                                  <div class="form-group pb-5">
+                                      <label class="f-black">Ukuran Baju</label>
+                                      <div class="input-group">
+
+                                          <select name="size_chart" class="form-control">
+                                            <option value="">-- Silahkan Pilih Ukuran Baju --</option>
+                                            <option value="s">S</option>
+                                            <option value="m">M</option>
+                                            <option value="l">L</option>
+                                            <option value="xl">XL</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="" style="margin-top:-7%">
+                                      <button type="submit" id="btn-id" class="btn btns-gradient-red btn-round text-white">Register Now</button>
+                                  </div>
                                 </div>
-                                <h4 class="font-weight-bold f-black">Daftar Kedalam Workshop</h4>
-                                <h4 class="mb-1 f-black">
-                                    Tertarik bergabung ke dalam workshop kita ?
-                                </h4>
-                              <div class="form-group mt-5">
-                                  <label class="f-black">Nama</label>
-                                  <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                                            <i class="fa fa-user f-black"></i>
-                                        </span>
-                                      </div>
-                                    <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="text" placeholder="type your name..." name="nama"class="form-control" value="{{old('nama')}}">
-                                  </div>
-
-                              </div>
-                              <div class="form-group">
-                                  <label class="f-black">Email</label>
-                                  <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                                            <i class="fa fa-envelope f-black"></i>
-                                        </span>
-                                      </div>
-                                    <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="email" name="email"class="form-control" value="{{old('email')}}" placeholder="type your email here ...">
-                                  </div>
-
-                              </div>
-
-                              <div class="form-group">
-                                  <label class="f-black">Your Phone Number</label>
-                                  <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                                            <i class="fa fa-phone f-black"></i>
-                                        </span>
-                                      </div>
-                                      <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="text" name="nomor"class="form-control" placeholder="0898123456790" value="{{old('nomor')}}">
-                                  </div>
-                              </div>
-                              <div class="form-group pb-5">
-                                  <label class="f-black">Ukuran Baju</label>
-                                  <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                                            <i class="fas fa-tshirt f-black"></i>
-                                        </span>
-                                      </div>
-                                      <select name="size_chart" class="form-control">
-                                        <option>-- Silahkan Pilih Ukuran Baju --</option>
-                                        <option value="s">S</option>
-                                        <option value="m">M</option>
-                                        <option value="l">L</option>
-                                        <option value="xl">XL</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="" style="margin-top:-7%">
-                                  <button type="submit" class="btn btns-gradient-red btn-round text-white">Register Now</button>
-                              </div>
                             </div>
+                            </form>
                         </div>
-                        </form>
                     </div>
                     @endif
 
                     <div class="col-md-6">
-                        <div class="card bg-white" style="height: 120vh; border: none!important; border-radius: 0px 5px 5px 0px!important;">
+                        <div class="card bg-white" style="height: auto; border: none!important; border-radius: 0px 5px 5px 0px!important;">
                             <div class="container" style="padding-top: 125px; padding-bottom: 125px;">
                                 <img style="height: auto;" src="{{asset('public/img/ui-images/daftar.png')}}" class="img-fluid p-3">
                             </div>
@@ -670,10 +746,11 @@
             });
 
             var swiper = new Swiper('.swiper-container2', {
-              pagination: {
-                el: '.swiper-pagination',
-                dynamicBullets: true,
-              },
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    dynamicBullets: true,
+                },
             });
 
             $('.js-tilt').tilt({

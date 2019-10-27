@@ -17,7 +17,8 @@ class News extends Model
         'seat',
         'foto',
         'location',
-        'author'
+        'author',
+        'delete_is'
     ];
 
     public function registers(){

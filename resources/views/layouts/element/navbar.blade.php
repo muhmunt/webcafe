@@ -83,7 +83,7 @@ m-minimize-mobile-offset="200"
                     {{ $user->name }}
                 </span>
                 <span class="m-topbar__userpic">
-                  <img src="{{ asset('public/img/ui-images/manp.png') }}" class="m--img-rounded m--marginless" />
+                  <img src="{{ asset('public/img/ui-images/man.png') }}" class="m--img-rounded m--marginless" />
                 </span>
               </a>
               <div class="m-dropdown__wrapper">

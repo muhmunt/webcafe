@@ -23,11 +23,12 @@ class HomeController extends Controller
       $galleries = Gallery::latest()->paginate(6);
       $participants = Participant::all();
       $news = News::latest()->paginate(3);
+      $recentNews = News::where('delete_is', '1')->get();
       $new = News::orderBy(
           'id', 'desc'
         )->first();
-      
-      return view('landing',compact('galleries','participants','news','new'));
+
+      return view('landing',compact('galleries','participants','news','new','recentNews'));
     }
     /**
      * Show the application dashboard.

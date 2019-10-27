@@ -15,8 +15,33 @@ class NewsController extends Controller
     {
         $user = Auth::user();
 
-        $news = News::latest()->paginate(10);
+        $dateNow = Carbon::now();
+
+        $news = News::latest()->paginate(10)
+            ->where('delete_is','0');
+
+        // foreach($news as $n){
+        //     $dateEx = date_create($n->tgl_akhir);
+        //     $diff = date_diff($dateEx, $dateNow);
+        //     if($diff->invert == 0){
+        //         News::where('id',$n->id)->update([
+        //             'delete_is' => 0
+        //         ]);
+        //     }
+
+        // }
+
         return view('admin.news.news',compact('news','user'));
+    }
+
+    public function recent()
+    {
+        $user = Auth::user();
+
+        $news = News::latest()->paginate(10)
+            ->where('delete_is','1');
+
+        return view('admin.news.recent-news', compact('user','news'));
     }
 
 
@@ -46,30 +71,14 @@ class NewsController extends Controller
             'location' => $request->location,
             'seat' => $request->seat,
             'foto' => $namafile,
-            'description' => $request->description
+            'description' => $request->description,
+            'delete_is' => 1
         ]);
 
         return redirect()->route('news.index')->with('success','Berhasil menambahkan workshop');
         // dd($create);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $user = Auth::user();
@@ -78,13 +87,20 @@ class NewsController extends Controller
         return view('admin.news.edit-news',compact('news','user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function changeStatus($id)
+    {
+        $user = Auth::user();
+
+        $news = News::where('id',$id)->first();
+        //dd($news);
+        News::where('id',$id)->update([
+            'delete_is' => 1
+        ]);
+
+        return redirect()->route('news.index')->with('danger','Berhasil Menghapus');
+
+    }
+
     public function update(Request $request, $id)
     {
         $fotoLama = $request->fotoLama;
@@ -99,7 +115,7 @@ class NewsController extends Controller
                 $namaBaru = $foto;
             }
 
-        $update = News::where('id',$id)->update([
+        News::where('id',$id)->update([
                 'title' => $request->title,
                 'tgl_mulai' => $request->tgl_mulai,
                 'tgl_akhir' => $request->tgl_akhir,
@@ -109,6 +125,7 @@ class NewsController extends Controller
                 'foto' => $namaBaru,
                 'description' => $request->description
             ]);
+
             return redirect()->route('news.index')->with('success','Berhasil menambahkan workshop');
         }
 

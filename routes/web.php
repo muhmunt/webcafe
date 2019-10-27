@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function(){
         Route::resource('news','NewsController')->except([
             'show','destroy'
         ]);
+        Route::get('news/recent-news', 'NewsController@recent')->name('news.recent');
 
         Route::resource('galleries', 'GalleryController')->except([
             'show','destroy'
@@ -66,6 +67,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
         Route::get('/registered/{registered}','RegisterWorkshopController@destroy')->name('registered.destroy');
         Route::put('/registered/bayar/{registered}','RegisterWorkshopController@update')->name('registered.pay');
+        Route::put('/news/change-status/{status}','NewsController@changeStatus')->name('news.change');
         Route::get('admin/galleries/{gallery}','GalleryController@destroy')->name('galleries.destroy');
         Route::get('admin/participants/{participant}','ParticipantController@destroy')->name('participants.destroy');
     });

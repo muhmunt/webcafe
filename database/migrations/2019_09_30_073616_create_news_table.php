@@ -23,6 +23,7 @@ class CreateNewsTable extends Migration
             $table->string('foto');
             $table->string('author');
             $table->string('location');
+            $table->integer('delete_is')->nullable();
             $table->timestamps();
         });
     }

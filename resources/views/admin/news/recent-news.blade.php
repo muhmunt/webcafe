@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard | Workshop')
+@section('title','Dashboard | Recent Workshop')
 
 @section('content')
 
@@ -17,7 +17,7 @@
         <div class="m-subheader ">
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
-                    <h3 class="m-subheader__title m-subheader__title--separator">Workshop</h3>
+                    <h3 class="m-subheader__title m-subheader__title--separator">Recent Workshop</h3>
                     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                         <li class="m-nav__item m-nav__item--home">
                             <a href="{{ route('admin') }}" class="m-nav__link m-nav__link--icon">
@@ -27,7 +27,7 @@
                         <li class="m-nav__separator">-</li>
                         <li class="m-nav__item">
                             <a href="{{ route('news.index') }}" class="m-nav__link ">
-                                <span class="m-nav__link-text">Workshop</span>
+                                <span class="m-nav__link-text">Recent Workshop</span>
                             </a>
                         </li>
 
@@ -55,13 +55,13 @@
                 </div>
                 @endforeach
             @endif
-            @if (session('danger'))
-            <div class="m-alert m-alert--icon alert m-alert--square alert-danger m--margin-bottom-25" role="alert">
+            @if (session('warning'))
+            <div class="m-alert m-alert--icon alert m-alert--square alert-warning m--margin-bottom-25" role="alert">
                 <div class="m-alert__icon">
                     <i class="la la-exclamation-triangle"></i>
                 </div>
                 <div class="m-alert__text">
-                    {{session('danger')}}
+                    {{session('warning')}}
                 </div>
                 <div class="m-alert__close">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -95,26 +95,15 @@
                                             <i class="la la-table"></i>
                                         </span>
                                         <h3 class="m-portlet__head-text">
-                                            Table Workshop
+                                            Table Recent Workshop
                                         </h3>
                                     </div>
                                 </div>
-                                <div class="m-portlet__head-tools">
-                                <ul class="m-portlet__nav">
-                                    <li class="m-portlet__nav-item">
-                                        <a href="{{ route('news.create') }}" class="btn m-btn btn-brand btn-sm m-btn--icon m-btn--pill m-btn--air">
-                                            <span>
-                                                <i class="la la-plus"></i>
-                                                <span>Add Workshop</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+
                             </div>
                         </div>
 
-                        <div class="table-responsive" style="padding-top: 50px;">
+                        <div class="table-responsive">
                             <table class="table align-items-center table-flush" id="table-id">
                                 <thead class="thead-light">
                                     <tr>
@@ -126,7 +115,6 @@
                                     <th class="text-center" scope="col">Seat</th>
                                     <th class="text-center" scope="col">Status</th>
                                     <th scope="col">Picture</th>
-                                    <th class="text-center" scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -159,7 +147,7 @@
                                             </td>
                                         @else
                                             <td class="text-center">
-                                                 <span class="m-badge m-badge--success m-badge--wide">
+                                                 <span class="m-badge m-badge--primary m-badge--wide">
                                                     Aktif
                                                 </span>
                                             </td>
@@ -167,56 +155,7 @@
                                         <td>
                                             <img src="{{asset('public/upload/news/'.$g->foto)}}" width="100px" alt="foto">
                                         </td>
-                                        <td class="text-center">
-                                            <div class="section__action">
-                                                <div class="list__section__action"></div>
-                                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--up" m-dropdown-toggle="click" aria-expanded="true">
-                                                    <a href="#" data-toggle="kt-tooltip" data-placement="bottom" title="Action" data-skin="brand" class="btn m-btn btn-outline-metal m-btn--icon btn-sm m-btn--icon-only m-btn--square  m-dropdown__toggle">
-                                                        <i class="la la-ellipsis-h"></i>
-                                                    </a>
-                                                    <div class="m-dropdown__wrapper" style="z-index: 101;">
-                                                        <div class="m-dropdown__inner">
-                                                            <div class="m-dropdown__body">
-                                                                <div class="m-dropdown__content">
-                                                                    <ul class="m-nav">
-                                                                        <li class="m-nav__section m-nav__section--first">
-                                                                            <span class="m-nav__section-text">Quick Actions</span>
-                                                                        </li>
-                                                                        <li class="m-nav__separator m-nav__separator--fit"></li>
-                                                                        <li class="m-nav__item">
-                                                                            <form action="{{route('news.change',$g->id)}}" method="POST">
-                                                                            @csrf
-                                                                            @method('put')
-                                                                            @if ($g->status == '1')
-                                                                            <h5>Sudah dibayar</h5>
-                                                                            @else
-                                                                                <button type="submit" class="btn m-btn btn-outline-danger btn-sm" >
-                                                                                    <i class="m-nav__link-icon flat la la-trash"></i>
-                                                                                    <span class="m-nav__link-text">Hapus</span>
-                                                                                </button>
-                                                                            @endif
-                                                                            </form>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <span class="m-dropdown__arrow m-dropdown__arrow--right"></span>
-                                                    </div>
-                                                    <a href="{{ route('news.edit', $g->id) }}" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Edit" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
-                                                        <span>
-                                                            <i class="la la-pencil"></i>
-                                                        </span>
-                                                    </a>
-                                                    {{-- <a href="{{route('news.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
-                                                        <span>
-                                                            <i class="la la-trash"></i>
-                                                        <span>Delete</span>
-                                                        </span>
-                                                    </a> --}}
-                                                </div>
-                                            </div>
-                                        </td>
+
                                     </tr>
                                     @endforeach
                                 </tbody>

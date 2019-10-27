@@ -105,7 +105,7 @@
                             </div>
                         </div>
 
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="padding-top: 50px;">
                             <table class="table align-items-center table-flush" id="table-id">
                                 <thead class="thead-light">
                                     <tr>
