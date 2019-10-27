@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use App\History;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\WorkshopRequest;
@@ -16,20 +17,61 @@ class NewsController extends Controller
         $user = Auth::user();
 
         $dateNow = Carbon::now();
+        //dd($histories);
 
-        $news = News::latest()->paginate(10)
-            ->where('delete_is','0');
+        $news = News::latest()->paginate(10);
 
-        // foreach($news as $n){
-        //     $dateEx = date_create($n->tgl_akhir);
-        //     $diff = date_diff($dateEx, $dateNow);
-        //     if($diff->invert == 0){
-        //         News::where('id',$n->id)->update([
-        //             'delete_is' => 0
-        //         ]);
-        //     }
+        foreach($news as $n){
+            $dateEx = date_create($n->tgl_akhir);
+            $diff = date_diff($dateEx, $dateNow);
+            //dd($diff->invert);
+            if($diff->invert == 0){
 
-        // }
+                News::where('id',$n->id)->update([
+                    'delete_is' => 1
+                ]);
+
+                $histories = History::all()->count();
+                $new = News::where('id',$n->id)->first();
+
+                if($histories != 0){
+
+                    $cek = History::where('volume',$n->volume)->first();
+
+                    if($cek){
+
+                    }else{
+                        History::create([
+                            'title' => $new->title,
+                            'tgl_mulai' => $new->tgl_mulai,
+                            'tgl_akhir' => $new->tgl_akhir,
+                            'author' => $new->author,
+                            'volume' => $new->volume,
+                            'location' => $new->location,
+                            'seat' => $new->seat,
+                            'foto' => $new->foto,
+                            'description' => $new->description,
+                            'delete_is' => 0
+                        ]);
+                    }
+
+                }else{
+                    History::create([
+                        'title' => $new->title,
+                        'tgl_mulai' => $new->tgl_mulai,
+                        'tgl_akhir' => $new->tgl_akhir,
+                        'author' => $new->author,
+                        'volume' => $new->volume,
+                        'location' => $new->location,
+                        'seat' => $new->seat,
+                        'foto' => $new->foto,
+                        'description' => $new->description,
+                        'delete_is' => 0
+                    ]);
+                }
+            }
+
+        }
 
         return view('admin.news.news',compact('news','user'));
     }
@@ -38,8 +80,8 @@ class NewsController extends Controller
     {
         $user = Auth::user();
 
-        $news = News::latest()->paginate(10)
-            ->where('delete_is','1');
+        $news = History::latest()->paginate(10)
+            ->where('delete_is','0');
 
         return view('admin.news.recent-news', compact('user','news'));
     }
@@ -54,9 +96,8 @@ class NewsController extends Controller
 
     public function store(Request $request, WorkshopRequest $requests)
     {
-        //dd($requests);
+
         $validated = $requests->validated();
-        //dd($validated);
 
         $foto = $request->file('foto');
         $namafile = Carbon::now()->timestamp . '_' . uniqid() . '.' . $foto->getClientOriginalExtension();
@@ -71,8 +112,9 @@ class NewsController extends Controller
             'location' => $request->location,
             'seat' => $request->seat,
             'foto' => $namafile,
+            'volume' => $request->volume,
             'description' => $request->description,
-            'delete_is' => 1
+            'delete_is' => 0
         ]);
 
         return redirect()->route('news.index')->with('success','Berhasil menambahkan workshop');

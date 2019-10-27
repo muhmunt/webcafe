@@ -69,12 +69,28 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .f-bg-dark {
+            padding: 0px 5px 0px 5px;
+            background: #000;
+            color: #fff;
+        }
+
+        .f-bg-white {
+            padding: 0px 5px 0px 5px;
+            background: #fff;
+            color: #3b3b3b;
+        }
+
         .pb-50{
           padding-bottom: 50px;
         }
 
         .mb-50{
           margin-bottom: 50px;
+        }
+
+        .mb-70{
+          margin-bottom: 70px;
         }
 
         .fill-reds{
@@ -263,9 +279,9 @@
                         {{ $rn->title }}
                     </h3>
                     @php
-                        $tgl = date("Y-m-d", strtotime($n->tgl_mulai));
-                        $mulai = date("H:i", strtotime($n->tgl_mulai));
-                        $akhir = date("H:i", strtotime($n->tgl_akhir));
+                        $tgl = date("Y-m-d", strtotime($rn->tgl_mulai));
+                        $mulai = date("H:i", strtotime($rn->tgl_mulai));
+                        $akhir = date("H:i", strtotime($rn->tgl_akhir));
                         $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
                     @endphp
                     <div class="meta-subtitle mb-4">
@@ -273,11 +289,17 @@
                         <span class="mx-2">-</span>
                         {{ $tanggal }}
                     </div>
-                    <p class="card-text">
-                        {!!$n->description!!}
+                    <p class="card-text font-weight-bold">
+                        Volume {{ $rn->volume }}
                     </p>
-                    <a href="#" class="card-text">
-                        <small class="text-muted">Baca Selengkapnya</small>
+
+                    <div class="recent-desc">
+                        {!!$rn->description!!}
+                    </div>
+
+                    <a href="javascript:;" class="card-text text-more">
+                        <small class="badge badge-pill badge-primary more-show">Baca Selengkapnya</small>
+                        <small class="badge badge-pill badge-warning less-show">Baca Lebih Sedikit</small>
                     </a>
                 </div>
               </div>
@@ -292,18 +314,6 @@
 
         <div class="container" data-aos="fade-up">
             <div class="title-padding text-center">
-                {{-- <div class="d-flex px-4">
-                    <div>
-                        <div class="icon icon-lg icon-shape shadow rounded-circle text-white">
-                            <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-video1.png') }}">
-                        </div>
-                    </div>
-                    <div class="pl-4 pt-2">
-                        <h2 style="text-decoration:underline;text-decoration-color:#fff200" class="text-white">
-                            Dokumentasi Workshop
-                        </h2>
-                    </div>
-                </div> --}}
                 <div class="row justify-content-center text-center mb-50">
                     <div class="col-lg-8">
                         <h1 class="text-white" style="font-weight: 900;">
@@ -341,96 +351,109 @@
     </section>
     {{-- end youtube --}}
     {{-- begin news  --}}
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-    @foreach ($news as $key => $n)
-            <?php
-            if($key === 0 ){
-              $color = 'warning';
-            }elseif($key == 1){
-              $color = 'success';
-            }else{
-              $color = 'primary';
-            }
-            ?>
-      <section class="section swiper-slide bg-white section-lg" id="news">
-        <div class="container">
-          <div class="row">
-                  <div class="col-md-6 order-md-2">
-                      <iframe class="frame-yt2" src="https://www.youtube.com/embed/ydVDXhpXys0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="col-md-6 order-md-1">
-                      <div class="pr-md-5">
-                        {{-- <div class="icon icon-lg icon-shape icon-shape-{{$color}} shadow rounded-circle mb-5">
-                          <i class="ni ni-settings-gear-65"></i>
-                        </div> --}}
-                        <h3>
-                            {{$n->title}}
-                        </h3>
-                        <p>
-                            {!!$n->description!!}
-                        </p>
-                        <ul class="list-unstyled mt-5">
-                          <li class="py-2">
-                            <div class="d-flex align-items-center">
-                              <div>
-                                <div class="badge badge-circle badge-{{$color}} mr-3">
-                                  <i class="far fa-clock"></i>
-                                </div>
-                              </div>
-                              @php
-                                  $tgl = date("Y-m-d", strtotime($n->tgl_mulai));
-                                  $mulai = date("H:i", strtotime($n->tgl_mulai));
-                                  $akhir = date("H:i", strtotime($n->tgl_akhir));
-                                  $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
-                              @endphp
-                              <div>
-                                <h6 class="mb-0">
-                                  {{ $tanggal }}
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="py-2">
-                            <div class="d-flex align-items-center">
-                              <div>
-                                <div class="badge badge-circle badge-{{$color}} mr-3">
-                                  <i style="font-size: 20px;" class="far fa-calendar-alt"></i>
-                                </div>
-                              </div>
-                              <div>
-                                <h6 class="mb-0">
-                                  {{ $mulai.' - '.$akhir }}
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="py-2">
-                            <div class="d-flex align-items-center">
-                              <div>
-                                <div class="badge badge-circle badge-{{$color}} mr-3">
-                                  <i class="ni ni-satisfied"></i>
-                                </div>
-                              </div>
-                              <div>
-                                <h6 class="mb-0">
-                                    {{ $n->seat }}
-                                    Seat
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-              </div>
+    <div class="swiper-container mb-70" style="margin-top: 50px;">
+        <div class="title-padding text-center">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="text-dark" style="font-weight: 900;">
+                        <span style="padding: 0px 8px 1px 8px; background: #000; color: #fff;">Jadwal</span> Workshop
+                    </h1>
+                </div>
             </div>
-          </section>
-            @endforeach
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
         </div>
+        <div class="swiper-wrapper">
+        @foreach ($news as $key => $n)
+        <?php
+            if($key === 0 ){
+            $color = 'warning';
+        }elseif($key == 1){
+            $color = 'success';
+        }else{
+             $color = 'primary';
+        }
+        ?>
+        <section class="swiper-slide mt-5 bg-white" id="news">
+            <div class="container">
+                <div class="row">
+                      <div class="col-md-6 order-md-2">
+                          <iframe class="frame-yt2" src="https://www.youtube.com/embed/ydVDXhpXys0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                          <div class="pr-md-5">
+                            {{-- <div class="icon icon-lg icon-shape icon-shape-{{$color}} shadow rounded-circle mb-5">
+                              <i class="ni ni-settings-gear-65"></i>
+                            </div> --}}
+                            <h2 class="text-dark font-weight-bold">
+                               <span class="f-bg-dark">Tema</span> Workshop:<br>
+                               {{$n->title}}
+                            </h2>
+                            <h4 class="text-dark">
+                                Volume {{$n->volume}}
+                            </h4>
+                            <p>
+                                {!!$n->description!!}
+                            </p>
+                            <ul class="list-unstyled mt-5">
+                              <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <div class="badge badge-circle badge-{{$color}} mr-3">
+                                      <i class="far fa-clock"></i>
+                                    </div>
+                                  </div>
+                                  @php
+                                      $tgl = date("Y-m-d", strtotime($n->tgl_mulai));
+                                      $mulai = date("H:i", strtotime($n->tgl_mulai));
+                                      $akhir = date("H:i", strtotime($n->tgl_akhir));
+                                      $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
+                                  @endphp
+                                  <div>
+                                    <h6 class="mb-0">
+                                      {{ $tanggal }}
+                                    </h6>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <div class="badge badge-circle badge-{{$color}} mr-3">
+                                      <i style="font-size: 20px;" class="far fa-calendar-alt"></i>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <h6 class="mb-0">
+                                      {{ $mulai.' - '.$akhir }}
+                                    </h6>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <div class="badge badge-circle badge-{{$color}} mr-3">
+                                      <i class="ni ni-satisfied"></i>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <h6 class="mb-0">
+                                        {{ $n->seat }}
+                                        Seat
+                                    </h6>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endforeach
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 
     {{-- end news  --}}
 
@@ -737,6 +760,24 @@
 @section('scripts')
       <script>
           $(document).ready(function(){
+
+            $('.recent-desc').hide();
+            $('.less-show').hide();
+
+
+            $('.text-more').mouseover(function(){
+                $('.more-show',this).on('click', function(){
+                    $('.more-show').hide();
+                    $('.less-show').show()
+                    $('.recent-desc').show();
+                })
+
+                $('.less-show', this).on('click', function(){
+                    $('.more-show').show();
+                    $('.less-show').hide()
+                    $('.recent-desc').hide();
+                })
+            })
 
             var swiper = new Swiper('.swiper-container', {
                 navigation: {

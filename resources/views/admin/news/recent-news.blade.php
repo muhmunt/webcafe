@@ -112,7 +112,6 @@
                                     <th scope="col">Desctription</th>
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Waktu</th>
-                                    <th class="text-center" scope="col">Seat</th>
                                     <th class="text-center" scope="col">Status</th>
                                     <th scope="col">Picture</th>
                                     </tr>
@@ -138,7 +137,6 @@
                                         <td>
                                             {{ $mulai.' - '.$akhir }}
                                         </td>
-                                        <td class="text-center">{{ $g->seat }}</td>
                                         @if ($g->delete_is == 1)
                                             <td class="text-center">
                                                 <span class="m-badge m-badge--danger m-badge--wide">
@@ -148,7 +146,7 @@
                                         @else
                                             <td class="text-center">
                                                  <span class="m-badge m-badge--primary m-badge--wide">
-                                                    Aktif
+                                                    Workshop Sudah
                                                 </span>
                                             </td>
                                         @endif

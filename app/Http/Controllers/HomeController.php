@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gallery;
+use App\History;
 use App\Participant;
 use App\News;
 use JsValidator;
@@ -23,7 +24,7 @@ class HomeController extends Controller
       $galleries = Gallery::latest()->paginate(6);
       $participants = Participant::all();
       $news = News::latest()->paginate(3);
-      $recentNews = News::where('delete_is', '1')->get();
+      $recentNews = History::all();
       $new = News::orderBy(
           'id', 'desc'
         )->first();

@@ -153,8 +153,8 @@
                                         <td class="text-center">{{ $g->seat }}</td>
                                         @if ($g->delete_is == 1)
                                             <td class="text-center">
-                                                <span class="m-badge m-badge--danger m-badge--wide">
-                                                    Dihapus
+                                                <span class="m-badge m-badge--primary m-badge--wide">
+                                                    Workshop Sudah
                                                 </span>
                                             </td>
                                         @else
@@ -171,49 +171,27 @@
                                             <div class="section__action">
                                                 <div class="list__section__action"></div>
                                                 <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--up" m-dropdown-toggle="click" aria-expanded="true">
-                                                    <a href="#" data-toggle="kt-tooltip" data-placement="bottom" title="Action" data-skin="brand" class="btn m-btn btn-outline-metal m-btn--icon btn-sm m-btn--icon-only m-btn--square  m-dropdown__toggle">
-                                                        <i class="la la-ellipsis-h"></i>
+
+                                                    @if ($g->delete_is == 1)
+                                                    <a href="{{route('news.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
+                                                        <span>
+                                                            <i class="la la-trash"></i>
+                                                        <span>Delete</span>
+                                                        </span>
                                                     </a>
-                                                    <div class="m-dropdown__wrapper" style="z-index: 101;">
-                                                        <div class="m-dropdown__inner">
-                                                            <div class="m-dropdown__body">
-                                                                <div class="m-dropdown__content">
-                                                                    <ul class="m-nav">
-                                                                        <li class="m-nav__section m-nav__section--first">
-                                                                            <span class="m-nav__section-text">Quick Actions</span>
-                                                                        </li>
-                                                                        <li class="m-nav__separator m-nav__separator--fit"></li>
-                                                                        <li class="m-nav__item">
-                                                                            <form action="{{route('news.change',$g->id)}}" method="POST">
-                                                                            @csrf
-                                                                            @method('put')
-                                                                            @if ($g->status == '1')
-                                                                            <h5>Sudah dibayar</h5>
-                                                                            @else
-                                                                                <button type="submit" class="btn m-btn btn-outline-danger btn-sm" >
-                                                                                    <i class="m-nav__link-icon flat la la-trash"></i>
-                                                                                    <span class="m-nav__link-text">Hapus</span>
-                                                                                </button>
-                                                                            @endif
-                                                                            </form>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <span class="m-dropdown__arrow m-dropdown__arrow--right"></span>
-                                                    </div>
+                                                    @else
                                                     <a href="{{ route('news.edit', $g->id) }}" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Edit" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
                                                         <span>
                                                             <i class="la la-pencil"></i>
                                                         </span>
                                                     </a>
-                                                    {{-- <a href="{{route('news.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
+                                                    <a href="{{route('news.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
                                                         <span>
                                                             <i class="la la-trash"></i>
                                                         <span>Delete</span>
                                                         </span>
-                                                    </a> --}}
+                                                    </a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </td>
