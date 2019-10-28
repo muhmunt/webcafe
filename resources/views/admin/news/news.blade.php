@@ -55,13 +55,13 @@
                 </div>
                 @endforeach
             @endif
-            @if (session('warning'))
-            <div class="m-alert m-alert--icon alert m-alert--square alert-warning m--margin-bottom-25" role="alert">
+            @if (session('danger'))
+            <div class="m-alert m-alert--icon alert m-alert--square alert-danger m--margin-bottom-25" role="alert">
                 <div class="m-alert__icon">
                     <i class="la la-exclamation-triangle"></i>
                 </div>
                 <div class="m-alert__text">
-                    {{session('warning')}}
+                    {{session('danger')}}
                 </div>
                 <div class="m-alert__close">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -114,7 +114,7 @@
                             </div>
                         </div>
 
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="padding-top: 50px;">
                             <table class="table align-items-center table-flush" id="table-id">
                                 <thead class="thead-light">
                                     <tr>
@@ -123,9 +123,10 @@
                                     <th scope="col">Desctription</th>
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Waktu</th>
-                                    <th scope="col">Seat</th>
+                                    <th class="text-center" scope="col">Seat</th>
+                                    <th class="text-center" scope="col">Status</th>
                                     <th scope="col">Picture</th>
-                                    <th scope="col">Action</th>
+                                    <th class="text-center" scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -149,29 +150,50 @@
                                         <td>
                                             {{ $mulai.' - '.$akhir }}
                                         </td>
-                                        <td>{{ $g->seat }}</td>
+                                        <td class="text-center">{{ $g->seat }}</td>
+                                        @if ($g->delete_is == 1)
+                                            <td class="text-center">
+                                                <span class="m-badge m-badge--primary m-badge--wide">
+                                                    Workshop Sudah
+                                                </span>
+                                            </td>
+                                        @else
+                                            <td class="text-center">
+                                                 <span class="m-badge m-badge--success m-badge--wide">
+                                                    Aktif
+                                                </span>
+                                            </td>
+                                        @endif
                                         <td>
                                             <img src="{{asset('public/upload/news/'.$g->foto)}}" width="100px" alt="foto">
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <div class="section__action">
-												<div class="list__section__action">
+                                                <div class="list__section__action"></div>
+                                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--up" m-dropdown-toggle="click" aria-expanded="true">
 
-													<a href="{{ route('news.edit', $g->id) }}" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Edit" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
-														<span>
-															<i class="la la-pencil"></i>
-														</span>
-													</a>
-													<a href="{{route('news.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
-                                                            <span>
-                                                                <i class="la la-trash"></i>
-                                                            <span>Delete</span>
-                                                            </span>
-                                                        </a>
-
-												</div>
-
-											</div>
+                                                    @if ($g->delete_is == 1)
+                                                    <a href="{{route('news.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
+                                                        <span>
+                                                            <i class="la la-trash"></i>
+                                                        <span>Delete</span>
+                                                        </span>
+                                                    </a>
+                                                    @else
+                                                    <a href="{{ route('news.edit', $g->id) }}" data-toggle="kt-tooltip" data-placement="bottom" data-skin="dark" title="Edit" class="btn m-btn btn-success btn-sm m-btn--icon m-btn--air icon-only">
+                                                        <span>
+                                                            <i class="la la-pencil"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a href="{{route('news.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
+                                                        <span>
+                                                            <i class="la la-trash"></i>
+                                                        <span>Delete</span>
+                                                        </span>
+                                                    </a>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach

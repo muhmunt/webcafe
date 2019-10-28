@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title','Dashboard | Registered Workshop')
+@section('title','Dashboard | Recent Workshop')
 
 @section('content')
 
@@ -17,7 +17,7 @@
         <div class="m-subheader ">
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
-                    <h3 class="m-subheader__title m-subheader__title--separator">Register Workshop</h3>
+                    <h3 class="m-subheader__title m-subheader__title--separator">Recent Workshop</h3>
                     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                         <li class="m-nav__item m-nav__item--home">
                             <a href="{{ route('admin') }}" class="m-nav__link m-nav__link--icon">
@@ -26,8 +26,8 @@
                         </li>
                         <li class="m-nav__separator">-</li>
                         <li class="m-nav__item">
-                            <a href="{{ route('registered.index') }}" class="m-nav__link ">
-                                <span class="m-nav__link-text">Register Workshop</span>
+                            <a href="{{ route('news.index') }}" class="m-nav__link ">
+                                <span class="m-nav__link-text">Recent Workshop</span>
                             </a>
                         </li>
 
@@ -69,13 +69,13 @@
                 </div>
             </div>
             @endif
-            @if (session('message'))
+            @if (session('success'))
             <div class="m-alert m-alert--icon alert m-alert--square alert-success m--margin-bottom-25" role="alert">
                 <div class="m-alert__icon">
-                    <i class="la la-check-circle-o"></i>
+                    <i class="la la-exclamation-triangle"></i>
                 </div>
                 <div class="m-alert__text">
-                    {{session('message')}}
+                    {{session('success')}}
                 </div>
                 <div class="m-alert__close">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -95,102 +95,67 @@
                                             <i class="la la-table"></i>
                                         </span>
                                         <h3 class="m-portlet__head-text">
-                                            Table Register Workshop
+                                            Table Recent Workshop
                                         </h3>
                                     </div>
                                 </div>
-                                <div class="m-portlet__head-tools">
 
-                            </div>
                             </div>
                         </div>
 
-                        <div class="table-responsive" style="padding-top: 50px;">
+                        <div class="table-responsive">
                             <table class="table align-items-center table-flush" id="table-id">
                                 <thead class="thead-light">
                                     <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Workshop</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">No Telp</th>
-                                    <th scope="col">Ukuran Baju</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Desctription</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Waktu</th>
+                                    <th class="text-center" scope="col">Status</th>
+                                    <th scope="col">Picture</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
+                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($data as $g)
+                                    @foreach ($news as $g)
                                     <tr>
-                                        <th>{{$no++}}</th>
-                                        <td>{{ $g->nama }}</td>
-                                        <td>{{ ucfirst($g->news->title) }}</td>
-                                        <td>{{ $g->email }}</td>
-                                        <td>{{ $g->number_telp }}</td>
-                                        <td>{{ strtoupper($g->size_chart) }}</td>
-                                        <td><div class="section__status">
-                                        @if ( $g->status == '0')
-                                            <span class="m-badge m-badge--warning text-white m-badge--wide">Belum bayar</span>
-                                        @else
-                                            <span class="m-badge m-badge--success m-badge--wide">Bayar</span>
-                                        @endif
-                                        </div></td>
+                                        <th>{{ $no++ }}</th>
+                                        <td>{{ $g->title }}</td>
+                                        <td>{!! $g->description !!}</td>
+                                        @php
+                                            $tgl = date("Y-m-d", strtotime($g->tgl_mulai));
+                                            $mulai = date("H:i", strtotime($g->tgl_mulai));
+                                            $akhir = date("H:i", strtotime($g->tgl_akhir));
+                                            $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
+                                        @endphp
                                         <td>
-                                            <div class="section__action">
-												<div class="list__section__action">
-                                                </div>
-                                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--up" m-dropdown-toggle="click" aria-expanded="true">
-														<a href="#" data-toggle="kt-tooltip" data-placement="bottom" title="Action" data-skin="brand" class="btn m-btn btn-outline-metal m-btn--icon btn-sm m-btn--icon-only m-btn--square  m-dropdown__toggle">
-															<i class="la la-ellipsis-h"></i>
-														</a>
-														<div class="m-dropdown__wrapper" style="z-index: 101;">
-														<div class="m-dropdown__inner">
-															<div class="m-dropdown__body">
-																<div class="m-dropdown__content">
-																	<ul class="m-nav">
-																		<li class="m-nav__section m-nav__section--first">
-																			<span class="m-nav__section-text">Quick Actions</span>
-																		</li>
-																		<li class="m-nav__separator m-nav__separator--fit"></li>
-																		<li class="m-nav__item">
-                                                                            <form action="{{route('registered.pay',$g->id)}}" method="POST">
-                                                                            @csrf
-                                                                            @method('put')
-																			@if ($g->status == '1')
-                                                                            <h5>Sudah dibayar</h5>
-                                                                                @else
-                                                                                <button type="submit" class="btn m-btn btn-outline-danger btn-sm" >
-                                                                                        <i class="m-nav__link-icon flat la la-pencil-square"></i>
-                                                                                        <span class="m-nav__link-text">Bayar</span>
-                                                                                    </button>
-
-                                                                            @endif
-                                                                            </form>
-																		</li>
-																	</ul>
-																	<!--Move Here-->
-																</div>
-															</div>
-														</div>
-														<span class="m-dropdown__arrow m-dropdown__arrow--right"></span>
-													</div>
-                                                    </div>
-                                                    <a href="{{route('registered.destroy',$g->id)}}" data-toggle="kt-tooltip" data-placement="bottom" title="Hapus" data-skin="brand" class="btn-delete btn m-btn btn-outline-danger btn-sm  m-btn--icon m-btn--pill icon-only">
-                                                            <span>
-                                                                <i class="la la-trash"></i>
-                                                            <span>Delete</span>
-                                                            </span>
-                                                        </a>
-                                            </div>
-
-
+                                            {{ $tanggal }}
                                         </td>
+                                        <td>
+                                            {{ $mulai.' - '.$akhir }}
+                                        </td>
+                                        @if ($g->delete_is == 1)
+                                            <td class="text-center">
+                                                <span class="m-badge m-badge--danger m-badge--wide">
+                                                    Dihapus
+                                                </span>
+                                            </td>
+                                        @else
+                                            <td class="text-center">
+                                                 <span class="m-badge m-badge--primary m-badge--wide">
+                                                    Workshop Sudah
+                                                </span>
+                                            </td>
+                                        @endif
+                                        <td>
+                                            <img src="{{asset('public/upload/news/'.$g->foto)}}" width="100px" alt="foto">
+                                        </td>
+
                                     </tr>
                                     @endforeach
-                                    {{ $data->render() }}
                                 </tbody>
                             </table>
                         </div>

@@ -69,8 +69,28 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .f-bg-dark {
+            padding: 0px 5px 0px 5px;
+            background: #000;
+            color: #fff;
+        }
+
+        .f-bg-white {
+            padding: 0px 5px 0px 5px;
+            background: #fff;
+            color: #3b3b3b;
+        }
+
         .pb-50{
           padding-bottom: 50px;
+        }
+
+        .mb-50{
+          margin-bottom: 50px;
+        }
+
+        .mb-70{
+          margin-bottom: 70px;
         }
 
         .fill-reds{
@@ -89,6 +109,22 @@
             border-radius: 15px;
         }
 
+        .img-gallery-2{
+
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+        }
+
+        .swiper-container2 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .meta-subtitle{
+          color: #b3b3b3;
+          font-size: 14px;
+        }
 
     </style>
 
@@ -116,11 +152,19 @@
                   <div class="row mt-3 d-flex justify-content-center">
                     <div class="col-lg-10 text-center">
                       <img class="mx-auto" style="width: 100px;" src="{{ asset('/public/img/UNCLE-JO/logo1.png') }}">
-                      <h1 class="display-3 text-white">Bisnis Kopi 2.0<span class="f-red"> How to start Bisnis Kopi Low Budget</span></h1>
-                      <p class="lead  text-white"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus culpa ab dolores necessitati.</p>
-                      <div class="btn-wrapper">
+                        <h1 class="display-2 text-white">
+                            Bisnis Kopi 2.0
+                        </h1>
+                        <span class="display-3 text-white font-weight-normal">
+                            Cara Membangun Kedai Kopi Dengan Budget Minim
+                        </span>
+                        {{-- <p class="lead text-white">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus culpa ab dolores necessitati.
+                        </p> --}}
+                      <div class="btn-wrapper pt-3">
                         <a href="#register" id="btn-register" class="btn btns-gradient-red rounded text-white">Daftar Sekarang</a>
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -191,9 +235,9 @@
                 <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-5">
                   <i class="ni ni-single-02 text-secondary"></i>
                 </div>
-                <h1 class="display-3 text-dark">Workshop Uncle Jo</h1>
+                <h1 class="display-3 text-dark">Workshop Bisnis Kopi</h1>
                 <p class="lead font-weight-light text-dark">50 lebih kedai kopi sudah lahir dari workshop ini. Tidak ada yang perlu di ragukan lagi! kita harus mempersiapkan diri untuk menghadapi bonus demografi yang akan terjadi pada waktu mendatang. Oleh karena itu kita harus berinvestasi untuk keberlangsungan hidup. <br> Nah buat kamu yang bosen bekerja dikantoran, kamu yang memiliki waktu fleksible, kamu yang punya passion dalam berkarya khususnya didunia perkopian, kamu yang mau meraih mimpi memiliki kedai kopi impian, dan kamu yang mau merintis usaha mandiri. Segera daftar silahkan klik dibawah ini.</p>
-                <a href="#register" id="link_r" class="font-weight-bold text-primary mt-5">Daftar Workshop Coffe Shop</a>
+                <a href="#register" id="link_r" class="font-weight-bold text-primary mt-5">Daftar Workshop Bisnis Kopi</a>
               </div>
             </div>
 
@@ -205,7 +249,7 @@
                     <polygon points="0,52 583,95 0,95" class="fill-dark" />
                     <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-dark" />
                   </svg>
-                  <h4 class="display-3 font-weight-bold text-white">Coffe Workshop</h4>
+                  <h4 class="display-3 font-weight-bold text-white">Bisnis Kopi</h4>
                   <p class="lead text-italic text-white">Usaha kedai kopi ini cocok banget buat kamu yang mau keluar dari zona nyaman kamu! <br>Dan semua yang dibutuhkan untuk membangun sebuah kedai kopi yang profitable ada di depan mata, kalian ga jalan sendiri, ada partner, mitra karya, dan komunitas pengusaha kopi lainnya yang saling support dalam prosesnya.</p>
                 </blockquote>
               </div>
@@ -215,23 +259,66 @@
         </div>
     </section>
     {{-- end workshop --}}
-    {{-- begin youtube --}}
+    {{-- begin participant get  --}}
+    <section class="section section-lg" id="recent-workshop">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-50">
+            <div class="col-lg-8">
+                <h1 class="text-dark" style="font-weight: 900;">
+                    <span style="padding: 0px 5px 0px 5px; background: #000; color: #fff;">Recent</span> Workshop
+                </h1>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            @foreach ($recentNews as $rn)
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+               <div class="card mb-3">
+                <img src="{{asset('public/upload/news/'.$rn->foto)}}" class="card-img-top">
+                <div class="card-body">
+                    <h3 class="font-weight-bold">
+                        {{ $rn->title }}
+                    </h3>
+                    @php
+                        $tgl = date("Y-m-d", strtotime($rn->tgl_mulai));
+                        $mulai = date("H:i", strtotime($rn->tgl_mulai));
+                        $akhir = date("H:i", strtotime($rn->tgl_akhir));
+                        $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
+                    @endphp
+                    <div class="meta-subtitle mb-4">
+                        {{ $rn->author }}
+                        <span class="mx-2">-</span>
+                        {{ $tanggal }}
+                    </div>
+                    <p class="card-text font-weight-bold">
+                        Volume {{ $rn->volume }}
+                    </p>
 
+                    <div class="recent-desc">
+                        {!!$rn->description!!}
+                    </div>
+
+                    <a href="javascript:;" class="card-text text-more">
+                        <small class="badge badge-pill badge-primary more-show">Baca Selengkapnya</small>
+                        <small class="badge badge-pill badge-warning less-show">Baca Lebih Sedikit</small>
+                    </a>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+    </section>
+    {{-- end --}}
+    {{-- begin youtube --}}
     <section class="section bg-gradient-black" id="youtube">
 
         <div class="container" data-aos="fade-up">
             <div class="title-padding text-center">
-                <div class="d-flex px-4">
-                    <div>
-                        <div class="icon icon-lg icon-shape bg-gradient-secondary shadow rounded-circle text-white">
-                            <i class="ni ni-building text-dark"></i>
-                        </div>
-                    </div>
-                    <div class="pl-3">
-                        <h4 class="display-4 text-white">
-                            Workshop Documentation
-                        </h4>
-
+                <div class="row justify-content-center text-center mb-50">
+                    <div class="col-lg-8">
+                        <h1 class="text-white" style="font-weight: 900;">
+                            <span style="padding: 0px 5px 0px 5px; background: #fff; color: #3b3b3b;">Dokumentasi</span> Workshop
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -264,96 +351,109 @@
     </section>
     {{-- end youtube --}}
     {{-- begin news  --}}
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-    @foreach ($news as $key => $n)
-            <?php
-            if($key === 0 ){
-              $color = 'warning';
-            }elseif($key == 1){
-              $color = 'success';
-            }else{
-              $color = 'primary';
-            }
-            ?>
-      <section class="section swiper-slide bg-white section-lg" id="news">
-        <div class="container">
-          <div class="row">
-                  <div class="col-md-6 order-md-2">
-                      <iframe class="frame-yt2" src="https://www.youtube.com/embed/ydVDXhpXys0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="col-md-6 order-md-1">
-                      <div class="pr-md-5">
-                        {{-- <div class="icon icon-lg icon-shape icon-shape-{{$color}} shadow rounded-circle mb-5">
-                          <i class="ni ni-settings-gear-65"></i>
-                        </div> --}}
-                        <h3>
-                            {{$n->title}}
-                        </h3>
-                        <p>
-                            {!!$n->description!!}
-                        </p>
-                        <ul class="list-unstyled mt-5">
-                          <li class="py-2">
-                            <div class="d-flex align-items-center">
-                              <div>
-                                <div class="badge badge-circle badge-{{$color}} mr-3">
-                                  <i class="ni ni-settings-gear-65"></i>
-                                </div>
-                              </div>
-                              @php
-                                  $tgl = date("Y-m-d", strtotime($n->tgl_mulai));
-                                  $mulai = date("H:i", strtotime($n->tgl_mulai));
-                                  $akhir = date("H:i", strtotime($n->tgl_akhir));
-                                  $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
-                              @endphp
-                              <div>
-                                <h6 class="mb-0">
-                                  {{ $tanggal }}
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="py-2">
-                            <div class="d-flex align-items-center">
-                              <div>
-                                <div class="badge badge-circle badge-{{$color}} mr-3">
-                                  <i class="ni ni-html5"></i>
-                                </div>
-                              </div>
-                              <div>
-                                <h6 class="mb-0">
-                                  {{ $mulai.' - '.$akhir }}
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="py-2">
-                            <div class="d-flex align-items-center">
-                              <div>
-                                <div class="badge badge-circle badge-{{$color}} mr-3">
-                                  <i class="ni ni-satisfied"></i>
-                                </div>
-                              </div>
-                              <div>
-                                <h6 class="mb-0">
-                                    {{ $n->seat }}
-                                    Seat
-                                </h6>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-              </div>
+    <div class="swiper-container mb-70" style="margin-top: 50px;">
+        <div class="title-padding text-center">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="text-dark" style="font-weight: 900;">
+                        <span style="padding: 0px 8px 1px 8px; background: #000; color: #fff;">Jadwal</span> Workshop
+                    </h1>
+                </div>
             </div>
-          </section>
-            @endforeach
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
         </div>
+        <div class="swiper-wrapper">
+        @foreach ($news as $key => $n)
+        <?php
+            if($key === 0 ){
+            $color = 'warning';
+        }elseif($key == 1){
+            $color = 'success';
+        }else{
+             $color = 'primary';
+        }
+        ?>
+        <section class="swiper-slide mt-5 bg-white" id="news">
+            <div class="container">
+                <div class="row">
+                      <div class="col-md-6 order-md-2">
+                          <iframe class="frame-yt2" src="https://www.youtube.com/embed/ydVDXhpXys0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                          <div class="pr-md-5">
+                            {{-- <div class="icon icon-lg icon-shape icon-shape-{{$color}} shadow rounded-circle mb-5">
+                              <i class="ni ni-settings-gear-65"></i>
+                            </div> --}}
+                            <h2 class="text-dark font-weight-bold">
+                               <span class="f-bg-dark">Tema</span> Workshop:<br>
+                               {{$n->title}}
+                            </h2>
+                            <h4 class="text-dark">
+                                Volume {{$n->volume}}
+                            </h4>
+                            <p>
+                                {!!$n->description!!}
+                            </p>
+                            <ul class="list-unstyled mt-5">
+                              <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <div class="badge badge-circle badge-{{$color}} mr-3">
+                                      <i class="far fa-clock"></i>
+                                    </div>
+                                  </div>
+                                  @php
+                                      $tgl = date("Y-m-d", strtotime($n->tgl_mulai));
+                                      $mulai = date("H:i", strtotime($n->tgl_mulai));
+                                      $akhir = date("H:i", strtotime($n->tgl_akhir));
+                                      $tanggal = Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')
+                                  @endphp
+                                  <div>
+                                    <h6 class="mb-0">
+                                      {{ $tanggal }}
+                                    </h6>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <div class="badge badge-circle badge-{{$color}} mr-3">
+                                      <i style="font-size: 20px;" class="far fa-calendar-alt"></i>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <h6 class="mb-0">
+                                      {{ $mulai.' - '.$akhir }}
+                                    </h6>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <div class="badge badge-circle badge-{{$color}} mr-3">
+                                      <i class="ni ni-satisfied"></i>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <h6 class="mb-0">
+                                        {{ $n->seat }}
+                                        Seat
+                                    </h6>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endforeach
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 
     {{-- end news  --}}
 
@@ -363,21 +463,28 @@
         <div class="container">
           <div class="row row-grid align-items-center">
             <div class="col-lg-12 order-lg-1">
-              <div class="d-flex px-3">
+              {{-- <div class="d-flex px-3 pb-5">
                 <div>
-                  <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
-                    <i class="ni ni-building text-primary"></i>
+                  <div class="icon icon-lg icon-shape shadow rounded-circle text-primary">
+                    <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-gallery3.png') }}">
                   </div>
                 </div>
-                <div class="pl-4" style="padding-bottom: 70px;">
-                  <h4 class="display-3 text-white">Workshop Gallery</h4>
+                <div class="pl-4 pt-2">
+                  <h4 style="text-decoration:underline;text-decoration-color:#fff200" class="display-4 text-white">Galeri Workshop</h4>
                 </div>
-              </div>
+              </div> --}}
+                <div class="row justify-content-center text-center mb-50">
+                    <div class="col-lg-8">
+                        <h1 class="text-white" style="font-weight: 900;">
+                            <span style="padding: 0px 5px 0px 5px; background: #fff; color: #3b3b3b;">Galeri</span> Workshop
+                        </h1>
+                    </div>
+                </div>
                 <div class="row mx-auto">
                     @foreach ($galleries as $g)
                     <div class="col-md-4 galleries-img pb-5 text-center">
                         <a href="{{asset('public/upload/galleries/'.$g->picture)}}" data-lightbox=" roadtrip">
-                            <img class="img-gallery js-tilt shadow" data-tilt src="{{asset('public/upload/galleries/'.$g->picture)}}">
+                            <img class="img-gallery-2 js-tilt shadow" data-tilt src="{{asset('public/upload/galleries/'.$g->picture)}}">
                         </a>
                     </div>
                     @endforeach
@@ -400,11 +507,13 @@
         <div class="container">
           <div class="row justify-content-center text-center">
             <div class="col-lg-8">
-              <h2 class="display-3 text-dark">Apa kata peserta workshop</h2>
+                <h1 style="font-weight: 700;" class="text-dark">
+                    Apa kata peserta workshop
+                </h1>
             </div>
           </div>
           <div class="row d-flex justify-content-center">
-            <div class="swiper-container swiper-container2">
+            <div class="swiper-container2">
               <div class="swiper-wrapper">
                   @foreach ($participants as $key => $p)
                   <?php
@@ -416,7 +525,7 @@
                     $color = 'primary';
                   }
                   ?>
-                  
+
                   <div class="swiper-slide text-center p-5">
                       <div class="justify-content-center">
                           <img src="{{asset('public/upload/participants/'.$p->picture)}}" class="rounded-circle shadow-little bg-gradient-{{$color}} img-gallery mx-auto ">
@@ -425,30 +534,38 @@
                       <h4 class="mt-3 f-black font-weight-bold">{{ucwords($p->title)}}</h4>
                   </div>
                 @endforeach
-              </div><br>
-              <div class="swiper-pagination"></div>
+              </div>
+              <div style="margin-bottom: 100px;" class="swiper-pagination"></div>
             </div>
           </div>
-        </div>        
+        </div>
     </section>
+    {{-- end --}}
 
     {{-- Begin Benefit --}}
     <section class="section bg-gradient-black" id="youtube">
 
         <div class="container" data-aos="fade-up">
             <div class="title-padding text-center">
-                <div class="d-flex px-4">
+                {{-- <div class="d-flex px-4">
                     <div>
-                        <div class="icon icon-lg icon-shape bg-gradient-secondary shadow rounded-circle text-white">
-                            <i class="ni ni-building text-dark"></i>
+                        <div class="icon icon-lg icon-shape shadow rounded-circle text-white"
+                            <img class="text-left" width="60" height="60" src="{{ asset('public/img/ui-images/icon-benefit1.png') }}">
                         </div>
                     </div>
-                    <div class="pl-3">
+                    <div class="pl-4 pt-2">
                         <h4 class="display-4 text-white" style="text-decoration:underline;text-decoration-color:#fff200">
-                            Apa yang didapat ketika Mengikuti Workhsop Bisnis Kopi.
+                            Keuntungan Mengikuti Workshop
                         </h4>
                     </div>
-                  </div>
+                </div> --}}
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="text-white" style="font-weight: 800;">
+                            <span style="padding: 0px 5px 0px 5px; background: #fff; color: #3b3b3b;">Keuntungan</span> Mengikuti Workshop
+                        </h1>
+                    </div>
+                </div>
                 </div>
                 <div class="text-white">
                   <p style="font-size:20px;"><b>Setelah ratusan peserta</b> mulai dari JABODETABEK, Bandung, Sukabumi, Surabaya, Pekanbaru, Padang, Medan, Makassar, Samarinda, Lampung, NTT dan dari daerah - daerah lainnya berdatangan hadir u/ sama - sama belajar membuka <b>Kedai Kopi Low Budget</b>, kali ini <b>Giliran</b> kamu yang ikut, iya kamu yang mau meraih mimpi memiliki waktu yang lebih fleksible, kamu yang punya passion dalam berkarya khususnya didunia perkopian, coba cek informasi dibawah ini.</p>
@@ -496,7 +613,7 @@
                   <h5 class="display-6 font-weight-bold text-white" style="text-decoration:underline;text-decoration-color:#fff200">Education</h5>
                   <p class="text-italic text-white">Gunadarma University.</p>
                   <h5 class="display-6 font-weight-bold text-white" style="text-decoration:underline;text-decoration-color:#fff200">Volunteer Experience</h5>
-                  <p class="text-italic text-white"><span class="font-weight-bold">Mawar Sharon Church</span> <br> Bassis Player <br>Event Organizer</p>                  
+                  <p class="text-italic text-white"><span class="font-weight-bold">Mawar Sharon Church</span> <br> Bassis Player <br>Event Organizer</p>
                 </blockquote>
               </div>
             </div>
@@ -551,85 +668,78 @@
                                 <i class="fa fa-exclamation-triangle text-danger " aria-hidden="true"></i>
                               </div>
                               <h4 class="font-weight-bold f-black">Maaf untuk sekarang belum ada Workshop.</h4>
-                            </div>  
+                            </div>
                         </div>
                         </form>
                     </div>
                     @else
                     <div class="col-md-6">
-                        <form action="{{ route('register_workshop') }}" method="post" id="form-register">
-                        @csrf
-                        <div class="card bg-white" style="height: 130vh; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
-                            <div class="card-body p-lg-5">
-                              <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
-                                <i class="ni ni-single-02 text-white"></i>
-                              </div>
-                              <h4 class="font-weight-bold f-black">Register to Workshop</h4>
-                              <h4 class="mb-1 f-black">Interested in joining our workshop? </h4>
-                              <div class="form-group mt-5">
-                                  <label class="f-black">Your Name</label>
-                                  <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                                            <i class="fa fa-user f-black"></i>
-                                        </span>
+                        <div class="container">
+
+                            <form action="{{ route('register_workshop') }}" method="post" id="form-register">
+                            @csrf
+                            <div class="card bg-white" style="height: auto; border: none!important; border-radius: 5px 0px 0px 5px!important; padding-top: 20px; width: auto;">
+                                <div class="card-body p-lg-5">
+                                    <div class="icon icon-lg icon-shape bg-gradient-black shadow rounded-circle mb-3">
+                                        <i class="ni ni-single-02 text-white"></i>
+                                    </div>
+                                    <h4 class="font-weight-bold f-black">Daftar Kedalam Workshop</h4>
+                                    <h4 class="mb-1 f-black">
+                                        Tertarik bergabung ke dalam workshop kita ?
+                                    </h4>
+                                  <div class="form-group mt-5">
+                                      <label class="f-black">Nama</label>
+                                      <div class="input-group">
+                                          {{-- <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-user f-black"></i>
+                                            </span>
+                                          </div> --}}
+                                        <input style="padding-left: 10px;" type="text" placeholder="Nama Lengkap" name="nama" class="form-control" value="{{old('nama')}}">
                                       </div>
-                                    <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="text" placeholder="type your name..." name="nama"class="form-control" value="{{old('nama')}}">
+
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="f-black">Email</label>
+                                      <div class="input-group">
+
+                                        <input style="padding-left: 10px;" type="email" name="email" class="form-control" value="{{old('email')}}" placeholder="Alamat Email">
+                                      </div>
+
                                   </div>
 
-                              </div>
-                              <div class="form-group">
-                                  <label class="f-black">Your Email</label>
-                                  <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                                            <i class="fa fa-envelope f-black"></i>
-                                        </span>
-                                      </div>
-                                    <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="email" name="email"class="form-control" value="{{old('email')}}" placeholder="type your email here ...">
-                                  </div>
+                                  <div class="form-group">
+                                      <label class="f-black">Nomer Telepon</label>
+                                      <div class="input-group">
 
-                              </div>
+                                          <input style="padding-left: 10px;" type="text" name="nomor"class="form-control" placeholder="Nomer Telepon" value="{{old('nomor')}}">
+                                      </div>
+                                  </div>
+                                  <div class="form-group pb-5">
+                                      <label class="f-black">Ukuran Baju</label>
+                                      <div class="input-group">
 
-                              <div class="form-group">
-                                  <label class="f-black">Your Phone Number</label>
-                                  <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                                            <i class="fa fa-phone f-black"></i>
-                                        </span>
+                                          <select name="size_chart" class="form-control">
+                                            <option value="">-- Silahkan Pilih Ukuran Baju --</option>
+                                            <option value="s">S</option>
+                                            <option value="m">M</option>
+                                            <option value="l">L</option>
+                                            <option value="xl">XL</option>
+                                          </select>
                                       </div>
-                                      <input style="border: 1px solid #d2d3d6; padding-left: 10px;" type="text" name="nomor"class="form-control" placeholder="0898123456790" value="{{old('nomor')}}">
                                   </div>
-                              </div>
-                              <div class="form-group pb-5">
-                                  <label class="f-black">Ukuran Baju</label>
-                                  <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">
-                                            <i class="fas fa-tshirt f-black"></i>
-                                        </span>
-                                      </div>
-                                      <select name="size_chart" class="form-control">
-                                        <option>-- Silahkan Pilih Ukuran Baju --</option>
-                                        <option value="s">S</option>
-                                        <option value="m">M</option>
-                                        <option value="l">L</option>
-                                        <option value="xl">XL</option>
-                                      </select>
+                                  <div class="" style="margin-top:-7%">
+                                      <button type="submit" id="btn-id" class="btn btns-gradient-red btn-round text-white">Register Now</button>
                                   </div>
-                              </div>
-                              <div class="" style="margin-top:-7%">
-                                  <button type="submit" class="btn btns-gradient-red btn-round text-white">Register Now</button>
-                              </div>
-                            </div>  
+                                </div>
+                            </div>
+                            </form>
                         </div>
-                        </form>
                     </div>
                     @endif
-                    
+
                     <div class="col-md-6">
-                        <div class="card bg-white" style="height: 120vh; border: none!important; border-radius: 0px 5px 5px 0px!important;">
+                        <div class="card bg-white" style="height: auto; border: none!important; border-radius: 0px 5px 5px 0px!important;">
                             <div class="container" style="padding-top: 125px; padding-bottom: 125px;">
                                 <img style="height: auto;" src="{{asset('public/img/ui-images/daftar.png')}}" class="img-fluid p-3">
                             </div>
@@ -651,6 +761,24 @@
       <script>
           $(document).ready(function(){
 
+            $('.recent-desc').hide();
+            $('.less-show').hide();
+
+
+            $('.text-more').mouseover(function(){
+                $('.more-show',this).on('click', function(){
+                    $('.more-show').hide();
+                    $('.less-show').show()
+                    $('.recent-desc').show();
+                })
+
+                $('.less-show', this).on('click', function(){
+                    $('.more-show').show();
+                    $('.less-show').hide()
+                    $('.recent-desc').hide();
+                })
+            })
+
             var swiper = new Swiper('.swiper-container', {
                 navigation: {
                     nextEl: '.swiper-button-next',
@@ -659,10 +787,11 @@
             });
 
             var swiper = new Swiper('.swiper-container2', {
-              pagination: {
-                el: '.swiper-pagination',
-                dynamicBullets: true,
-              },
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    dynamicBullets: true,
+                },
             });
 
             $('.js-tilt').tilt({

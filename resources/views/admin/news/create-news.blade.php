@@ -178,81 +178,90 @@
                                                             </div>
 
                                                             <div class="form-group m-form__group row">
-                                                                    @if ($errors->any())
-                                                                    <div class="col-lg-6 m-form__group-sub has-danger">
-                                                                            <label class="form-control-label">Waktu Mulai</label>
-                                                                            <div class="m-input-icon pull-right">
-                                                                                <input type="text" name="tgl_mulai" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
-                                                                                <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
-                                                                            </div>
-                                                                            <div class="form-control-feedback">
-                                                                                    {{$errors->first('tgl_mulai')}}
-                                                                                </div>
+                                                                @if ($errors->any())
+                                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                                        <label class="form-control-label">Waktu Mulai</label>
+                                                                        <div class="m-input-icon pull-right">
+                                                                            <input type="text" name="tgl_mulai" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                            <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
                                                                         </div>
-                                                                    @else
-                                                                    <div class="col-lg-6 m-form__group-sub">
-                                                                            <label class="form-control-label">Waktu Mulai</label>
-                                                                            <div class="m-input-icon pull-right">
-                                                                                <input type="text" name="tgl_mulai" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
-                                                                                <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
+                                                                        <div class="form-control-feedback">
+                                                                                {{$errors->first('tgl_mulai')}}
                                                                             </div>
+                                                                    </div>
+                                                                @else
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                        <label class="form-control-label">Waktu Mulai</label>
+                                                                        <div class="m-input-icon pull-right">
+                                                                            <input type="text" name="tgl_mulai" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                            <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
                                                                         </div>
-                                                                    @endif
-                                                                    @if ($errors->any())
-                                                                    <div class="col-lg-6 m-form__group-sub has-danger">
-                                                                            <label class="form-control-label">Waktu Akhir</label>
-                                                                            <div class="m-input-icon pull-right">
-                                                                                <input type="text" name="tgl_akhir" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
-                                                                                <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
+                                                                    </div>
+                                                                @endif
+                                                                @if ($errors->any())
+                                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                                        <label class="form-control-label">Waktu Akhir</label>
+                                                                        <div class="m-input-icon pull-right">
+                                                                            <input type="text" name="tgl_akhir" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                            <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
+                                                                        </div>
+                                                                        <div class="form-control-feedback">
+                                                                                {{$errors->first('tgl_akhir')}}
                                                                             </div>
-                                                                            <div class="form-control-feedback">
-                                                                                    {{$errors->first('tgl_akhir')}}
-                                                                                </div>
+                                                                    </div>
+                                                                @else
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                        <label class="form-control-label">Waktu Akhir</label>
+                                                                        <div class="m-input-icon pull-right">
+                                                                            <input type="text" name="tgl_akhir" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
+                                                                            <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
                                                                         </div>
-                                                                    @else
-                                                                    <div class="col-lg-6 m-form__group-sub">
-                                                                            <label class="form-control-label">Waktu Akhir</label>
-                                                                            <div class="m-input-icon pull-right">
-                                                                                <input type="text" name="tgl_akhir" class="form-control" id="m_datetimepicker_3" readonly placeholder="Pilih tanggal dan waktu" />
-                                                                                <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-calendar-check-o"></i></span></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    @endif
-
+                                                                    </div>
+                                                                @endif
                                                             </div>
                                                             <div class="form-group m-form__group row">
-
-
-                                                                    @if ($errors->any())
-                                                                    <div class="col-lg-6 m-form__group-sub has-danger">
-                                                                            <label class="form-control-label">Upload gambar</label>
-                                                                            <div class="input-group file-input">
-                                                                                <input type="file" class="upload" multiple name="foto">
-                                                                                <input class="form-control" placeholder="No File Selected" type="text">
-                                                                                <span class="remove-file"><i class="la la-times-circle"></i></span>
-                                                                                <div class="input-group-append">
-                                                                                    <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="form-control-feedback">
-                                                                                    {{$errors->first('foto')}}
-                                                                                </div>
+                                                                @if ($errors->any())
+                                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                                    <label class="form-control-label">Volume</label>
+                                                                    <input type="number" class="form-control" name="volume" placeholder="Masukkan volume">
+                                                                    <div class="form-control-feedback">
+                                                                        {{$errors->first('volume')}}
+                                                                    </div>
+                                                                </div>
+                                                                @else
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Volume</label>
+                                                                    <input type="number" class="form-control" name="volume" placeholder="Masukkan volume">
+                                                                </div>
+                                                                @endif
+                                                                @if ($errors->any())
+                                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                                    <label class="form-control-label">Upload gambar</label>
+                                                                    <div class="input-group file-input">
+                                                                        <input type="file" class="upload" multiple name="foto">
+                                                                        <input class="form-control" placeholder="No File Selected" type="text">
+                                                                        <span class="remove-file"><i class="la la-times-circle"></i></span>
+                                                                        <div class="input-group-append">
+                                                                            <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
                                                                         </div>
-                                                                        @else
-                                                                    <div class="col-lg-6 m-form__group-sub">
-                                                                            <label class="form-control-label">Upload gambar</label>
-                                                                            <div class="input-group file-input">
-                                                                                <input type="file" class="upload" multiple name="foto">
-                                                                                <input class="form-control" placeholder="No File Selected" type="text">
-                                                                                <span class="remove-file"><i class="la la-times-circle"></i></span>
-                                                                                <div class="input-group-append">
-                                                                                    <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
-                                                                                </div>
-                                                                            </div>
-
+                                                                    </div>
+                                                                    <div class="form-control-feedback">
+                                                                            {{$errors->first('foto')}}
                                                                         </div>
-                                                                    @endif
-
+                                                                </div>
+                                                                @else
+                                                                <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Upload gambar</label>
+                                                                    <div class="input-group file-input">
+                                                                        <input type="file" class="upload" multiple name="foto">
+                                                                        <input class="form-control" placeholder="No File Selected" type="text">
+                                                                        <span class="remove-file"><i class="la la-times-circle"></i></span>
+                                                                        <div class="input-group-append">
+                                                                            <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                @endif
                                                             </div>
                                                             <div class="form-group m-form__group row">
                                                                     @if ($errors->any())

@@ -163,12 +163,15 @@
                                         Halo {{ ucwords($nama) }}, Anda sudah terdaftar di Workshop Bisnis Kopi 2.0
                                     </h3>
                                     <br>
-                                    <h4 style="margin: 0;padding:1px;color: #3b3b3b;">How to start Bisnis Kopi <b>Low Budget</b></h4>
+
+                                    <h4 style="margin: 0;padding:1px;color: #3b3b3b; text-decoration:underline;text-decoration-color:#fff200">
+                                        Cara Membangun Kedai Kopi Dengan Budget Minim
+                                    </h4>
                                     <p style="color: red;">
                                         *Harga Workshop Pre Order: <b>Rp. 420.000,00</b><br>
                                         <i style="color:red"><strike>Harga Workshop On the Spot: <b>Rp. 525.000,00</strike></i></b>
                                     </p>
-                                    <p style="color: #3b3b3b;">Judul Workshop: <b>{{ ucwords($workshop) }}</b></p>
+                                    <p style="color: #3b3b3b;">Tema Workshop: <b>{{ ucwords($workshop) }}</b></p>
                                     {{-- <p style="color: red">
                                         <i>*Workshop akan diselenggarakan pada tanggal {{\Carbon\Carbon::parse($tgl)->formatLocalized('%d %B %Y')}}</i>
                                     </p> --}}

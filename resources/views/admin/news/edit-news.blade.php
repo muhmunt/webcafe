@@ -171,6 +171,10 @@
                                                                     <input type="text" class="form-control" name="seat" placeholder="Masukkan Lokasi"   value="{{$news->seat}}">
                                                                 </div>
                                                                 <div class="col-lg-6 m-form__group-sub">
+                                                                    <label class="form-control-label">Volume</label>
+                                                                    <input type="text" class="form-control" name="seat" value="{{$news->volume}}">
+                                                                </div>
+                                                                <div class="col-lg-6 m-form__group-sub">
                                                                     <label class="form-control-label">Upload gambar</label>
                                                                     <div class="input-group file-input">
                                                                         <input type="file" class="upload" multiple name="foto">
