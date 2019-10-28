@@ -46,7 +46,6 @@
 <script src="{{ asset('public/js/lightbox.min.js') }}"></script>
 @yield('scripts')
 <script>
-
     AOS.init();
     Waves.attach('.btn');
     Waves.init();
