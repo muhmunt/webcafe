@@ -109,6 +109,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    {!! $participants->render() !!}
                                 </tbody>
                             </table>
                         </div>

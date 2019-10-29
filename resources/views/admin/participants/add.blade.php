@@ -44,6 +44,7 @@
         <div class="m-content">
 			<div class="row">
                 <div class="col-xl-12">
+ 
                     <!--Begin::Portlet-->
                     <div class="m-portlet m-portlet--head-lg">
                         <div class="m-portlet__body no-pedding">
@@ -61,7 +62,7 @@
                             </div>
                         </div>
 
-                        <form action="{{ route('participants.store') }}" method="POST" enctype="multipart/form-data" class="m-form m-form--state m-form--label-align-left">
+                        <form action="{{ route('participants.store') }}" method="POST" enctype="multipart/form-data" id="form-request" class="m-form m-form--state m-form--label-align-left">
                             @csrf
                             <div class="m-portlet__body">
                                 <div class="row">
@@ -69,38 +70,77 @@
                                         <div class="m-form__section">
                                             <div class="form-group m-form__group row">
 
-												<div class="col-lg-6 m-form__group-sub">
-													<label class="form-control-label">
-                                                        Title
-                                                    </label>
-													<input type="text" name="title" class="form-control m-input" placeholder="Enter text">
-													<div class="form-control-feedback">
-                                                        Sorry, that username's taken. Try another?
+                                                @if ($errors->any())
+                                                    <div class="col-lg-6 m-form__group-sub has-danger">
+                                                            <label class="form-control-label">
+                                                                Title
+                                                            </label>
+                                                            <input type="text" name="title" class="form-control m-input" placeholder="Enter text">
+                                                            <div class="form-control-feedback">
+                                                               {{$errors->first('title')}}
+                                                            </div>
+
+                                                        </div>
+                                                    @else
+                                                    <div class="col-lg-6 m-form__group-sub">
+                                                            <label class="form-control-label">
+                                                                Title
+                                                            </label>
+                                                            <input type="text" name="title" class="form-control m-input" placeholder="Enter text">
+
+                                                            <span class="m-form__help">
+                                                                Please enter your text
+                                                            </span>
+                                                        </div>
+                                                    @endif	
+                                                    @if ($errors->any())
+                                                    <div class="col-lg-6 m-form__group-sub has-danger">
+                                                        <label class="form-control-label">Gambar</label>
+                                                        <div class="input-group file-input">
+                                                            <input type="file" name="file" class="upload" multiple>
+                                                            <input class="form-control"  name="picture" placeholder="No File Selected" type="text">
+                                                                <span class="remove-file"><i class="la la-times-circle"></i></span>
+                                                            <div class="input-group-append">
+                                                                <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-control-feedback">
+                                                            {{$errors->first('picture')}}
+                                                        </div>
                                                     </div>
-													<span class="m-form__help">
-                                                        Please enter your text
-                                                    </span>
-                                                </div>
-                                                <div class="col-lg-6 m-form__group-sub">
-                                                    <label class="form-control-label">Gambar</label>
-													<div class="input-group file-input">
-														<input type="file" name="file" class="upload" multiple>
-														<input class="form-control"  name="picture" placeholder="No File Selected" type="text">
-														<span class="remove-file"><i class="la la-times-circle"></i></span>
-														<div class="input-group-append">
-															<button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
-														</div>
-													</div>
-                                                </div>
+                                                    @else
+                                                    <div class="col-lg-6 m-form__group-sub">
+                                                        <label class="form-control-label">Gambar</label>
+                                                        <div class="input-group file-input">
+                                                            <input type="file" name="file" class="upload" multiple>
+                                                            <input class="form-control"  name="picture" placeholder="No File Selected" type="text">
+                                                                <span class="remove-file"><i class="la la-times-circle"></i></span>
+                                                            <div class="input-group-append">
+                                                                <button type="button" class="btn btn-primary file-name"><i class="la la-file"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <span class="m-form__help">
+                                                            Please enter your text
+                                                        </span>
+                                                    </div>
+                                                    @endif
 
                                             </div>
                                             <div class="form-group m-form__group row">
-                                                <div class="col-lg-12 m-form__group-sub">
-                                                    <label class="col-form-labe">
-                                                        Description
-                                                    </label>
-                                                    <textarea class="summernote" name="description" id="m_summernote_1"></textarea>
+                                                @if ($errors->any())
+                                                <div class="col-sm-12 has-danger">
+                                                        <label class="form-control-label">Deskripsi (optional)</label>
+                                                        <textarea name="description" id="m_summernote_1" class="summernote" cols="30" rows="10"></textarea>
+                                                        <div class="form-control-feedback">
+                                                            {{$errors->first('description')}}
+                                                        </div>
                                                 </div>
+                                                @else
+                                                <div class="col-sm-12">
+                                                    <label class="form-control-label">Deskripsi (optional)</label>
+                                                    <textarea name="description" id="m_summernote_1" class="summernote" cols="30" rows="10"></textarea>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -147,6 +187,7 @@
 
         } );
   </script>
+        {!! JsValidator::formRequest('App\Http\Requests\ParticipantRequest', '#form-request') !!}
 @endsection
 
 

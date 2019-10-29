@@ -197,6 +197,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    {!! $news->render() !!}
                                 </tbody>
                             </table>
                         </div>

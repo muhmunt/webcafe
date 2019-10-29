@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Participant;
 use View;
+use App\Http\Requests\ParticipantRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ParticipantController extends Controller
@@ -14,7 +15,7 @@ class ParticipantController extends Controller
 
         $user = Auth::user();
 
-        $participants = Participant::all();
+        $participants = Participant::latest()->paginate('10');
 
         return view('admin.participants.index')->with(compact('participants','user'));
     }
@@ -28,9 +29,11 @@ class ParticipantController extends Controller
             ->with(compact('participants','user'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, ParticipantRequest $requests){
 
-        $gambar = $request->file('file');
+        $validated = $requests->validated();
+
+        $gambar = $request->file('file');        
         //dd($gambar);
         $namafile = Carbon::now()->timestamp. '_' . uniqid() . '.' . $gambar->getClientOriginalExtension();
         $gambar->move(public_path('upload/participants/'),$namafile);

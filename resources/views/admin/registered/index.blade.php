@@ -97,14 +97,26 @@
                                         <h3 class="m-portlet__head-text">
                                             Table Register Workshop
                                         </h3>
-                                    </div>
-                                </div>
+                                    </div>                                    
+                                </div>                                
                                 <div class="m-portlet__head-tools">
-
+                                    <form action="{{route('registered.search')}}" method="GET">
+                                        {{-- <div class="row"> --}}
+                                            <div class="col-md-12">
+                                              <div class="form-group">
+                                                <div class="input-group input-group-alternative mb-4">
+                                                  <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                                  </div>
+                                                  <input class="form-control form-control-alternative" placeholder="Search Name..." name="keyword" type="text">
+                                                </div>
+                                              </div>
+                                            {{-- </div> --}}
+                                    </form>
                             </div>
                             </div>
                         </div>
-
+                        
                         <div class="table-responsive" style="padding-top: 50px;">
                             <table class="table align-items-center table-flush" id="table-id">
                                 <thead class="thead-light">
@@ -185,8 +197,6 @@
                                                             </span>
                                                         </a>
                                             </div>
-
-
                                         </td>
                                     </tr>
                                     @endforeach

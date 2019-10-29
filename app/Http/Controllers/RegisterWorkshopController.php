@@ -21,9 +21,15 @@ class RegisterWorkshopController extends Controller
         // dd($data);
         return view('admin.registered.index',compact('data','user'));
     }
-    public function create()
+    
+    public function search(Request $request)
     {
-        //
+        $keyword = $request->keyword;
+        // dd($search);
+        $data = RegisterWorkshop::where('nama','like','%'.$keyword.'%')
+        ->latest()->paginate(10);
+        // dd($data);
+        return view('admin.registered.index',compact('data'));
     }
 
 
