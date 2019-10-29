@@ -16,6 +16,15 @@ class ParticipantGetRequest extends FormRequest
         return true;
     }
 
+    public function rules()
+    {
+        return [
+            'title' => 'required',
+            'description' => 'required',
+            'picture' => 'required'
+        ];
+    }
+
     public function messages()
     {
         return [
@@ -25,12 +34,4 @@ class ParticipantGetRequest extends FormRequest
         ];
     }
 
-    public function rules()
-    {
-        return [
-            'title' => 'required',
-            'description' => 'required',
-            'picture' => 'required'
-        ];
-    }
 }

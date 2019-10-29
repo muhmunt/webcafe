@@ -155,6 +155,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    {!! $data->render() !!}
                                 </tbody>
                             </table>
                         </div>

@@ -80,7 +80,7 @@ m-minimize-mobile-offset="200"
             >
               <a href="#" class="m-nav__link m-dropdown__toggle">
                 <span class="m-topbar__username">
-                    {{ $user->name }}
+                    {{ auth()->user()->name }}
                 </span>
                 <span class="m-topbar__userpic">
                   <img src="{{ asset('public/img/ui-images/man.png') }}" class="m--img-rounded m--marginless" />
@@ -101,10 +101,10 @@ m-minimize-mobile-offset="200"
                       </div>
                       <div class="m-card-user__details">
                         <span class="m-card-user__name m--font-weight-500">
-                            {{ $user->name }}
+                            {{ auth()->user()->name }}
                         </span>
                         <a href="javascript:;" class="m--font-info" style="text-decoration:none;">
-                            {{ $user->email }}
+                            {{ auth()->user()->email }}
                         </a>
                       </div>
                     </div>

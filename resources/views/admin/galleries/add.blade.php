@@ -54,14 +54,14 @@
                                             <i class="la la-table"></i>
                                         </span>
                                         <h3 class="m-portlet__head-text">
-                                            Galleries Add
+                                            Tambah Galeri
                                         </h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <form action="{{ route('galleries.store') }}" id="form-request" method="POST" enctype="multipart/form-data" class="m-form m-form--state m-form--label-align-left">
+                        <form action="{{ route('galleries.store') }}" id="form-request" method="post" enctype="multipart/form-data" class="m-form m-form--state m-form--label-align-left">
                             @csrf
                             <div class="m-portlet__body">
                                 <div class="row">
@@ -154,6 +154,11 @@
                                 </div>
                             </div>
                         </form>
+                        {{-- <form action="{{route('galleries.store')}}" enctype="multipart/form-data" method="post">
+                            {{ csrf_field() }}
+                            <input type="text" name="text">
+                            <button type="submit">send</button>
+                        </form> --}}
                     </div>
                 </div>
 			</div>
@@ -173,8 +178,7 @@
 @endsection
 
 @section('admin-js')
-{!! JsValidator::formRequest('App\Http\Requests\GalleryRequest', '#form-request') !!}
-  <script>
+<script>
         $(document).ready(function() {
 
             $('.summernote').summernote({
@@ -185,6 +189,7 @@
 
         } );
   </script>
+    {!! JsValidator::formRequest('App\Http\Requests\GalleryRequest', '#form-request') !!}
 @endsection
 
 

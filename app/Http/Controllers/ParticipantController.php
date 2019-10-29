@@ -15,7 +15,7 @@ class ParticipantController extends Controller
 
         $user = Auth::user();
 
-        $participants = Participant::all();
+        $participants = Participant::latest()->paginate('10');
 
         return view('admin.participants.index')->with(compact('participants','user'));
     }
@@ -30,6 +30,8 @@ class ParticipantController extends Controller
     }
 
     public function store(Request $request, ParticipantGetRequest $requests){
+
+        $validated = $requests->validated();
 
         $gambar = $request->file('file');
         //dd($gambar);

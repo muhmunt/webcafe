@@ -109,6 +109,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    {!! $galleries->render() !!}
                                 </tbody>
                             </table>
                         </div>

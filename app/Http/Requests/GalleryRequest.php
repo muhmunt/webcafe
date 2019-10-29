@@ -29,4 +29,13 @@ class GalleryRequest extends FormRequest
             'picture' => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Nama harus di isi',
+            'description.required' => 'Deskripsi harus di isi',
+            'picture.required' => 'Foto harus di isi',
+        ];
+    }
 }

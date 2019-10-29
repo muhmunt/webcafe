@@ -15,7 +15,7 @@ class GalleryController extends Controller
 
         $user = Auth::user();
 
-        $galleries = Gallery::all();
+        $galleries = Gallery::latest()->paginate(10);
 
         return view('admin.galleries.index')->with(compact('galleries', 'user'));
     }
@@ -29,6 +29,7 @@ class GalleryController extends Controller
     }
 
     public function store(Request $request, GalleryRequest $requests){
+        $validated = $requests->validated();
 
         $gambar = $request->file('file');
         $namafile = Carbon::now()->timestamp. '_' . uniqid() . '.' . $gambar->getClientOriginalExtension();
@@ -40,8 +41,7 @@ class GalleryController extends Controller
             'picture' => $namafile
         ]);
 
-        return redirect('admin/galleries');
-
+        return redirect()->route('galleries.index');
     }
 
     public function edit($id){

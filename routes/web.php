@@ -60,9 +60,12 @@ Route::middleware('auth')->group(function(){
 
         Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
         Route::get('/account/{account}','AdminAccountController@destroy')->name('account.destroy');
+        
         Route::resource('registered', 'RegisterWorkshopController')->except([
             'show','destroy','create','store','update'
         ]);
+
+        Route::get('registered/search/','RegisterWorkshopController@search')->name('registered.search');
 
         Route::get('/news/{news}','NewsController@destroy')->name('news.destroy');
         Route::get('/registered/{registered}','RegisterWorkshopController@destroy')->name('registered.destroy');

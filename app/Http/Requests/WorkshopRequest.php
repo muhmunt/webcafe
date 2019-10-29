@@ -25,4 +25,18 @@ class WorkshopRequest extends FormRequest
             'location' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Nama harus di isi',
+            'tgl_mulai.required' => 'Tanggal mulai harus di isi',
+            'tgl_akhir.required' => 'Tanggal akhir harus di isi',
+            'description.required' => 'Deskripsi harus di isi',
+            'seat.required' => 'Jumlah kursi harus diisi',
+            'foto.required' => 'Foto harus di isi',
+            'author.required' => 'Pengisi workshop harus di isi',
+            'location.required' => 'Lokasi harus di isi'
+        ];
+    }
 }
