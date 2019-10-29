@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GalleryRequest extends FormRequest
+class ParticipantGetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,11 +16,15 @@ class GalleryRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
+    public function messages()
+    {
+        return [
+            'title.required' => 'Tema harus di isi',
+            'description.required'  => 'Deskripsi harus di isi',
+            'picture.required'  => 'Foto harus di pilih',
+        ];
+    }
+
     public function rules()
     {
         return [

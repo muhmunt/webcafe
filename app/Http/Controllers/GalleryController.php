@@ -30,10 +30,7 @@ class GalleryController extends Controller
 
     public function store(Request $request, GalleryRequest $requests){
 
-        $validated = $requests->validated();
-
         $gambar = $request->file('file');
-        //dd($gambar);
         $namafile = Carbon::now()->timestamp. '_' . uniqid() . '.' . $gambar->getClientOriginalExtension();
         $gambar->move(public_path('upload/galleries/'),$namafile);
 

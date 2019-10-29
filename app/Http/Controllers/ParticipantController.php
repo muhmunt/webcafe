@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Participant;
+use App\Http\Requests\ParticipantGetRequest;
 use View;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +29,7 @@ class ParticipantController extends Controller
             ->with(compact('participants','user'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, ParticipantGetRequest $requests){
 
         $gambar = $request->file('file');
         //dd($gambar);
