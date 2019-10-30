@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\AccountRequest;
 
 class AdminAccountController extends Controller
 {
@@ -34,23 +35,15 @@ class AdminAccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, AccountRequest $requests)
     {
-        $this->validate($request,[
-            'name' => 'required|unique:users,name|max:255',
-            'email' => 'required|unique:users,email',
-            'password' => 'required|min:6|confirmed',
-            'password_confirmation' => 'required|min:6'
-        ]);
 
-        $create = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
             'role' => $request->role
         ]);
-
-        // dd($create);
 
         return redirect()->route('adminAccount.index')->with('success','Account has added');
     }

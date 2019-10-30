@@ -42,36 +42,7 @@
 
         <!-- END: Subheader -->
         <div class="m-content">
-                @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                <div class="m-alert m-alert--icon alert m-alert--square alert-danger m--margin-bottom-25" role="alert">
-                    <div class="m-alert__icon">
-                        <i class="la la-exclamation-triangle"></i>
-                    </div>
-                    <div class="m-alert__text">
-                        {{$error}}
-                    </div>
-                    <div class="m-alert__close">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        </button>
-                    </div>
-                </div>
-                @endforeach
-            @endif
-            @if (session('warning'))
-            <div class="m-alert m-alert--icon alert m-alert--square alert-warning m--margin-bottom-25" role="alert">
-                <div class="m-alert__icon">
-                    <i class="la la-exclamation-triangle"></i>
-                </div>
-                <div class="m-alert__text">
-                    {{session('warning')}}
-                </div>
-                <div class="m-alert__close">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    </button>
-                </div>
-            </div>
-            @endif
+
             @if (session('success'))
             <div class="m-alert m-alert--icon alert m-alert--square alert-success m--margin-bottom-25" role="alert">
                 <div class="m-alert__icon">
@@ -105,7 +76,7 @@
                             </div>
                         </div>
 
-                        <form action="{{ route('adminAccount.store') }}" method="POST" class="m-form m-form--state m-form--label-align-left">
+                        <form action="{{ route('adminAccount.store') }}" id="form-request" method="POST" class="m-form m-form--state m-form--label-align-left">
                             @csrf
                             <div class="m-portlet__body">
                                 <div class="row">
@@ -113,55 +84,131 @@
                                         <div class="m-form__section">
                                             <div class="form-group m-form__group row">
 
-												<div class="col-lg-6 m-form__group-sub">
-													<label class="form-control-label">
-                                                        Name
-                                                    </label>
-													<input type="text" name="name" class="form-control m-input" placeholder="Enter admin Name">
-													<div class="form-control-feedback">
-                                                        Sorry, that username's taken. Try another?
+                                                @if ($errors->any())
+                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                        <label class="form-control-label">
+                                                            Nama
+                                                        </label>
+                                                        <input type="text" name="name" class="form-control m-input" >
+                                                        <div class="form-control-feedback">
+                                                           {{$errors->first('name')}}
+                                                        </div>
                                                     </div>
-													<span class="m-form__help">
-                                                        Please enter your name
-                                                    </span>
-                                                </div>
-                                                <div class="col-lg-6 m-form__group-sub">
-                                                    <label class="form-control-label">Email</label>
-													<input type="email" name="email" class="form-control m-input" placeholder="Enter admin Email">
-                                                </div>
+                                                @else
+                                                <div class="col-lg-6 m-form__group-sub has-success">
+                                                        <label class="form-control-label">
+                                                            Nama
+                                                        </label>
+                                                        <input type="text" name="name" class="form-control m-input" >
+                                                        <span class="m-form__help">
+                                                            Harap Masukan Nama
+                                                        </span>
+                                                    </div>
+                                                @endif
+
+                                                @if ($errors->any())
+                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                        <label class="form-control-label">
+                                                            Email
+                                                        </label>
+                                                        <input type="email" name="email" class="form-control m-input">
+                                                        <div class="form-control-feedback">
+                                                           {{$errors->first('email')}}
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                <div class="col-lg-6 m-form__group-sub has-success">
+                                                        <label class="form-control-label">
+                                                            Email
+                                                        </label>
+                                                        <input type="email" name="email" class="form-control m-input" >
+                                                        <span class="m-form__help">
+                                                            Harap Masukan Email
+                                                        </span>
+                                                    </div>
+                                                @endif
+
 
                                             </div>
+
                                             <div class="form-group m-form__group row">
 
-												<div class="col-lg-6 m-form__group-sub">
-													<label class="form-control-label">
-                                                        Password
-                                                    </label>
-													<input type="password" name="password" class="form-control m-input" placeholder="Enter password">	
-													<span class="m-form__help">
-                                                        Please enter your password
-                                                    </span>
-                                                </div>
-                                                <div class="col-lg-6 m-form__group-sub">
-                                                    <label class="form-control-label">Confirm Password</label>
-													<input type="password" name="password_confirmation" class="form-control m-input" placeholder="Enter Confirm password">
-                                                </div>
+                                                @if ($errors->any())
+                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                        <label class="form-control-label">
+                                                            Password
+                                                        </label>
+                                                        <input type="password" name="password" class="form-control m-input" >
+                                                        <div class="form-control-feedback">
+                                                           {{$errors->first('password')}}
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                <div class="col-lg-6 m-form__group-sub has-success">
+                                                        <label class="form-control-label">
+                                                            Password
+                                                        </label>
+                                                        <input type="password" name="password" class="form-control m-input" >
+                                                        <span class="m-form__help">
+                                                            Harap Masukan password
+                                                        </span>
+                                                    </div>
+                                                @endif
 
+                                                @if ($errors->any())
+                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                        <label class="form-control-label">
+                                                            Confirm Password
+                                                        </label>
+                                                        <input type="password" name="password_confirmation" class="form-control m-input">
+                                                        <div class="form-control-feedback">
+                                                           {{$errors->first('password_confirmation')}}
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                <div class="col-lg-6 m-form__group-sub has-success">
+                                                        <label class="form-control-label">
+                                                            Confirm Password
+                                                        </label>
+                                                        <input type="password" name="password_confirmation" class="form-control m-input" >
+                                                        <span class="m-form__help">
+                                                            Harap Masukan Password Yang Sama
+                                                        </span>
+                                                    </div>
+                                                @endif
                                             </div>
+
                                             <div class="form-group m-form__group row">
 
-												<div class="col-lg-6 m-form__group-sub">
-													<label class="form-control-label">
+                                                @if ($errors->any())
+                                                <div class="col-lg-6 m-form__group-sub has-danger">
+                                                    <label class="form-control-label">
                                                         Hak Akses
                                                     </label>
-                                                    <select name="role" class="form-control" id="">
+                                                    <select name="role" class="form-control">
+                                                        <option value="">Pilih Hak Akses</option>
+                                                        <option value="1">Admin</option>
+                                                        <option value="2">Super Admin</option>
+                                                    </select>
+                                                    <div class="form-control-feedback">
+                                                       {{$errors->first('password')}}
+                                                    </div>
+                                                </div>
+                                                @else
+                                                <div class="col-lg-6 m-form__group-sub has-success">
+                                                    <label class="form-control-label">
+                                                         Hak Akses
+                                                    </label>
+                                                    <select name="role" required class="form-control">
+                                                        <option value="">Pilih Hak Akses</option>
                                                         <option value="1">Admin</option>
                                                         <option value="2">Super Admin</option>
                                                     </select>
                                                 </div>
+                                                @endif
 
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -198,6 +245,7 @@
 @endsection
 
 @section('admin-js')
+{!! JsValidator::formRequest('App\Http\Requests\AccountRequest', '#form-request') !!}
   <script>
         $(document).ready(function() {
 
