@@ -293,11 +293,11 @@
                         Volume {{ $rn->volume }}
                     </p>
 
-                    <div class="recent-desc">
+                    <div class="recent-desc" id="rd-{{ $rn->id }}">
                         {!!$rn->description!!}
                     </div>
 
-                    <a href="javascript:;" class="card-text text-more">
+                    <a href="javascript:;" class="card-text text-more" data-test="{{$rn->volume}}">
                         <small class="badge badge-pill badge-primary more-show">Baca Selengkapnya</small>
                         <small class="badge badge-pill badge-warning less-show">Baca Lebih Sedikit</small>
                     </a>
@@ -323,7 +323,7 @@
                 </div>
             </div>
 
-            {{-- <div class="owl-carousel owl-theme owl-1">
+            <div class="owl-carousel owl-theme owl-1">
                     <div class="item">
                         <div class="text-center">
                             <div class="card-title">
@@ -345,7 +345,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
         </div>
     </section>
@@ -768,6 +768,8 @@
             $('.text-more').mouseover(function(){
                 $('.more-show',this).on('click', function(){
                     $('.more-show').hide();
+                    // var test = $('.text-more'.data('test');
+                    // alert(test);
                     $('.less-show').show()
                     $('.recent-desc').show();
                 })

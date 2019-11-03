@@ -21,7 +21,7 @@ class RegisterWorkshopController extends Controller
         // dd($data);
         return view('admin.registered.index',compact('data','user'));
     }
-    
+
     public function search(Request $request)
     {
         $keyword = $request->keyword;

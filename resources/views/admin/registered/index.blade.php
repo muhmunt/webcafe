@@ -97,8 +97,8 @@
                                         <h3 class="m-portlet__head-text">
                                             Table Register Workshop
                                         </h3>
-                                    </div>                                    
-                                </div>                                
+                                    </div>
+                                </div>
                                 <div class="m-portlet__head-tools">
                                     <form action="{{route('registered.search')}}" method="GET">
                                         {{-- <div class="row"> --}}
@@ -116,7 +116,7 @@
                             </div>
                             </div>
                         </div>
-                        
+
                         <div class="table-responsive" style="padding-top: 50px;">
                             <table class="table align-items-center table-flush" id="table-id">
                                 <thead class="thead-light">
@@ -200,11 +200,12 @@
                                         </td>
                                     </tr>
                                     @endforeach
-                                    {{ $data->render() }}
+
                                 </tbody>
                             </table>
+                            <hr>
+                            {{ $data->render() }}
                         </div>
-
                     </div>
                 </div>
 			</div>
