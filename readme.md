@@ -1,4 +1,4 @@
-<h2>For link preview <a href="bisniskopi.com">Here</a> </h2>
+<h2>For link preview <a href="http://bisniskopi.com/home">Here</a> </h2>
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
